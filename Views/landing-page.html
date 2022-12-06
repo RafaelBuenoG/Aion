@@ -5,16 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" media="screen and (max-width: 768px)" href="css/mobile.css">
     <title>Aion</title>
 </head>
 <body>
     <header>
-        <img class="logo-nav" src="img/logo/aion-black.png" alt="aion logo">
+        <a href="javascript:void(0)" class="logo-nav">
+            <img src="img/logo/aion-black.png" alt="Aion logo">
+        </a>
         <nav class="navbar-items">
-            <a class="a-items" href="#">Home</a>
-            <a class="a-items" href="#">Sobre</a>
-            <a class="a-items" href="#">Privacidade</a>
-            <a class="a-items" href="#">Planos</a>
+            <ul class="navbar-ul">
+                <li><a class="a-items" href="javascript:void(0)">Home</a></li>
+                <li><a class="a-items" href="javascript:void(0)">Sobre</a></li>
+                <li><a class="a-items" href="javascript:void(0)">Privacidade</a></li>
+                <li><a class="a-items" href="javascript:void(0)">Planos</a></li>
+            </ul>
         </nav>
         <button class="button-nav">Login</button>
     </header>
@@ -70,7 +75,7 @@
         <section class="land-section4">
             <h1 class="land-title4">Crie o melhor Horário com Aion</h1>
             <h2 class="land-subtitle4">Planos Gratuitos | Não é necessário cartão de crédito</h2>
-            <button class="land-button2">Começar</button>
+            <button class="land-button2">Começar<img class="arrow-right" src="img/icons/arrow-right-alt-rounded.svg"></button>
         </section>
     </main>
 
@@ -79,36 +84,57 @@
             <div class="land-footers">
                 <h1 class="footer-title">Mapa do site</h1>
                 <div class="land-footer1">
-                    <a href="#">Cadastro</a>
-                    <a href="#">Login</a>
-                    <a href="#">Sobre</a>
-                    <a href="#">Planos</a>
-                    <a href="#">Admin</a>
+                    <a href="javascript:void(0)">Cadastro</a>
+                    <a href="javascript:void(0)">Login</a>
+                    <a href="javascript:void(0)">Sobre</a>
+                    <a href="javascript:void(0)">Planos</a>
+                    <a href="javascript:void(0)">Admin</a>
                 </div>
             </div>
             <div class="land-footers">
                 <h1 class="footer-title">Precisa de suporte?</h1>
                 <div class="land-footer2">
-                    <a href="#">Fale conosco</a>
-                    <a href="#">Email</a>
-                    <a href="#">Telefone</a>
+                    <a href="javascript:void(0)">Fale conosco</a>
+                    <a href="javascript:void(0)">Email</a>
+                    <a href="javascript:void(0)">Telefone</a>
                 </div>
             </div>
             <div class="land-footers">
                 <h1 class="footer-title">Redes Sociais</h1>
                 <div  class="land-footer3">
-                    <img src="img/icons/instagram.svg" alt="Instagram">
-                    <img src="img/icons/twitter-line.svg" alt="Twitter">
-                    <img src="img/icons/facebook-circle-line.svg" alt="Facebook">
+                    <a href="javascript:void(0)">
+                        <img src="img/icons/instagram.svg" alt="Instagram">
+                    </a>
+                    <a href="javascript:void(0)">
+                        <img src="img/icons/twitter-line.svg" alt="Twitter">
+                    </a>
+                    <a href="javascript:void(0)">
+                        <img src="img/icons/facebook-circle-line.svg" alt="Facebook">
+                    </a>
                 </div>
             </div>
         </div>
         <div class="land-footer-copy">
             <p class="copyright">Copyright© 2022 Aion. Todos os direitos reservados </p>
-            <button class="land-button3">></button>
         </div>
     </footer>
 
+    <div data-scroll="suave" data-anima="scroll">
+        <a href="#topo">
+            <div class="land-button-top">
+                <img class="arrow-top" src="img/icons/arrow-forward-ios-rounded.svg">
+            </div>
+        </a>
+    </div>
 
+    <div class="w-button">
+        <a href="https://whatsapp.com" target="_blank">
+            <img src="img/icons/whatsapp-icon.svg" alt="WhatsApp Logo">
+        </a>
+    </div>
+
+
+    <script src="js/scroll-animation.js"></script>
+    <script src="js/scroll-suave.js"></script>
 </body>
 </html>

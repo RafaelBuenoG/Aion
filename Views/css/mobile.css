@@ -1,0 +1,52 @@
+body
+
+header
+{
+    height: 350px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-color: #f5f5f5;
+}
+
+.logo-nav
+{
+    width: 150px;
+}
+
+.navbar-items
+{
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.a-items
+{
+    font-size: 20px;
+}
+
+.navbar-ul
+{
+    gap: 0px;
+    flex-direction: column;
+    width: 60vw;
+}
+
+.navbar-ul li:nth-child(2)
+{
+    border-top: 1px solid #c4c4c4;
+    border-bottom: 1px solid #c4c4c4;
+}
+
+.navbar-ul li:nth-child(4)
+{
+    border-top: 1px solid #c4c4c4;
+}
+
+.button-nav
+{
+    width: 150px;
+    font-size: 20px;
+}

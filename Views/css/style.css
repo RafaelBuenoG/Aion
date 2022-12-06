@@ -12,9 +12,10 @@
     outline: none;
 }
 
-body
+html, body
 {
     font-size: 100%;
+    scroll-behavior: smooth;
 }
 
 ::-webkit-scrollbar-track {
@@ -57,6 +58,18 @@ header
     font-family: 'Poppins', sans-serif;
 }
 
+.navbar-ul
+{
+    width: auto;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    gap: 42px;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    list-style: none;
+}
+
 .a-items
 {
     color: #5a5a5a;
@@ -65,6 +78,7 @@ header
 .a-items:hover
 {
     color: #412D6F;
+    transition: .2s;
 }
 
 .button-nav
@@ -325,6 +339,10 @@ header
 {
     width: 280px;
     height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
     border-radius: 40px;
     background-image: linear-gradient(to right, #7D14C1, #512F9D);
     color: white;
@@ -333,6 +351,12 @@ header
     font-weight: 400;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+}
+
+.arrow-right
+{
+    width: 50px;
+    height: 50px;
 }
 
 /* Section 4 - FIM */
@@ -389,42 +413,64 @@ header
     gap: 15px;
 }
 
-.land-footer img:hover
-{
-    cursor: pointer;
-}
-
 .land-footer-copy
 {
     display: flex;
     font-family: 'Poppins', sans-serif;
     background-color: #f5f5f5;
     justify-content: space-between;
+    width: auto;
 }
 
 .copyright
 {
-    display: flex;
-    
-    align-items: center;
-    margin-left: 50px;
-    width: auto;
+    text-align: center;
+    padding: 0px 0px 5px 0px;
 }
 
-.land-button3
+/* Footer - FIM */
+
+/* Back to Top Button */
+
+.land-button-top
 {
     width: 75px;
     height: 75px;
-    border-radius: 20px;
+    border-radius: 50%;
     background-image: linear-gradient(to right, #7D14C1, #512F9D);
-    color: white;
-    font-size: 28px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
-    cursor: pointer;
-    margin-right: 50px;
-    margin-bottom: 50px;
-    
-
+    position: fixed;
+    bottom: 30px;
+    right: -500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s all;
 }
+
+.show-button-top .land-button-top
+{
+    right: 30px;
+    transition: .3s all;
+}
+
+.arrow-top
+{
+    width: 45px;
+    height: 45px;
+}
+
+/* Back to Top Button - FIM */
+
+/* WhatsApp Button */
+
+.w-button
+{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+}
+
+/* WhatsApp Button - FIM */

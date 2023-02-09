@@ -49,13 +49,22 @@ header
 
 .navbar-items
 {
-    width: auto;
+    width: 100vw;
     font-size: 24px;
     font-weight: 600;
     display: flex;
     gap: 42px;
     align-items: center;
+    justify-content: space-between;
     font-family: 'Poppins', sans-serif;
+}
+
+#menu-btn
+{
+    width: 50px;
+    height: auto;
+    display: none;
+    cursor: pointer;
 }
 
 .navbar-ul
@@ -109,6 +118,7 @@ header
 
 .land-section1-div1
 {
+    display: flex;
     flex-direction: column;
     align-items: center;
     width: 600px;
@@ -131,7 +141,7 @@ header
 {
     font-family: 'Poppins', sans-serif;
     font-weight: 500;
-    font-size: 18;
+    font-size: 18px;
     color: #412D6F;
     margin: 30px 0px 0px 0px;
 }
@@ -244,6 +254,9 @@ header
     font-weight: 400;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Section 2 FIM */
@@ -312,14 +325,20 @@ header
 .land-section4
 {
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    justify-content: center;
     width: auto;
     padding: 200px 0px 200px 0px;
-    align-items: center;
-    text-align: center;
     font-family: 'Poppins', sans-serif;
     color: #512F9D;
+}
+
+.land-section4-div
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
 }
 
 .land-title4

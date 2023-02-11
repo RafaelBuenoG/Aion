@@ -162,7 +162,7 @@ main
 .title-login
 {
     background-image: linear-gradient(90deg, #7D14C1, #512F9D);
-    width: 60%;
+    width: 80%;
     border-radius: 40px;
     text-align: center;
     padding: 10px;
@@ -173,7 +173,7 @@ main
 {
     color: white;
     font-weight: 200;
-    font-size: 30px;
+    font-size: 28px;
 }
 
 .container

@@ -32,4 +32,17 @@ html, body
 
 /* Admin-Materias */
 
+main
+{
+    display: flex;
+}
+
+.nav-side
+{
+    width: 18%;
+    height: 100%;
+    background-color: red;
+    position: fixed;
+}
+
 /* Main */

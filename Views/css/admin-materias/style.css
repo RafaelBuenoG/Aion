@@ -151,7 +151,6 @@ nav
 
 header
 {
-    background-color: red;
     display: flex;
     justify-content: space-between;
     padding-top: 50px;
@@ -170,12 +169,12 @@ header
 
 .pad-left
 {
-    padding-left: 15vw;
+    padding-left: 10vw;
 }
 
 .pad-right
 {
-    padding-right: 15px;
+    margin-right: 20vw;
 }
 
 .add-container
@@ -194,4 +193,32 @@ header
 .add-title
 {
     color: black;
+}
+
+/* Table */
+
+.container-table
+{
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    align-items: center;
+}
+
+.table
+{
+    font-size: 18px;
+    padding-top: 30px;
+    width: 75%;
+    height: 80vh;
+}
+
+.msg-table
+{
+    opacity: .5;
+}
+
+#hide
+{
+    display: none; /* Caso tenha dados, esconta o span */
 }

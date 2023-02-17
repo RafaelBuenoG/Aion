@@ -32,7 +32,7 @@ html, body
     border-radius: 15px;
 }
 
-/* Admin-Materias */
+/* Admin-Materias-Add */
 
 /* SideBar */
 
@@ -196,36 +196,28 @@ header
 
 /* Header - FIM */
 
-/* Table */
+/* Add Matéria */
 
-.container-table
+.add-materia
 {
-    display: flex;
-    flex-direction: column;
-    height: 80vh;
-    align-items: center;
+    
 }
 
-.table
+.materia-title
 {
-    font-size: 18px;
-    padding-top: 30px;
-    width: 75%;
-    height: 80vh;
+
 }
 
-.msg-table
+.materia-field
 {
-    opacity: .5;
+
 }
 
-#hide
+.materia-btn
 {
-    display: none; /* Caso tenha dados, esconta o span */
+    
 }
 
+/* Add Matéria - FIM */
 
-
-/* Table - FIM */
-
-/* Admin-Materias - FIM */
+/* Admin Matérias - FIM */

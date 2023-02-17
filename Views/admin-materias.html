@@ -8,46 +8,52 @@
     <title>Admin</title>
   </head>
   <body>
-    <main>
-      <section class="nav-side">
+    <section class="nav-side border-radious-nav">
+      <div class="logo-container">
         <a href="#">
-          <img src="" alt="" />
+          <img class="logo" src="img/logo/aion-white.png" alt="Aion Logo" />
         </a>
-        <nav>
-          <div class="nav-item-container">
-            <a href="#" class="nav-item">
+      </div>
+      <nav>
+        <div class="nav-item-container" id="selected">
+          <a href="#"  class="nav-a">
+            <div class="nav-item">
               <img src="img/icons/notebook-32-filled.svg" alt="" />
               <p class="item-title">Matérias</p>
-            </a>
-          </div>
-          <div class="nav-item-container">
-            <a href="#" class="nav-item">
+            </div>
+          </a>
+        </div>
+        <div class="nav-item-container">
+          <a href="#" class="nav-a">
+            <div class="nav-item">
               <img src="img/icons/person.svg" alt="" />
               <p class="item-title">Professores</p>
-            </a>
-          </div>
-          <div class="nav-item-container">
-            <a href="#" class="nav-item">
+            </div>
+          </a>
+        </div>
+        <div class="nav-item-container">
+          <a href="#" class="nav-a">
+            <div class="nav-item">
               <img src="img/icons/nest-clock-farsight-analog-rounded.svg" alt="" />
               <p class="item-title">Gerar Horários</p>
-            </a>
-          </div>
-        </nav>
-        <div class="btn-logout-container">
-          <img src="" alt="Sair">
-          <input class="btn-logout" type="button" value="Sair da Conta">
+            </div>
+          </a>
         </div>
-      </section>
-      <header>
-        <h1>Matérias já cadastradas</h1>
-        <a href="#">
-          <img src="" alt="plus">
-          <p>Adicionar</p>
-        </a>
-      </header>
-      <section>
-        <p>Nenhuma matéria cadastrada</p>
-      </section>
+      </nav>
+      <div class="btn-logout-container">
+        <img src="img/icons/leave.svg" alt="Sair">
+        <input class="btn-logout" type="button" value="Sair da Conta">
+      </div>
+    </section>
+    <header>
+      <h1>Matérias já cadastradas</h1>
+      <a href="#">
+        <img src="" alt="plus">
+        <p>Adicionar</p>
+      </a>
+    </header>
+    <main>
+      <p>Nenhuma matéria cadastrada</p>
     </main>
   </body>
 </html>

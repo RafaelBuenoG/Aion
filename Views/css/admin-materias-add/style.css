@@ -176,46 +176,50 @@ header
     margin-right: 20vw;
 }
 
-.add-container
-{
-    display: flex;
-    width: auto;
-    justify-content: center;
-    align-items: center;
-}
-
-.add-icon
-{
-    width: 40px;
-}
-
-.add-title
-{
-    color: black;
-}
-
 /* Header - FIM */
 
 /* Add Matéria */
 
 .add-materia
 {
-    
+    padding-top: 30px;
+}
+
+.materia-container
+{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 50px;
 }
 
 .materia-title
 {
-
+    font-size: 20px;
 }
 
 .materia-field
 {
-
+    width: 50vw;
+    height: 60px;
+    border-radius: 20px;
+    font-size: 20px;
+    background-color: #f8f8f8;
+    padding-left: 20px;
 }
 
 .materia-btn
 {
-    
+    width: 200px;
+    height: 55px;
+    border-radius: 40px;
+    background-image: linear-gradient(to right, #7D14C1, #512F9D);
+    color: white;
+    font-size: 24px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
 }
 
 /* Add Matéria - FIM */

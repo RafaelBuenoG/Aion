@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/signup/style.css">
+    <link rel="stylesheet" href="css/login-signup/style.css">
     <title>Cadastre-se</title>
 </head>
 <body>
@@ -29,34 +29,31 @@
             <h1 class="title">Crie sua conta <strong>gratuitamente</strong> e aproveite o <strong>poder</strong> da nossa ferramenta.</h1>
         </section>
         <section class="sec-2">
-            <div class="login-field">
-                <div class="title-login">
-                    <h1>Crie sua conta agora!</h1>
-                </div>
+            <form name="signup">
+                <h1 class="welcome-title">Bem-vindo</h1>
                 <div class="container">
-                    <h1>Faça Login</h1>
+                    <h1 class="title-form">Faça seu Cadastro</h1>
                     <div class="field">
-                        <label for="username">Username</label>
-                        <input type="text" name="username">
+                        <label class="form-label" for="username">Usuário</label>
+                        <input class="inp-field" type="text" name="username">
                     </div>
                     <div class="field">
-                        <label for="password">Senha</label>
-                        <input type="password" name="password">
+                        <label class="form-label" for="password">Senha</label>
+                        <input class="inp-field" type="password" name="password">
                     </div>
                     <div class="field">
-                        <label for="confirm-password">Confirmar Senha</label>
-                        <input type="password" name="confirm-password">
+                        <label class="form-label" for="confirm-password">Confirmar Senha</label>
+                        <input class="inp-field" type="password" name="confirm-password">
                     </div>
                     <div class="field">
-                        <label for="phone">Telefone</label>
-                        <input type="text" name="phone">
+                        <label class="form-label" for="phone">Telefone</label>
+                        <input class="inp-field" type="text" name="phone">
                     </div>
                 </div>
-                <div class="forgot-pass">
-                    <a href="#">Esqueceu a senha?</a>
-                </div>
-                <button class="btn-login">Criar conta</button>
-            </div>
+                <input type="button" value="Login" class="btn-send">
+                <div class="line"></div>
+                <a class="signup" href="#">Já possui um cadastro?</a>
+            </form>
         </section>
     </main>
 </body>

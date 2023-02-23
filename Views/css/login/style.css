@@ -112,6 +112,7 @@ main
 {
     display: flex;
     font-family: 'Poppins', sans-serif;
+    padding-top: 5%;
 }
 
 /* Section1 */
@@ -121,9 +122,9 @@ main
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
     gap: 20px;
-    padding-top: 40px;
 }
 
 .logo
@@ -144,17 +145,15 @@ main
 .sec-2
 {
     display: flex;
-    height: auto;
     justify-content: center;
 }
 
-.login-field
+.login-box
 {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 60%;
-    height: 90%;
     background-color: white;
     border-radius: 20px;
 }
@@ -166,11 +165,7 @@ main
     border-radius: 40px;
     text-align: center;
     padding: 10px;
-    margin-top: 25px;
-}
-
-.title-login > h1
-{
+    margin-top: 40px;
     color: white;
     font-weight: 200;
     font-size: 30px;
@@ -180,8 +175,9 @@ main
 {
     display: flex;
     flex-direction: column;
+    align-items: start;
     width: 80%;
-    padding-top: 40px;
+    padding: 30px 0px 40px 0px;
     color: #7D14C1;
     gap: 20px;
 }
@@ -192,35 +188,29 @@ main
     font-weight: 300;
 }
 
-.field > p
-{
-    font-weight: 500;
-}
-
 .field > input
 {
     border-bottom: 2px solid #7D14C1;
     height: 30px;
-    padding-left: 5px;
+    padding-left: 2px;
+    font-size: 17px;
 }
 
 .forgot-pass
 {
     display: flex;
     width: auto;
-    text-align: center;
-    padding: 10px 0px 30px 0px;
-}
-
-.forgot-pass > a
-{
     color: #7D14C1;
+    font-weight: 800;
 }
 
 .btn-login
 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 200px;
-    height: 55px;
+    height: 60px;
     border-radius: 40px;
     background-image: linear-gradient(90deg, #7D14C1, #512F9D);
     color: white;
@@ -241,7 +231,7 @@ main
 
 .signup
 {
-    padding: 10px 10px;
+    padding: 10px;
 }
 
 .signup > a

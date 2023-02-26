@@ -5,6 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/reset.css">
     <link rel="stylesheet" href="../../css/landing-page/style.css" />
     <link rel="stylesheet" media="screen and (max-width: 768px)" href="css/landing-page/mobile.css" />
     <title>Aion</title>
@@ -12,82 +13,84 @@
 
 <body>
     <header>
-        <nav id="nav" class="navbar-items">
+        <nav class="navbar" id="nav">
             <a href="landing-page.html" class="logo-nav">
-                <img src="../../img/logo/aion-black.png" alt="Aion logo" />
+                <img src="../../img/logo/aion-black.png" alt="Logo" />
             </a>
-            <button id="menu-btn">Menu</button>
-            <ul class="navbar-ul">
-                <li><a class="a-items" href="landing-page.html">Home</a></li>
-                <li><a class="a-items" href="sobre.html">Sobre</a></li>
-                <li><a class="a-items" href="javascript:void(0)">Privacidade</a></li>
-                <li><a class="a-items" href="planos.html">Planos</a></li>
+            <button id="btn-menu">Menu</button>
+            <ul class="nav-items-container">
+                <li><a class="nav-item" href="landing-page.html">Home</a></li>
+                <li><a class="nav-item" href="sobre.html">Sobre</a></li>
+                <li><a class="nav-item" href="javascript:void(0)">Privacidade</a></li>
+                <li><a class="nav-item" href="planos.html">Planos</a></li>
             </ul>
-            <button class="button-nav">Login</button>
+            <button class="btn">Login</button>
         </nav>
     </header>
 
     <main>
-        <section class="land-section1">
-            <div class="land-section1-div1">
-                <h1 class="land-title">
-                    Uma solução simples para seus horários escolares!
-                </h1>
-                <p class="land-subtitle">
-                    Feito especialmente para instituições que visam um<br />horário mais
-                    conveniente para professores e<br />alunos. Sem dores de cabeça nem
-                    perdas de<br />tempo.
-                </p>
-            </div>
-            <div class="land-section1-div2">
-                <img class="land-img1" src="../../img/landing-page/union.jpg" alt="Foto 1" />
-                <div class="land-section1-img">
-                    <img class="land-img2" src="../../img/landing-page/notebook.jpg" alt="Foto 2" />
-                    <img class="land-img3" src="../../img/landing-page/classroom.jpg" alt="Foto 3" />
+        <section class="section-main">
+            <section class="section1">
+                <div class="section1-text-container">
+                    <h1 class="title">
+                        Uma solução simples para seus horários escolares!
+                    </h1>
+                    <p class="subtitle">
+                        Feito especialmente para instituições que visam um<br />horário mais
+                        conveniente para professores e<br />alunos. Sem dores de cabeça nem
+                        perdas de<br />tempo.
+                    </p>
                 </div>
-            </div>
+                <div class="section1-img-container">
+                    <img class="img-top" src="../../img/landing-page/union.jpg" alt="Foto 1" />
+                    <div class="img-bottom-container">
+                        <img class="img-bottom" src="../../img/landing-page/notebook.jpg" alt="Foto 2" />
+                        <img class="img-bottom" src="../../img/landing-page/classroom.jpg" alt="Foto 3" />
+                    </div>
+                </div>
+            </section>
+
+            <section class="section2">
+                <div class="section2-img-container">
+                    <img class="img2" src="../../img/landing-page/working.jpg" alt="Foto 4" />
+                    <img class="img2" src="../../img/landing-page/teacher.jpg" alt="Foto 5" />
+                </div>
+                <div class="section2-text-container">
+                    <h2 class="title2">Como funciona?</h2>
+                    <p class="subtitle2">
+                        Depois dos professores cadastrarem seu melhor horário e dias
+                        disponíveis. <br />
+                        O administrador irá apenas apertar o botão para gerar o horário
+                        completo!
+                    </p>
+                    <a href="planos.html" class="btn btn-medium">Ver planos</a>
+                </div>
+            </section>
         </section>
 
-        <section class="land-section2">
-            <div class="land-section2-div1">
-                <img class="land-img4" src="../../img/landing-page/working.jpg" alt="Foto 4" />
-                <img class="land-img5" src="../../img/landing-page/teacher.jpg" alt="Foto 5" />
-            </div>
-            <div class="land-section2-div2">
-                <h1 class="land-title2">Como funciona?</h1>
-                <p class="land-subtitle2">
-                    Depois dos professores cadastrarem seu melhor horário e dias
-                    disponíveis. <br />
-                    O administrador irá apenas apertar o botão para gerar o horário
-                    completo!
-                </p>
-                <a class="land-button">Ver planos</a>
-            </div>
-        </section>
-
-        <section class="land-section3">
-            <h1 class="land-title3">Vantagens</h1>
-            <div class="land-section3-divs">
-                <div class="land-section3-div">
-                    <img class="land-section3-icons" src="../../img/icons/idea.svg" alt="" />
-                    <h1 class="land-section3-div-title">Algoritimo inteligente</h1>
-                    <p class="land-section3-div-subtitle">
-                        Nosso algoritimo sabe qaul o melhor horário para professores e
+        <section class="section3">
+            <h1 class="title3">Vantagens</h1>
+            <div class="section3-box-container">
+                <div class="section3-box">
+                    <img class="box-icon" src="../../img/icons/idea.svg" alt="" />
+                    <h2 class="title-box">Algoritimo inteligente</h2>
+                    <p class="subtitle-box">
+                        Nosso algoritimo sabe qual o melhor horário para professores e
                         alunos.
                     </p>
                 </div>
-                <div class="land-section3-div">
-                    <img class="land-section3-icons" src="../../img/icons/laptop.svg" alt="" />
-                    <h1 class="land-section3-div-title">Interface intuitiva</h1>
-                    <p class="land-section3-div-subtitle">
+                <div class="section3-box">
+                    <img class="box-icon" src="../../img/icons/laptop.svg" alt="" />
+                    <h2 class="title-box">Interface intuitiva</h2>
+                    <p class="subtitle-box">
                         Aion tem uma interface simples, intuitiva, e adaptada para todos
                         os tipos de dispositivos.
                     </p>
                 </div>
-                <div class="land-section3-div">
-                    <img class="land-section3-icons" src="../../img/icons/target.svg" alt="" />
-                    <h1 class="land-section3-div-title">Melhores planos</h1>
-                    <p class="land-section3-div-subtitle">
+                <div class="section3-box">
+                    <img class="box-icon" src="../../img/icons/target.svg" alt="" />
+                    <h2 class="title-box">Melhores planos</h2>
+                    <p class="subtitle-box">
                         Planos para melhor atender quaisquer necessidades, com os melhores
                         preços.
                     </p>
@@ -95,13 +98,13 @@
             </div>
         </section>
 
-        <section class="land-section4">
-            <div class="land-section4-div">
-                <h1 class="land-title4">Crie o melhor Horário com Aion</h1>
-                <h2 class="land-subtitle4">
+        <section class="section4">
+            <div class="section4-container">
+                <h1 class="title4">Crie o melhor Horário com Aion</h1>
+                <h2 class="subtitle4">
                     Planos Gratuitos | Não é necessário cartão de crédito
                 </h2>
-                <button class="land-button2">
+                <button class="btn btn-big gap15">
                     Começar<img class="arrow-right" src="../../img/icons/arrow-right-1.svg" />
                 </button>
             </div>
@@ -109,42 +112,48 @@
     </main>
 
     <footer>
-        <div class="land-footer">
-            <div class="land-footers">
+        <div class="footer-main">
+            <div class="footer-container">
                 <h1 class="footer-title">Mapa do site</h1>
-                <div class="land-footer1">
-                    <a href="../conta/signup.html">Cadastro</a>
-                    <a href="../conta/login.html">Login</a>
-                    <a href="../inicio/sobre.html">Sobre</a>
-                    <a href="../inicio/planos.html">Planos</a>
-                    <a href="javascript:void(0)">Admin</a>
-                </div>
+                <ul class="footer-items-container">
+                    <li><a class="footer-item" href="../conta/signup.html">Cadastro</a></li>
+                    <li><a class="footer-item" href="../conta/login.html">Login</a></li>
+                    <li><a class="footer-item" href="../inicio/sobre.html">Sobre</a></li>
+                    <li><a class="footer-item" href="../inicio/planos.html">Planos</a></li>
+                    <li><a class="footer-item" href="javascript:void(0)">Admin</a></li>
+                </ul>
             </div>
-            <div class="land-footers">
+            <div class="footer-container">
                 <h1 class="footer-title">Precisa de suporte?</h1>
-                <div class="land-footer2">
-                    <a href="javascript:void(0)">Fale conosco</a>
-                    <a href="javascript:void(0)">Email</a>
-                    <a href="javascript:void(0)">Telefone</a>
-                </div>
+                <ul class="footer-items-container">
+                    <li><a class="footer-item" href="javascript:void(0)">Fale conosco</a></li>
+                    <li><a class="footer-item" href="javascript:void(0)">Email</a></li>
+                    <li><a class="footer-item" href="javascript:void(0)">Telefone</a></li>
+                </ul>
             </div>
-            <div class="land-footers">
+            <div class="footer-container">
                 <h1 class="footer-title">Redes Sociais</h1>
-                <div class="land-footer3">
-                    <a href="https://www.instagram.com" target="_blank">
-                        <img src="../../img/icons/instagram.svg" alt="Instagram" />
-                    </a>
-                    <a href="https://www.twitter.com" target="_blank">
-                        <img src="../../img/icons/twitter-line.svg" alt="Twitter" />
-                    </a>
-                    <a href="https://facebook.com" target="_blank">
-                        <img src="../../img/icons/facebook-circle-line.svg" alt="Facebook" />
-                    </a>
-                </div>
+                <ul class="footer-items-container row">
+                    <li>
+                        <a href="https://www.instagram.com" target="_blank">
+                            <img src="../../img/icons/instagram.svg" alt="Instagram" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.twitter.com" target="_blank">
+                            <img src="../../img/icons/twitter-line.svg" alt="Twitter" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://facebook.com" target="_blank">
+                            <img src="../../img/icons/facebook-circle-line.svg" alt="Facebook" />
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="land-footer-copy">
-            <p class="copyright">
+        <div class="footer-copy">
+            <p class="copy-msg">
                 Copyright© 2022 Aion. Todos os direitos reservados
             </p>
         </div>
@@ -152,13 +161,13 @@
 
     <div data-scroll="suave" data-anima="scroll">
         <a href="#topo">
-            <div class="land-button-top">
+            <div class="back-top-btn">
                 <img class="arrow-top" src="../../img/icons/arrow-up.svg" />
             </div>
         </a>
     </div>
 
-    <div class="w-button">
+    <div class="whatsapp-btn">
         <a href="https://whatsapp.com" target="_blank">
             <img src="../../img/icons/whatsapp-icon.svg" alt="WhatsApp Logo" />
         </a>

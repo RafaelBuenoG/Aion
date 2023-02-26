@@ -1,0 +1,314 @@
+/* Header */
+
+.user-container
+{
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    width: auto;
+    align-items: center;
+}
+
+#username
+{
+    width: auto;
+    font-size: 20px;
+    font-weight: 600;
+    color: #502BA4;
+}
+
+.user-arrow
+{
+    width: 45px;
+}
+
+.user-picture
+{
+    width: 45px;
+}
+
+/* Home */
+
+.card-container
+{
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-content: center;
+    gap: 50px 100px;
+    height: 100%;
+}
+
+.card
+{
+    display: flex;
+    width: 400px;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    padding: 40px 0px 0px 0px;
+    border-radius: 20px;
+    border: 3px solid #7D14C1;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
+}
+
+.card-icon
+{
+    width: 100px;
+}
+
+.card-description
+{
+    font-size: 22px;
+    padding: 40px 50px 40px 50px;
+    color: #808080;
+}
+
+.card-btn
+{
+    display: flex;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    background-image: linear-gradient(to right, #7D14C1, #512F9D);
+    color: white;
+    font-size: 28px;
+    font-weight: 300;
+    transition: 0.2s;
+}
+
+.card-btn:hover
+{
+    transform: scale(1.03);
+}
+
+/* Registrar Dados */
+
+.user-container
+{
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 30px;
+    width: auto;
+    align-items: center;
+}
+
+#username
+{
+    width: auto;
+    font-size: 20px;
+    font-weight: 600;
+    color: #502BA4;
+}
+
+.user-arrow
+{
+    width: 45px;
+}
+
+.user-picture
+{
+    width: 45px;
+}
+
+.progress-bar-container
+{
+    display: flex;
+    justify-content: center;
+    padding-top: 120px;
+}
+
+.progress-bar
+{
+    width: auto;
+    display: flex;
+    gap: 3px;
+}
+
+.progress
+{
+    width: 22vw;
+    height: 15px;
+    background-color: #dfdfdf;
+}
+
+.prog-left
+{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.prog-right
+{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#done
+{
+    background-color: #502BA4;
+}
+
+.section-main
+{
+    padding-top: 75px;
+}
+
+.question-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 630px;
+    gap: 60px;
+}
+
+.reg-title
+{
+    font-size: 35px;
+    font-weight: 300;
+    line-height: 50px;
+}
+
+.select
+{
+    display: flex;
+    width: 50%;
+    background-color: #f8f8f8;
+    border-radius: 20px;
+    margin-bottom: 50px;
+}
+
+.select-container
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.select-title
+{
+    width: auto;
+    font-size: 23px;
+    color: black;
+    margin-left: 25px;
+}
+
+.icon-arrow-down
+{
+    width: 50px;
+    margin-right: 25px;
+}
+
+.btn-container
+{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.btn-prev-container
+{
+    display: flex;
+    padding-left: 20%;
+}
+
+.btn-prev-a
+{
+    display: flex;
+    width: auto;
+    align-items: center;
+    color: #502BA4;
+}
+
+.prev-icon
+{
+    width: 40px;
+}
+
+.btn-prev
+{
+    width: auto;
+    font-size: 22px;
+}
+
+.center
+{
+    transform: translate(-50%);
+}
+
+#hide
+{
+    display: none;
+}
+
+.success-page
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100vh;
+}
+
+.success-container
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+}
+
+.success-icon
+{
+    width: 300px;
+}
+
+.btn-align
+{
+    align-self: center;
+}
+
+/* Horário Final */
+
+.container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.container-table
+{
+    display: flex;
+    width: auto;
+}
+
+.table
+{
+    width: auto;
+    padding-top: 50px;
+}
+
+.horario-title
+{
+    width: auto;
+    font-size: 40px;
+    font-weight: 400;
+}
+
+.msg-table
+{
+    font-size: 18px;
+    color: gray;
+}

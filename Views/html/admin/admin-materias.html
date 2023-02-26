@@ -5,40 +5,52 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/admin-materias/style.css" />
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/default.css">
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <link rel="stylesheet" href="../../css/admin/style.css">
     <title>Admin | Matérias</title>
 </head>
 
 <body>
-    <section class="nav-side border-radious-nav">
+    <nav class="sidebar border-radious-side">
         <div class="logo-container">
             <a href="../inicio/landing-page.html" class="logo">
                 <img src="../../img/logo/aion-white.png" alt="Aion Logo" />
             </a>
         </div>
-        <nav>
-            <a href="admin-materias.html" class="nav-item-container nav-item" id="selected">
-                <img class="item-icon" src="../../img/icons/materia-icon.svg" alt="Matérias" />
-                <span class="item-title">Matérias</span>
-            </a>
-            <a href="admin-professores.html" class="nav-item-container nav-item">
-                <img class="item-icon" src="../../img/icons/person.svg" alt="Professores" />
-                <span class="item-title">Professores</span>
-            </a>
-            <a href="admin-gerar.html" class="nav-item-container nav-item">
-                <img class="item-icon" src="../../img/icons/clock-icon.svg" alt="Horários" />
-                <span class="item-title">Gerar Horários</span>
-            </a>
-            <a href="javascript:void(0)" class="nav-item-container nav-item">
-                <img class="item-icon" src="../../img/icons/settings.svg" alt="Configurações" />
-                <span class="item-title">Configurações</span>
-            </a>
-        </nav>
+        <ul class="side-list">
+            <li>
+                <a href="admin-materias.html" class="side-item-container" id="selected">
+                    <img class="side-item-icon" src="../../img/icons/materia-icon.svg" alt="Matérias" />
+                    <span class="side-item-title">Matérias</span>
+                </a>
+            </li>
+            <li>
+                <a href="admin-professores.html" class="side-item-container">
+                    <img class="side-item-icon" src="../../img/icons/person.svg" alt="Professores" />
+                    <span class="side-item-title">Professores</span>
+                </a>
+            </li>
+            <li>
+                <a href="admin-gerar.html" class="side-item-container">
+                    <img class="side-item-icon" src="../../img/icons/clock-icon.svg" alt="Horários" />
+                    <span class="side-item-title">Gerar Horários</span>
+                </a>
+            </li>
+            <li>
+                <a href="javascript:void(0)" class="side-item-container">
+                    <img class="side-item-icon" src="../../img/icons/settings.svg" alt="Configurações" />
+                    <span class="side-item-title">Configurações</span>
+                </a>
+            </li>
+        </ul>
         <a href="javascript:void(0)" class="btn-logout-container">
             <img class="logout-icon" src="../../img/icons/leave.svg" alt="Sair">
-            <input class="btn-logout" type="button" value="Sair da Conta">
+            <span class="btn-logout">Sair da conta</span>
         </a>
-    </section>
+    </nav>
     <main>
         <header>
             <div class="header-title-container pad-left">
@@ -49,7 +61,7 @@
                 <span class="add-title">Adicionar</span>
             </a>
         </header>
-        <section class="container-table">
+        <section class="table-container">
             <div class="table">
                 <span class="msg-table" id="">Nenhuma matéria cadastrada</span>
                 <!-- Dados da tabela aqui -->

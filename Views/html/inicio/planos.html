@@ -5,36 +5,40 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/default.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
     <link rel="stylesheet" href="../../css/planos/style.css" />
-    <title>Planos</title>
+    <title>Aion | Planos</title>
 </head>
 
 <body>
     <header>
-        <nav id="nav" class="navbar-items">
+        <nav class="navbar" id="nav">
             <a href="landing-page.html" class="logo-nav">
-                <img src="../../img/logo/aion-black.png" alt="Aion logo" />
+                <img src="../../img/logo/aion-black.png" alt="Logo" />
             </a>
-            <button id="menu-btn">Menu</button>
-            <ul class="navbar-ul">
-                <li><a class="a-items" href="landing-page.html">Home</a></li>
-                <li><a class="a-items" href="sobre.html">Sobre</a></li>
-                <li><a class="a-items" href="javascript:void(0)">Privacidade</a></li>
-                <li><a class="a-items" href="planos.html">Planos</a></li>
+            <button id="btn-menu">Menu</button>
+            <ul class="nav-items-container">
+                <li><a class="nav-item" href="landing-page.html">Início</a></li>
+                <li><a class="nav-item" href="sobre.html">Sobre</a></li>
+                <li><a class="nav-item" href="planos.html">Planos</a></li>
+                <li><a class="nav-item" href="javascript:void(0)">Privacidade</a></li>
             </ul>
-            <button class="button-nav">Login</button>
+            <button class="btn">Login</button>
         </nav>
     </header>
 
     <main>
-        <h1>Os Planos São Cobrados Anualmente</h1>
-        <section>
-            <div class="card card-gratis">
-                <div class="div1">
+        <p class="info-text">Os Planos São Cobrados Anualmente</p>
+        <div class="card-container">
+            <section class="card card-gratis">
+                <div class="card-header">
                     <h1 class="title">Básico</h1>
                     <img class="line" src="../../img/icons/planos-line.jpg" alt="linha" />
                 </div>
-                <div class="div2">
+                <div class="card-content">
                     <ul class="list">
                         <li>Plano <strong>Gratuito</strong></li>
                         <li>Tenha 1 grade de horários</li>
@@ -43,21 +47,21 @@
                         <li>Reduza os dias de trabalho</li>
                         <li>Evite aulas de uma disciplina em dias consecutivos</li>
                     </ul>
-                    <div class="price">
-                        <h1>Grátis</h1>
-                        <p>Por tempo ilimitado</p>
+                    <div class="price-container">
+                        <h1 class="price">Grátis</h1>
+                        <p class="price-info">Por tempo ilimitado</p>
                     </div>
                     <div class="input-container">
-                        <input class="btn btn-gratis" type="button" value="Comece Agora" />
+                        <input class="btn btn-white-outline" type="button" value="Comece Agora" />
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="div1">
+            </section>
+            <section class="card">
+                <div class="card-header">
                     <h1 class="title">Avançado</h1>
                     <img class="line" src="../../img/icons/planos-line-arrow.png" alt="linha" />
                 </div>
-                <div class="div2">
+                <div class="card-content">
                     <ul class="list">
                         <li><strong>Tudo do Básico e mais:</strong></li>
                         <li>Tenha 3 grades de horários</li>
@@ -66,21 +70,21 @@
                         <li>Tenha quantas turmas quiser</li>
                         <li>Compartilhe aulas em um local</li>
                     </ul>
-                    <div class="price">
-                        <h1>R$0,99/mês</h1>
-                        <p>por turma</p>
+                    <div class="price-container">
+                        <h1 class="price">R$0,99/mês</h1>
+                        <p class="price-info">por turma</p>
                     </div>
                     <div class="input-container">
-                        <input class="btn" type="button" value="Adquirir" />
+                        <input class="btn btn-purple" type="button" value="Adquirir" />
                     </div>
                 </div>
-            </div>
-            <div class="card">
-                <div class="div1">
+            </section>
+            <section class="card">
+                <div class="card-header">
                     <h1 class="title title-premium">Premium</h1>
                     <img class="line" src="../../img/icons/planos-line-arrow.png" alt="linha" />
                 </div>
-                <div class="div2">
+                <div class="card-content">
                     <ul class="list">
                         <li><strong>Tudo do avançado e mais:</strong></li>
                         <li>Grades ilimitadas</li>
@@ -88,16 +92,16 @@
                         <li>Otimize mais de uma grade simultaneamente</li>
                         <li>Importe seus dados e exporte em Planilhas</li>
                     </ul>
-                    <div class="price">
-                        <h1>R$4,99/mês</h1>
-                        <p>por turma</p>
+                    <div class="price-container">
+                        <h1 class="price">R$4,99/mês</h1>
+                        <p class="price-info">por turma</p>
                     </div>
                     <div class="input-container">
-                        <input class="btn" type="button" value="Adquirir" />
+                        <input class="btn btn-purple" type="button" value="Adquirir" />
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+            </d>
     </main>
 </body>
 

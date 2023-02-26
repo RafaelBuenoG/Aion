@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+*
+{
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    border: none;
+    box-sizing: border-box;
+    outline: none;
+}
+
+html, body
+{
+    font-size: 100%;
+    scroll-behavior: smooth;
+    line-height: 28px;
+    font-family: 'Poppins', sans-serif;
+    height: 100%;
+}
+
+/* ScrollBar Style */
+
+::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+::-webkit-scrollbar {
+    width: 12px;
+    background: #F4F4F4;
+}
+::-webkit-scrollbar-thumb {
+    background: #5a5a5a;
+    border-radius: 15px;
+}
+
+/* Default Buttons */
+
+.btn    /* Small is Default */
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 60px;
+    border-radius: 40px;
+    background-image: linear-gradient(to right, #7D14C1, #512F9D);
+    color: white;
+    font-size: 24px;
+    font-weight: 300;
+    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.btn-medium
+{
+    width: 250px;
+    height: 70px;
+    font-size: 28px;
+}
+
+.btn-big
+{
+    width: 280px;
+    height: 90px;
+    font-size: 28px;
+}
+
+.btn-purple
+{
+    background-image: none;
+    background-color: #7D14C1;
+}
+
+.btn-white-outline
+{
+    background-image: none;
+    color: #5a5a5a;
+    background-color: white;
+    border: 3px solid #7D14C1;
+}
+
+.gap15
+{
+    gap: 15px;
+}

@@ -1,0 +1,64 @@
+header
+{
+    display: flex;
+    padding: 40px 60px;
+    justify-content: space-between;
+}
+
+.logo-nav
+{
+    width: 200px;
+    height: auto;
+}
+
+.navbar
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#btn-menu
+{
+    width: 50px;
+    height: auto;
+    display: none;
+    cursor: pointer;
+}
+
+.nav-items-container
+{
+    width: auto;
+    font-size: 24px;
+    font-weight: 600;
+    display: flex;
+    gap: 42px;
+    align-items: center;
+}
+
+.nav-item
+{
+    color: #5a5a5a;
+}
+
+.nav-item:hover
+{
+    color: #412D6F;
+    transition: .2s;
+}
+
+/* If the background is dark use white text after nav-item class  */
+
+.white-text
+{
+    color: #fff;
+}
+
+.white-text:hover
+{
+    color: #c5c5c5;
+    transition: .2s;
+}

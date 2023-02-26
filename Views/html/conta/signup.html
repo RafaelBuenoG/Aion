@@ -5,36 +5,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/login-signup/style.css">
+
+    <link rel="stylesheet" href="../../css/reset.css">
+    <link rel="stylesheet" href="../../css/default.css">
+    <link rel="stylesheet" href="../../css/navbar.css">
+    <link rel="stylesheet" href="../../css/login-signup/style.css" />
     <title>Cadastre-se</title>
 </head>
 
 <body>
     <header>
-        <nav id="nav" class="navbar-items">
+        <nav class="navbar" id="nav">
             <a href="../inicio/landing-page.html" class="logo-nav">
-                <img src="../../img/logo/aion-white.png" alt="Aion logo">
+                <img src="../../img/logo/aion-white.png" alt="Logo" />
             </a>
-            <button id="menu-btn">Menu</button>
-            <ul class="navbar-ul">
-                <li><a class="a-items" href="../inicio/landing-page.html">Home</a></li>
-                <li><a class="a-items" href="../inicio/sobre.html">Sobre</a></li>
-                <li><a class="a-items" href="javascript:void(0)">Privacidade</a></li>
-                <li><a class="a-items" href="../inicio/planos.html">Planos</a></li>
+            <button id="btn-menu">Menu</button>
+            <ul class="nav-items-container">
+                <li><a class="nav-item white-text" href="../inicio/landing-page.html">Início</a></li>
+                <li><a class="nav-item white-text" href="../inicio/sobre.html">Sobre</a></li>
+                <li><a class="nav-item white-text" href="../inicio/planos.html">Planos</a></li>
+                <li><a class="nav-item white-text" href="javascript:void(0)">Privacidade</a></li>
             </ul>
-            <button class="button-nav">Login</button>
+            <button class="btn">Login</button>
         </nav>
     </header>
     <main>
-        <section class="sec-1">
+        <section class="logo-container">
             <img class="logo" src="../../img/logo/aion-white-logo.png" alt="Aion Logo">
             <h1 class="title">Crie sua conta <strong>gratuitamente</strong> e aproveite o <strong>poder</strong> da
                 nossa ferramenta.</h1>
         </section>
-        <section class="sec-2">
+        <section class="form-container">
             <form name="signup">
                 <h1 class="welcome-title">Bem-vindo</h1>
-                <div class="container">
+                <div class="login-container">
                     <h1 class="title-form">Faça seu Cadastro</h1>
                     <div class="field">
                         <label class="form-label" for="username">Usuário</label>
@@ -53,9 +57,11 @@
                         <input class="inp-field" type="text" name="phone">
                     </div>
                 </div>
-                <input type="button" value="Criar Conta" class="btn-send">
+                <input type="button" value="Criar Conta" class="btn">
                 <div class="line"></div>
-                <a class="signup" href="login.html">Já possui um cadastro?</a>
+                <div class="signup-container">
+                    <a href="signup.html" class="signup">Já possui um cadastro?</a>
+                </div>
             </form>
         </section>
     </main>

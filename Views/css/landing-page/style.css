@@ -1,129 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-*
-{
-    width: 100%;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    border: none;
-    box-sizing: border-box;
-    outline: none;
-}
-
-html, body
-{
-    font-size: 100%;
-    scroll-behavior: smooth;
-}
-
-::-webkit-scrollbar-track {
-    background-color: #F4F4F4;
-}
-::-webkit-scrollbar {
-    width: 12px;
-    background: #F4F4F4;
-}
-::-webkit-scrollbar-thumb {
-    background: #5a5a5a;
-    border-radius: 15px;
-}
-
-
-
-.btn    /* Small por padrão */
-{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 200px;
-    height: 55px;
-    border-radius: 40px;
-    background-image: linear-gradient(to right, #7D14C1, #512F9D);
-    color: white;
-    font-size: 24px;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
-}
-
-.btn-medium
-{
-    width: 250px;
-    height: 70px;
-    font-size: 28px;
-}
-
-.btn-big
-{
-    width: 280px;
-    height: 90px;
-    font-size: 28px;
-}
-
-.gap15
-{
-    gap: 15px;
-}
-
-/* Header */
-
-header
-{
-    display: flex;
-    padding: 40px;
-    justify-content: space-between;
-}
-
-.logo-nav
-{
-    width: 150px;
-    height: auto;
-}
-
-.navbar
-{
-    width: 100vw;
-    font-size: 24px;
-    font-weight: 600;
-    display: flex;
-    gap: 42px;
-    align-items: center;
-    justify-content: space-between;
-    font-family: 'Poppins', sans-serif;
-}
-
-#btn-menu
-{
-    width: 50px;
-    height: auto;
-    display: none;
-    cursor: pointer;
-}
-
-.nav-items-container
-{
-    width: auto;
-    font-size: 24px;
-    font-weight: 600;
-    display: flex;
-    gap: 42px;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    list-style: none;
-}
-
-.nav-item
-{
-    color: #5a5a5a;
-}
-
-.nav-item:hover
-{
-    color: #412D6F;
-    transition: .2s;
-}
+/* Main */
 
 main
 {
@@ -133,7 +8,7 @@ main
     align-items: center;
 }
 
-.section-main
+.div-main
 {
     width: 80%;
 }
@@ -157,7 +32,6 @@ main
 
 .title
 {
-    font-family: 'Poppins', sans-serif;
     font-weight: 700;
     font-size: 80px;
     background-image: linear-gradient(to bottom, #7D14C1, #412D6F);
@@ -170,12 +44,10 @@ main
 
 .subtitle
 {
-    font-family: 'Poppins', sans-serif;
     font-weight: 500;
     font-size: 18px;
     color: #412D6F;
     padding-top: 30px;
-    line-height: 28px;
 }
 
 .section1-img-container
@@ -237,7 +109,6 @@ main
 .title2
 {
     color: #412D6F;
-    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-size: 32px;
     width: 400px;
@@ -247,12 +118,10 @@ main
 .subtitle2
 {
     color: #412D6F;
-    font-family: 'Poppins', sans-serif;
     font-weight: 400;
     font-size: 18px;
     width: 400px;
     padding: 0px 0px 50px 0px;
-    line-height: 25px;
 }
 
 /* Section 3 */
@@ -263,7 +132,6 @@ main
     flex-direction: column;
     align-items: center;
     padding: 50px 0px 50px 0px;
-    font-family: 'Poppins', sans-serif;
     background-image: linear-gradient(to bottom, #9909CC, #512F9D);
     color: white;
 }
@@ -310,7 +178,6 @@ main
     width: 500px;
     font-weight: 400;
     font-size: 20px;
-    line-height: 28px;
 }
 
 /* Section 4 */
@@ -321,7 +188,6 @@ main
     justify-content: center;
     width: auto;
     padding: 200px 0px;
-    font-family: 'Poppins', sans-serif;
     color: #512F9D;
 }
 
@@ -353,15 +219,12 @@ main
     height: 50px;
 }
 
-/* Section 4 - FIM */
-
 /* Footer */
 
 .footer-main
 {
     display: flex;
     justify-content: space-around;
-    font-family: 'Poppins', sans-serif;
     background-color: #f5f5f5;
     padding: 50px 0px 60px 0px;
 }
@@ -385,7 +248,6 @@ main
     font-size: 18px;
 }
 
-
 .footer-items-container
 {
     display: flex;
@@ -402,7 +264,6 @@ main
 .footer-copy
 {
     display: flex;
-    font-family: 'Poppins', sans-serif;
     background-color: #f5f5f5;
     justify-content: space-between;
     width: auto;
@@ -414,7 +275,18 @@ main
     padding-bottom: 15px;
 }
 
-/* Footer - FIM */
+/*----------------------------------------------------------------*/
+
+/* WhatsApp Button */
+
+.whatsapp-btn
+{
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
+}
 
 /* Back to Top Button */
 
@@ -444,15 +316,4 @@ main
 {
     width: 45px;
     height: 45px;
-}
-
-/* WhatsApp Button */
-
-.whatsapp-btn
-{
-    width: 50px;
-    height: 50px;
-    position: fixed;
-    bottom: 40px;
-    left: 40px;
 }

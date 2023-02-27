@@ -150,7 +150,7 @@
     border-bottom-right-radius: 10px;
 }
 
-#done
+.done
 {
     background-color: #502BA4;
 }
@@ -244,7 +244,7 @@
     transform: translate(-50%);
 }
 
-#hide
+.hide
 {
     display: none;
 }

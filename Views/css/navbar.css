@@ -62,3 +62,10 @@ header
     color: #c5c5c5;
     transition: .2s;
 }
+
+/* Dont show the button */
+
+.hidden-btn
+{
+    visibility: hidden;
+}

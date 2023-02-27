@@ -75,9 +75,9 @@ header
     color: gray;
 }
 
-#hide
+.hide /* Caso tenha dados, esconda o span */
 {
-    display: none; /* Caso tenha dados, esconda o span */
+    display: none;
 }
 
 

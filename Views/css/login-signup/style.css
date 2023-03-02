@@ -116,6 +116,34 @@ form
     top: -10px;
 }
 
+.remember-forgot
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-label
+{
+    display: flex;
+    width: auto;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.remember-check
+{
+    width: 16px;
+    cursor: pointer;
+}
+
+.remember-label
+{
+    display: flex;
+    width: auto;
+    color: #7D14C1;
+    font-weight: 800;
+}
+
 .forgot-pass
 {
     display: flex;

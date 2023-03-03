@@ -122,18 +122,9 @@ form
     justify-content: space-between;
 }
 
-.remember-label
+.remember-container
 {
-    display: flex;
     width: auto;
-    gap: 10px;
-    cursor: pointer;
-}
-
-.remember-check
-{
-    width: 16px;
-    cursor: pointer;
 }
 
 .remember-label
@@ -141,7 +132,15 @@ form
     display: flex;
     width: auto;
     color: #7D14C1;
-    font-weight: 800;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.remember-label a
+{
+    width: auto;
+    color: #7D14C1;
+    font-weight: 700;
 }
 
 .forgot-pass
@@ -149,7 +148,7 @@ form
     display: flex;
     width: auto;
     color: #7D14C1;
-    font-weight: 800;
+    font-weight: 600;
 }
 
 .line

@@ -36,6 +36,7 @@ html, body
     /* White */
     --white01: #f8f8f8;
     --white02: #f5f5f5;
+    --white03: #dfdfdf;
 
     /* Gray */
     --gray01: #5a5a5a;
@@ -44,6 +45,15 @@ html, body
     /* Red */
     --red01: #df3636;
     --red02: #bb2f2f;
+
+
+    /* Default Font Size */
+    --p-size: 1.2em;
+    --small-title: 1.5em;
+    --medium-title: 1.8em;
+    --title: 2em;
+    --big-title: 2.5em;
+    
 }
 
 /* ScrollBar Style */
@@ -72,7 +82,7 @@ html, body
     border-radius: 40px;
     background-image: linear-gradient(to right, var(--purple01), var(--purple02));
     color: white;
-    font-size: 24px;
+    font-size: var(--small-title);
     font-weight: 300;
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
@@ -82,14 +92,14 @@ html, body
 {
     width: 250px;
     height: 70px;
-    font-size: 28px;
+    font-size: 1.8em;
 }
 
 .btn-big
 {
     width: 280px;
     height: 90px;
-    font-size: 28px;
+    font-size: 1.8em;
 }
 
 .btn-purple

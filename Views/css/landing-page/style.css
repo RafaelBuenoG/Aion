@@ -33,7 +33,7 @@ main
 .title
 {
     font-weight: 700;
-    font-size: 80px;
+    font-size: 5em;
     background-image: linear-gradient(to bottom, var(--purple01), var(--purple02));
     color: black;
     background-clip: text;
@@ -45,7 +45,7 @@ main
 .subtitle
 {
     font-weight: 500;
-    font-size: 18px;
+    font-size: var(--p-size);
     color: var(--purple02);
     padding-top: 30px;
 }
@@ -110,7 +110,7 @@ main
 {
     color: var(--purple02);
     font-weight: 600;
-    font-size: 32px;
+    font-size: var(--title);
     width: 400px;
     padding: 10px 0px 20px 0px;
 }
@@ -119,7 +119,7 @@ main
 {
     color: var(--purple02);
     font-weight: 400;
-    font-size: 18px;
+    font-size: var(--p-size);
     width: 400px;
     padding: 0px 0px 50px 0px;
 }
@@ -140,7 +140,7 @@ main
 {
     width: auto;
     font-weight: 600;
-    font-size: 36px;
+    font-size: var(--title);
     padding: 0px 0px 50px 0px;
 }
 
@@ -169,7 +169,7 @@ main
     justify-content: center;
     width: auto;
     font-weight: 600;
-    font-size: 24px;
+    font-size: var(--small-title);
 }
 
 .subtitle-box
@@ -177,7 +177,7 @@ main
     text-align: center;
     width: 500px;
     font-weight: 400;
-    font-size: 20px;
+    font-size: var(--p-size);
 }
 
 /* Section 4 */
@@ -203,13 +203,13 @@ main
 .title4
 {
     font-weight: 700;
-    font-size: 40px;
+    font-size: var(--big-title);
 }
 
 .subtitle4
 {
     font-weight: 300;
-    font-size: 32px;
+    font-size: var(--title);
     padding-bottom: 40px;
 }
 
@@ -232,7 +232,7 @@ main
 .footer-title
 {
     font-weight: 400;
-    font-size: 24px;
+    font-size: var(--small-title);
 }
 
 .footer-container
@@ -245,7 +245,7 @@ main
 .footer-item
 {
     color: gray;
-    font-size: 18px;
+    font-size: var(--p-size);
 }
 
 .footer-items-container

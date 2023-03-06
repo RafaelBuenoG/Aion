@@ -13,7 +13,7 @@
 #username
 {
     width: auto;
-    font-size: 20px;
+    font-size: var(--p-size);
     font-weight: 600;
     color: var(--purple02);
 }
@@ -63,7 +63,7 @@
 
 .card-description
 {
-    font-size: 22px;
+    font-size: 1.4em;
     padding: 40px 50px 40px 50px;
     color: gray;
 }
@@ -77,7 +77,7 @@
     border-radius: 15px;
     background-image: linear-gradient(to right, var(--purple01), var(--purple02));
     color: white;
-    font-size: 28px;
+    font-size: var(--medium-title);
     font-weight: 300;
     transition: 0.2s;
 }
@@ -97,14 +97,6 @@
     top: 30px;
     width: auto;
     align-items: center;
-}
-
-#username
-{
-    width: auto;
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--purple02);
 }
 
 .user-arrow
@@ -135,7 +127,7 @@
 {
     width: 22vw;
     height: 15px;
-    background-color: #dfdfdf;
+    background-color: var(--white03);
 }
 
 .prog-left
@@ -172,7 +164,7 @@
 
 .reg-title
 {
-    font-size: 35px;
+    font-size: var(--title);
     font-weight: 300;
     line-height: 50px;
 }
@@ -197,7 +189,7 @@
 .select-title
 {
     width: auto;
-    font-size: 23px;
+    font-size: var(--small-title);
     color: black;
     margin-left: 25px;
 }
@@ -236,7 +228,7 @@
 .btn-prev
 {
     width: auto;
-    font-size: 22px;
+    font-size: 1.35em;
 }
 
 .center
@@ -303,12 +295,12 @@
 .horario-title
 {
     width: auto;
-    font-size: 40px;
+    font-size: var(--big-title);
     font-weight: 400;
 }
 
 .msg-table
 {
-    font-size: 18px;
+    font-size: var(--p-size);
     color: gray;
 }

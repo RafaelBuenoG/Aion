@@ -13,7 +13,7 @@
 .title
 {
     text-align: center;
-    font-size: 45px;
+    font-size: 2.8em;
     font-weight: 600;
     padding-bottom: 40px;
     color: var(--purple02);
@@ -21,7 +21,7 @@
 
 .subtitle
 {
-    font-size: 30px;
+    font-size: var(--medium-title);
     font-weight: 600;
     text-align: start;
 }
@@ -29,7 +29,7 @@
 .paragraph
 {
     height: auto;
-    font-size: 20px;
+    font-size: var(--p-size);
 }
 
 .article-container
@@ -74,12 +74,12 @@
 .name
 {
     text-align: center;
-    font-size: 25px;
+    font-size: var(--small-title);
     padding-top: 20px;
 }
 
 .roles
 {
     text-align: center;
-    font-size: 18px;
+    font-size: var(--p-size);
 }

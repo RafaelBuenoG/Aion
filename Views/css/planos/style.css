@@ -8,7 +8,7 @@ main
 .info-text
 {
     text-align: center;
-    font-size: 20px;
+    font-size: var(--p-size);
     color: var(--gray01);
 }
 
@@ -39,7 +39,7 @@ main
 {
     text-align: center;
     color: var(--gray01);
-    font-size: 28px;
+    font-size: var(--medium-title);
     font-weight: 600;
     margin-top: 10%;
     
@@ -79,7 +79,7 @@ main
 
 .price
 {
-    font-size: 33px;
+    font-size: var(--title);
 }
 
 .input-container

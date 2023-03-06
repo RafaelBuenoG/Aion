@@ -30,7 +30,7 @@ main
 {
     color: white;
     font-weight: 200;
-    font-size: 50px;
+    font-size: 3.1em;
     line-height: 60px;
     width: 60%;
 }
@@ -64,7 +64,7 @@ form
     margin-top: 40px;
     color: white;
     font-weight: 200;
-    font-size: 30px;
+    font-size: var(--medium-title);
 }
 
 .login-container
@@ -81,7 +81,7 @@ form
 
 .title-form
 {
-    font-size: 30px;
+    font-size: var(--medium-title);
     font-weight: 300;
 }
 
@@ -97,7 +97,7 @@ form
     top: 50%;
     left: 5px;
     transform: translateY(-50%);
-    font-size: 18px;
+    font-size: var(--p-size);
     pointer-events: none;
     transition: .2s;
 }
@@ -107,7 +107,7 @@ form
     border-bottom: 2px solid var(--purple01);
     height: 30px;
     padding-left: 5px;
-    font-size: 18px;
+    font-size: var(--p-size);
 }
 
 .inp-field:focus~.form-label,

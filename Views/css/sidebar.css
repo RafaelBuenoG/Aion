@@ -67,7 +67,7 @@ body    /* for the content to stay in lines */
 
 .side-item-title
 {
-    font-size: 20px;
+    font-size: var(--p-size);
     font-weight: 300;
 }
 
@@ -96,7 +96,7 @@ body    /* for the content to stay in lines */
 .btn-logout
 {
     width: 50%;
-    font-size: 18px;
+    font-size: var(--p-size);
     color: white;
     background-color: transparent;
 }

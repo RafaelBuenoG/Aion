@@ -14,7 +14,7 @@ header
 
 .header-title
 {
-    font-size: 30px;
+    font-size: var(--title);
     font-weight: 500;
 }
 
@@ -48,7 +48,7 @@ header
 
 .add-title
 {
-    font-size: 21px;
+    font-size: var(--small-title);
     color: black;
 }
 
@@ -64,7 +64,7 @@ header
 
 .table
 {
-    font-size: 18px;
+    font-size: var(--p-size);
     padding-top: 30px;
     width: 75%;
     height: 80vh;
@@ -129,7 +129,7 @@ header
     width: 50vw;
     height: 60px;
     border-radius: 20px;
-    font-size: 20px;
+    font-size: var(--p-size);
     background-color: var(--white01);
     padding-left: 20px;
 }
@@ -154,7 +154,7 @@ header
 .select-title
 {
     width: auto;
-    font-size: 23px;
+    font-size: var(--small-title);
     color: black;
     margin-left: 25px;
 }

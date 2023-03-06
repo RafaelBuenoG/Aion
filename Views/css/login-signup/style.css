@@ -5,8 +5,12 @@ html
 
 main
 {
+
     display: flex;
-    padding-top: 5%;
+    align-items: center;
+    justify-content: center;
+    height: 75vh;
+
 }
 
 /* Logo */
@@ -18,7 +22,7 @@ main
     align-items: center;
     justify-content: center;
     text-align: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 .logo

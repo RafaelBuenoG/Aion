@@ -21,6 +21,31 @@ html, body
     height: 100%;
 }
 
+:root
+{
+    /* Main Purple */
+    --purple01: #7D14C1;
+    --purple02: #512F9D;
+    
+    /* Secondary Purple */
+    --purple03: #6B19BA;
+    --purple04: #9909CC;
+    --purple05: #823bc5;
+    --purple06: #7a30c1;
+
+    /* White */
+    --white01: #f8f8f8;
+    --white02: #f5f5f5;
+
+    /* Gray */
+    --gray01: #5a5a5a;
+    --gray02: #333;
+
+    /* Red */
+    --red01: #df3636;
+    --red02: #bb2f2f;
+}
+
 /* ScrollBar Style */
 
 ::-webkit-scrollbar-track {
@@ -45,7 +70,7 @@ html, body
     width: 200px;
     height: 60px;
     border-radius: 40px;
-    background-image: linear-gradient(to right, #7D14C1, #512F9D);
+    background-image: linear-gradient(to right, var(--purple01), var(--purple02));
     color: white;
     font-size: 24px;
     font-weight: 300;
@@ -70,15 +95,15 @@ html, body
 .btn-purple
 {
     background-image: none;
-    background-color: #7D14C1;
+    background-color: var(--purple01);
 }
 
 .btn-white-outline
 {
     background-image: none;
-    color: #5a5a5a;
+    color: var(--gray01);
     background-color: white;
-    border: 3px solid #7D14C1;
+    border: 3px solid var(--purple01);
 }
 
 .gap15
@@ -101,7 +126,7 @@ html, body
     height: 20px;
     border-radius: 5px;
     background-color: white;
-    border: 2px solid #7D14C1;
+    border: 2px solid var(--purple01);
     margin: 1px 6px 0 0;
 }
 

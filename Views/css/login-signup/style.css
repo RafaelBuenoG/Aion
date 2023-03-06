@@ -1,6 +1,6 @@
 html
 {
-    background-image: linear-gradient(45deg, #9909CC, #502BA4);
+    background-image: linear-gradient(45deg, var(--purple04), var(--purple02));
 }
 
 main
@@ -56,7 +56,7 @@ form
 
 .welcome-title
 {
-    background-image: linear-gradient(90deg, #7D14C1, #512F9D);
+    background-image: linear-gradient(90deg, var(--purple01), var(--purple02));
     width: 60%;
     border-radius: 40px;
     text-align: center;
@@ -75,7 +75,7 @@ form
     align-items: start;
     width: 80%;
     padding: 30px 0px 40px 0px;
-    color: #7D14C1;
+    color: var(--purple01);
     gap: 20px;
 }
 
@@ -104,7 +104,7 @@ form
 
 .inp-field
 {
-    border-bottom: 2px solid #7D14C1;
+    border-bottom: 2px solid var(--purple01);
     height: 30px;
     padding-left: 5px;
     font-size: 18px;
@@ -131,7 +131,7 @@ form
 {
     display: flex;
     width: auto;
-    color: #7D14C1;
+    color: var(--purple01);
     font-weight: 400;
     cursor: pointer;
 }
@@ -139,7 +139,7 @@ form
 .remember-label a
 {
     width: auto;
-    color: #7D14C1;
+    color: var(--purple01);
     font-weight: 700;
 }
 
@@ -147,7 +147,7 @@ form
 {
     display: flex;
     width: auto;
-    color: #7D14C1;
+    color: var(--purple01);
     font-weight: 600;
 }
 
@@ -155,7 +155,7 @@ form
 {
     width: 100%;
     height: 2px;
-    background-image: linear-gradient(90deg, #9909CC, #502BA4);
+    background-image: linear-gradient(90deg, var(--purple04), var(--purple02));
     margin-top: 40px;
 }
 
@@ -167,5 +167,5 @@ form
 
 .signup
 {
-    color: #7D14C1;
+    color: var(--purple01);
 }

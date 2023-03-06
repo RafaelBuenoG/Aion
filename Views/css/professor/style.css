@@ -15,7 +15,7 @@
     width: auto;
     font-size: 20px;
     font-weight: 600;
-    color: #502BA4;
+    color: var(--purple02);
 }
 
 .user-arrow
@@ -52,7 +52,7 @@
     justify-content: space-between;
     padding: 40px 0px 0px 0px;
     border-radius: 20px;
-    border: 3px solid #7D14C1;
+    border: 3px solid var(--purple01);
     box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -65,7 +65,7 @@
 {
     font-size: 22px;
     padding: 40px 50px 40px 50px;
-    color: #808080;
+    color: gray;
 }
 
 .card-btn
@@ -75,7 +75,7 @@
     justify-content: center;
     align-items: center;
     border-radius: 15px;
-    background-image: linear-gradient(to right, #7D14C1, #512F9D);
+    background-image: linear-gradient(to right, var(--purple01), var(--purple02));
     color: white;
     font-size: 28px;
     font-weight: 300;
@@ -104,7 +104,7 @@
     width: auto;
     font-size: 20px;
     font-weight: 600;
-    color: #502BA4;
+    color: var(--purple02);
 }
 
 .user-arrow
@@ -152,7 +152,7 @@
 
 .done
 {
-    background-color: #502BA4;
+    background-color: var(--purple02);
 }
 
 .section-main
@@ -181,7 +181,7 @@
 {
     display: flex;
     width: 50%;
-    background-color: #f8f8f8;
+    background-color: var(--white01);
     border-radius: 20px;
     margin-bottom: 50px;
 }
@@ -225,7 +225,7 @@
     display: flex;
     width: auto;
     align-items: center;
-    color: #502BA4;
+    color: var(--purple02);
 }
 
 .prev-icon

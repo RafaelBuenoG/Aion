@@ -16,7 +16,7 @@
     font-size: 45px;
     font-weight: 600;
     padding-bottom: 40px;
-    color: #512F9D;
+    color: var(--purple02);
 }
 
 .subtitle

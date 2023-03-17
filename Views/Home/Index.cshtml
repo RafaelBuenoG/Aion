@@ -2,6 +2,10 @@
     ViewData["Title"] = "Home Page";
 }
 
+@section Styles{
+    <link rel="stylesheet" href="~/css/landing-page/style.css" />
+}
+
 <div class="div-main">
     <section class="section1">
         <div class="section1-text-container">
@@ -15,18 +19,18 @@
             </p>
         </div>
         <div class="section1-img-container">
-            <img class="img-top" src="../../img/landing-page/union.jpg" alt="Foto 1" />
+            <img class="img-top" src="~/img/landing-page/union.jpg" alt="Foto 1" />
             <div class="img-bottom-container">
-                <img class="img-bottom" src="../../img/landing-page/notebook.jpg" alt="Foto 2" />
-                <img class="img-bottom" src="../../img/landing-page/classroom.jpg" alt="Foto 3" />
+                <img class="img-bottom" src="~/img/landing-page/notebook.jpg" alt="Foto 2" />
+                <img class="img-bottom" src="~/img/landing-page/classroom.jpg" alt="Foto 3" />
             </div>
         </div>
     </section>
 
     <section class="section2">
         <div class="section2-img-container">
-            <img class="img2" src="../../img/landing-page/working.jpg" alt="Foto 4" />
-            <img class="img2" src="../../img/landing-page/teacher.jpg" alt="Foto 5" />
+            <img class="img2" src="~/img/landing-page/working.jpg" alt="Foto 4" />
+            <img class="img2" src="~/img/landing-page/teacher.jpg" alt="Foto 5" />
         </div>
         <div class="section2-text-container">
             <h2 class="title2">Como funciona?</h2>
@@ -45,7 +49,7 @@
     <h1 class="title3">Vantagens</h1>
     <div class="section3-box-container">
         <div class="section3-box">
-            <img class="box-icon" src="../../img/icons/idea.svg" alt="" />
+            <img class="box-icon" src="~/img/icons/idea.svg" alt="" />
             <h2 class="title-box">Algoritimo inteligente</h2>
             <p class="subtitle-box">
                 Nosso algoritimo sabe qual o melhor horário para professores e
@@ -53,7 +57,7 @@
             </p>
         </div>
         <div class="section3-box">
-            <img class="box-icon" src="../../img/icons/laptop.svg" alt="" />
+            <img class="box-icon" src="~/img/icons/laptop.svg" alt="" />
             <h2 class="title-box">Interface intuitiva</h2>
             <p class="subtitle-box">
                 Aion tem uma interface simples, intuitiva, e adaptada para todos
@@ -61,7 +65,7 @@
             </p>
         </div>
         <div class="section3-box">
-            <img class="box-icon" src="../../img/icons/target.svg" alt="" />
+            <img class="box-icon" src="~/img/icons/target.svg" alt="" />
             <h2 class="title-box">Melhores planos</h2>
             <p class="subtitle-box">
                 Planos para melhor atender quaisquer necessidades, com os melhores
@@ -78,7 +82,7 @@
             Planos Gratuitos | Não é necessário cartão de crédito
         </h2>
         <button class="btn btn-big gap15">
-            Começar<img class="arrow-right" src="../../img/icons/arrow-right-1.svg" />
+            Começar<img class="arrow-right" src="~/img/icons/arrow-right-1.svg" />
         </button>
     </div>
 </section>
@@ -108,17 +112,17 @@
             <ul class="footer-items-container row">
                 <li>
                     <a href="https://www.instagram.com" target="_blank">
-                        <img src="../../img/icons/instagram.svg" alt="Instagram" />
+                        <img src="~/img/icons/instagram.svg" alt="Instagram" />
                     </a>
                 </li>
                 <li>
                     <a href="https://www.twitter.com" target="_blank">
-                        <img src="../../img/icons/twitter-line.svg" alt="Twitter" />
+                        <img src="~/img/icons/twitter-line.svg" alt="Twitter" />
                     </a>
                 </li>
                 <li>
                     <a href="https://facebook.com" target="_blank">
-                        <img src="../../img/icons/facebook-circle-line.svg" alt="Facebook" />
+                        <img src="~/img/icons/facebook-circle-line.svg" alt="Facebook" />
                     </a>
                 </li>
             </ul>
@@ -134,17 +138,19 @@
 <div data-scroll="suave" data-anima="scroll">
     <a href="#topo">
         <div class="back-top-btn">
-            <img class="arrow-top" src="../../img/icons/arrow-up.svg" />
+            <img class="arrow-top" src="~/img/icons/arrow-up.svg" />
         </div>
     </a>
 </div>
 
 <div class="whatsapp-btn">
     <a href="https://whatsapp.com" target="_blank">
-        <img src="../../img/icons/whatsapp-icon.svg" alt="WhatsApp Logo" />
+        <img src="~/img/icons/whatsapp-icon.svg" alt="WhatsApp Logo" />
     </a>
 </div>
 
-<script src="../../js/scroll-animation.js"></script>
-<script src="../../js/scroll-suave.js"></script>
-<script src="../../js/menu-mobile.js"></script>
+@section Scripts{
+    <script src="~/js/scroll-animation.js"></script>
+    <script src="~/js/scroll-suave.js"></script>
+    <script src="~/js/menu-mobile.js"></script>
+}

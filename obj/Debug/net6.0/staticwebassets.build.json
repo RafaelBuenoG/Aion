@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wFXI42nxv4x0PJ3faEwwB7gRzuSUL3/Oug6qpRG/fJc=",
+  "Hash": "sDEFNZxV0hS1x1QbnHPpG+Onehj4gUsXH+YavJ1S3MI=",
   "Source": "Aion",
   "BasePath": "_content/Aion",
   "Mode": "Default",
@@ -16,40 +16,6 @@
     }
   ],
   "Assets": [
-    {
-      "Identity": "C:\\Users\\etec\\Desktop\\Aion\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Aion.styles.css",
-      "SourceId": "Aion",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\etec\\Desktop\\Aion\\obj\\Debug\\net6.0\\scopedcss\\bundle\\",
-      "BasePath": "_content/Aion",
-      "RelativePath": "Aion.styles.css",
-      "AssetKind": "All",
-      "AssetMode": "CurrentProject",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ApplicationBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\etec\\Desktop\\Aion\\obj\\Debug\\net6.0\\scopedcss\\bundle\\Aion.styles.css"
-    },
-    {
-      "Identity": "C:\\Users\\etec\\Desktop\\Aion\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Aion.bundle.scp.css",
-      "SourceId": "Aion",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\etec\\Desktop\\Aion\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\",
-      "BasePath": "_content/Aion",
-      "RelativePath": "Aion.bundle.scp.css",
-      "AssetKind": "All",
-      "AssetMode": "Reference",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "ScopedCss",
-      "AssetTraitValue": "ProjectBundle",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "C:\\Users\\etec\\Desktop\\Aion\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\Aion.bundle.scp.css"
-    },
     {
       "Identity": "C:\\Users\\etec\\Desktop\\Aion\\wwwroot\\css\\admin\\style.css",
       "SourceId": "Aion",

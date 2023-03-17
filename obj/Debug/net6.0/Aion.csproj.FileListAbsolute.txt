@@ -16,9 +16,7 @@ C:\Users\etec\Desktop\Aion\obj\Debug\net6.0\Aion.RazorAssemblyInfo.cache
 C:\Users\etec\Desktop\Aion\obj\Debug\net6.0\Aion.RazorAssemblyInfo.cs
 C:\Users\etec\Desktop\Aion\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\etec\Desktop\Aion\obj\Debug\net6.0\staticwebassets.development.json
-C:\Users\etec\Desktop\Aion\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\etec\Desktop\Aion\obj\Debug\net6.0\scopedcss\bundle\Aion.styles.css
-C:\Users\etec\Desktop\Aion\obj\Debug\net6.0\scopedcss\projectbundle\Aion.bundle.scp.css
 C:\Users\etec\Desktop\Aion\obj\Debug\net6.0\Aion.dll
 C:\Users\etec\Desktop\Aion\obj\Debug\net6.0\refint\Aion.dll
 C:\Users\etec\Desktop\Aion\obj\Debug\net6.0\Aion.pdb

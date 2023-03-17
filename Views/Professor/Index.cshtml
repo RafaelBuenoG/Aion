@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout= "~/Views/Shared/_LayoutProfessor.cshtml";
+}
+
+<header>
+    <a href="javascript:void(0)" class="user-container">
+        <span id="username">Usuário</span>
+        <img class="user-arrow" src="~/img/icons/arrow-down-purple.svg" alt="Mostrar Mais">
+        <img class="user-picture" src="~/img/icons/profile.svg" alt="Perfil">
+    </a>
+</header>
+<section class="card-container">
+    <div class="card">
+        <img class="card-icon" src="~/img/icons/clock-line.svg" alt="Registrar Dados">
+        <p class="card-description">Registre seus horários disponíveis</p>
+        <a href="professores-reg-dados-1.html" class="card-btn">Registrar Dados</a>
+    </div>
+    <div class="card">
+        <img class="card-icon" src="~/img/icons/check.svg" alt="Horário Final">
+        <p class="card-description">Veja os horários que foram criados!</p>
+        <a href="professores-horario.html" class="card-btn">Horário Final</a>
+    </div>
+    <div class="card">
+        <img class="card-icon" src="~/img/icons/settings-line.svg" alt="Configurações">
+        <p class="card-description">Configurações da conta</p>
+        <a href="javascript:void(0)" class="card-btn">Configurações</a>
+    </div>
+    <div class="card">
+        <img class="card-icon" src="~/img/icons/leave-gray.svg" alt="Sair da conta">
+        <p class="card-description">Sair da conta</p>
+        <a href="javascript:void(0)" class="card-btn">Sair da Conta</a>
+    </div>
+</section>

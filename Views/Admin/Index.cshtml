@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout= "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<header>
+    <div class="header-title-container pad-left">
+        <h1 class="header-title">Matérias já cadastradas</h1>
+    </div>
+    <a class="add-container pad-right" href="admin-materias-add.html">
+        <img class="add-icon" src="../../img/icons/add.svg" alt="add">
+        <span class="add-title">Adicionar</span>
+    </a>
+</header>
+<section class="table-container">
+    <div class="table">
+        <span class="msg-table" id="">Nenhuma matéria cadastrada</span>
+        <!-- Dados da tabela aqui -->
+    </div>
+</section>

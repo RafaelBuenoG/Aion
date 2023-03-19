@@ -1,0 +1,27 @@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout= "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<header>
+    <div class="header-title-container pad-left">
+        <h1 class="header-title">Gerar horários</h1>
+    </div>
+    <a href="javascript:void(0)" class="add-container pad-right">
+        <img class="add-icon" src="../../img/icons/add.svg" alt="add">
+        <span class="add-title">Gerar</span>
+    </a>
+</header>
+<section class="table-container">
+    <div class="table">
+        <span class="msg-table">Nenhum horário gerado</span>
+        <!-- Dados da tabela aqui -->
+    </div>
+</section>
+<footer>
+    <input class="btn" type="button" value="Enviar">
+    <button class="btn btn-white-outline">
+        <span class="btn-span">Download</span>
+        <img class="icon-arrow-right" src="../../img/icons/arrow-right-2.svg" alt="">
+    </button>
+</footer>

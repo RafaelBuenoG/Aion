@@ -4,13 +4,11 @@ using Aion.Models;
 
 namespace Aion.Controllers;
 
-// Pesquisar mais sobre (PatoRestaurant)
-// [Authorize(Roles = "Administrador")] Especifica que so pode acessar o controller quem tiver o cargo de admin e funcionario
-public class ProfessorController : Controller
+public class AdminController : Controller
 {
-    private readonly ILogger<ProfessorController> _logger;
+    private readonly ILogger<AdminController> _logger;
 
-    public ProfessorController(ILogger<ProfessorController> logger)
+    public AdminController(ILogger<AdminController> logger)
     {
         _logger = logger;
     }
@@ -20,12 +18,12 @@ public class ProfessorController : Controller
         return View();
     }
 
-    public IActionResult RegDados()
+    public IActionResult Professores()
     {
         return View();
     }
 
-    public IActionResult HorarioFinal()
+    public IActionResult Horarios()
     {
         return View();
     }

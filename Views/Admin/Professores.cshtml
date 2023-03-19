@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "Home Page";
+    Layout= "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<header>
+    <div class="header-title-container pad-left">
+        <h1 class="header-title">Professores cadastrados</h1>
+    </div>
+    <a href="admin-professores-add.html" class="add-container pad-right">
+        <img class="add-icon" src="~/img/icons/add.svg" alt="add">
+        <span class="add-title">Adicionar</span>
+    </a>
+</header>
+<section class="table-container">
+    <div class="table">
+        <span class="msg-table hide">Nenhum professor cadastrado</span>
+        <div class="teacher-container" id="">
+            <a href="javascript:void(0)" class="teacher">
+                <div class="teacher-btn">
+                    <span class="teacher-name">José Gallo Junior</span>
+                    <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Mostrar mais">
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="teacher">
+                <div class="teacher-btn">
+                    <span class="teacher-name">Márcio de Moraes</span>
+                    <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Show More">
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="teacher">
+                <div class="teacher-btn">
+                    <span class="teacher-name">Edriano Campana</span>
+                    <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Show More">
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="teacher">
+                <div class="teacher-btn">
+                    <span class="teacher-name">Ronan Zenatti</span>
+                    <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Show More">
+                </div>
+            </a>
+            <a href="javascript:void(0)" class="teacher">
+                <div class="teacher-btn">
+                    <span class="teacher-name">Sérgio Lacerda</span>
+                    <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Show More">
+                </div>
+            </a>
+        </div>
+    </div>
+</section>

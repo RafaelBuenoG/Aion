@@ -48,6 +48,11 @@ header
     color: var(--gray01);
 }
 
+.selected
+{
+    color: var(--purple02);
+}
+
 .nav-item::after
 {
     content: '';

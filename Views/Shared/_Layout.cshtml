@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var actionAtual = ViewContext.RouteData.Values["action"].ToString();
+}
+
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -23,10 +27,10 @@
                 <img src="~/img/icons/menu-hamburger.svg" alt="Menu">
             </label>
             <ul class="nav-items-container">
-                <li><a class="nav-item" asp-action="Index" asp-controller="Home">Início</a></li>
-                <li><a class="nav-item" asp-action="Sobre" asp-controller="Home">Sobre</a></li>
-                <li><a class="nav-item" asp-action="Planos" asp-controller="Home">Planos</a></li>
-                <li><a class="nav-item" href="javascript:void(0)">Privacidade</a></li>
+                <li><a class="nav-item @(actionAtual == "Index" ? "selected" : "")" asp-action="Index" asp-controller="Home">Início</a></li>
+                <li><a class="nav-item @(actionAtual == "Sobre" ? "selected" : "")" asp-action="Sobre" asp-controller="Home">Sobre</a></li>
+                <li><a class="nav-item @(actionAtual == "Planos" ? "selected" : "")" asp-action="Planos" asp-controller="Home">Planos</a></li>
+                <li><a class="nav-item @(actionAtual == "Privacidade" ? "selected" : "")" href="javascript:void(0)">Privacidade</a></li>
                 <button class="btn" id="btn-hamburger">Login</button>
             </ul>
             <a href="#" class="btn" id="btn-nav">Login</a>

@@ -3,16 +3,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Aion.Models;
 
-[Table("Curso")]
-public class Curso
+[Table("Atribuicao")]
+public class Atribuicao
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
-    public string Nome { get; set; }
+    public int ProfessorId { get; set; }
 
-    public bool Tipo { get; set; }
+    public int GradeDisciplinasId { get; set; }
 
-    public int QtdeSem { get; set; }
+    public int TurmaId { get; set; }
+
+    public bool Matriz { get; set; }
 }

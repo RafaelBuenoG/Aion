@@ -3,8 +3,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Aion.Models;
 
-[Table("Professores")]
-public class Professores
+[Table("Professor")]
+public class Professor
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

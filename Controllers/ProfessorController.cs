@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Aion.Models;
+using Aion.Data;
 
 namespace Aion.Controllers;
 
@@ -10,9 +11,12 @@ public class ProfessorController : Controller
 {
     private readonly ILogger<ProfessorController> _logger;
 
-    public ProfessorController(ILogger<ProfessorController> logger)
+    private readonly ApplicationDbContext _context;
+
+    public ProfessorController(ILogger<ProfessorController> logger, ApplicationDbContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index()

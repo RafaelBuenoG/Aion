@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Aion.Models;
 
-[Table("Disciplina")]
+[Table("disciplina")]
 public class Disciplina
 {
     [Key]

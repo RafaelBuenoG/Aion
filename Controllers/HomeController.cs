@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Aion.Models;
+using Aion.Data;
 
 namespace Aion.Controllers;
 
@@ -8,19 +9,24 @@ public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;
 
-    public HomeController(ILogger<HomeController> logger)
+    private readonly ApplicationDbContext _context;
+
+    public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
     {
         _logger = logger;
+        _context = context;
     }
 
     public IActionResult Index()
     {
-        return View();
+        var disciplinas = _context.Disciplinas;
+        return View(disciplinas);
     }
 
     public IActionResult Sobre()
     {
-        return View();
+        var disciplinas = _context.Disciplinas;
+        return View(disciplinas);
     }
 
     public IActionResult Planos()

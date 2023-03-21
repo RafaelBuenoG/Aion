@@ -10,7 +10,8 @@ public class PeriodoLetivo
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
-    public DateTime Ano { get; set; }
-
+    public int Ano { get; set; }
+    
     public int Semestre { get; set; }
+
 }

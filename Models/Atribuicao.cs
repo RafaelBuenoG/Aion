@@ -9,7 +9,7 @@ public class Atribuicao
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
-
+    
     public int ProfessorId { get; set; }
 
     public int GradeDisciplinasId { get; set; }

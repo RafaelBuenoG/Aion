@@ -12,7 +12,13 @@ public class Turma
 
     public string Nome { get; set; }
 
-    public DateTime AnoSemIngresso { get; set; }
+    public int AnoSemIngresso { get; set; }
 
+    [ForeignKey("AnoSemIngresso")]
+    public PeriodoLetivo PeriodoLetivo { get; set; }
+    
     public int Grade { get; set; }
+    
+    [ForeignKey("Grade")]
+    public Grade Grade { get; set; }
 }

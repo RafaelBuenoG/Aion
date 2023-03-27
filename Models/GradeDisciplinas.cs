@@ -14,9 +14,19 @@ public class GradeDisciplinas
 
     public int DisciplinaId { get; set; }
 
+    [Required(ErrorMessage = "Informe o Semestre do Ano")]
     public int Semestre { get; set; }
 
+    [Required(ErrorMessage = "Informe se tem divisão")]
     public bool TemDivisao { get; set; }
 
+    [Display(Name = "Carga Horária")]
+    [Required(ErrorMessage = "Informe a Carga Horária")]
     public string CargaHoraria { get; set; }
+
+    [ForeignKey("GradeId")]
+    public Grade Grade { get; set; }
+
+    [ForeignKey("DisciplinaId")]
+    public Disciplina Disciplina { get; set; }
 }

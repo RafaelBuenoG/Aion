@@ -16,5 +16,16 @@ public class Atribuicao
 
     public int TurmaId { get; set; }
 
-    public bool Matriz { get; set; }
+    // Se a Turma for A, a matriz será verdadeira;
+    // Se a turma for B, a matriz será falsa;
+    public bool? Matriz { get; set; }
+
+    [ForeignKey("ProfessorId")]
+    public Professor Professor { get; set; }
+
+    [ForeignKey("GradeDisciplinaId")]
+    public GradeDisciplinas GradeDisciplinas { get; set; }
+
+    [ForeignKey("TurmaId")]
+    public Turma Turma { get; set; }
 }

@@ -10,8 +10,11 @@ public class PeriodoLetivo
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
+    [Required(ErrorMessage = "Informe o Ano")]
     public int Ano { get; set; }
     
+    // valor 1 ou 2
+    [Required(ErrorMessage = "Informe o Semestre do Ano")]
     public int Semestre { get; set; }
 
 }

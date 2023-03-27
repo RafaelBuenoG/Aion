@@ -10,9 +10,14 @@ public class Grade
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
-    public string Curso { get; set; }
+    public string CursoId { get; set; }
 
+    [Required(ErrorMessage = "Informe o Mês e Ano")]
     public DateTime Data { get; set; }
 
+    [StringLength(150, ErrorMessage = "O número só pode conter até 150 caracteres")]
     public string Numero { get; set; }
+
+    [ForeignKey("CursoId")]
+    public Curso Curso{ get; set; }
 }

@@ -1,4 +1,6 @@
 using Aion.Data;
+using Aion.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,13 @@ string connection = builder.Configuration.GetConnectionString("Connection");
 builder.Services.AddDbContext<ApplicationDbContext>(
     options => options.UseMySql(connection, ServerVersion.AutoDetect(connection))
 );
+
+builder.Services.AddIdentity<User, IdentityRole>(options =>
+    options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>()
+    .AddDefaultTokenProviders();
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 

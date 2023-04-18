@@ -1,10 +1,11 @@
 using Aion.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Aion.Data;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<User>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
@@ -25,4 +26,66 @@ public class ApplicationDbContext : DbContext
     public DbSet<PeriodoLetivo> periodoLetivos { get; set; }
 
     public DbSet<Professor> professores { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        #region Populate Roles
+        var roles = new List<IdentityRole>()
+        {
+            new IdentityRole
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = "Administrador",
+                NormalizedName = "ADMINISTRADOR"
+            },
+            new IdentityRole
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = "Professor",
+                NormalizedName = "PROFESSOR"
+            },
+        };
+        builder.Entity<IdentityRole>().HasData(roles);
+        #endregion
+
+        #region Populate Users
+        var hash = new PasswordHasher<User>();
+        byte[] avatarPic = System.IO.File.ReadAllBytes(
+            System.IO.Directory.GetCurrentDirectory() + @"\wwwroot\img\photos\rafael.jpg");
+        var users = new List<User>()
+        {
+            new User
+            {
+                Id = Guid.NewGuid().ToString(),
+                Nome = "Rafael Bueno Gonzales",
+                UserName = "Admin",
+                NormalizedUserName = "ADMIN",
+                Email = "rafaelbuenog2020@gmail.com",
+                NormalizedEmail = "RAFAELBUENOG2020@GMAIL.COM",
+                EmailConfirmed = true,
+                PasswordHash = hash.HashPassword(null, "123456"),
+                SecurityStamp = hash.GetHashCode().ToString(),
+                FotoPerfil = avatarPic,
+                DataNasc = DateTime.Parse("17/09/2005")
+            }
+        };
+        #endregion
+
+        #region Populate User Role
+        builder.Entity<IdentityUserRole<string>>().HasData(
+            new IdentityUserRole<string>
+            {
+                UserId = users[0].Id,
+                RoleId = roles[0].Id
+            },
+            new IdentityUserRole<string>
+            {
+                UserId = users[0].Id,
+                RoleId = roles[1].Id
+            }
+        );
+        #endregion
+    }
 }

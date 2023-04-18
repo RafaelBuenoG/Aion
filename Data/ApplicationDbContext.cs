@@ -71,6 +71,7 @@ public class ApplicationDbContext : IdentityDbContext<User>
                 DataNasc = DateTime.Parse("17/09/2005")
             }
         };
+        builder.Entity<User>().HasData(users);
         #endregion
 
         #region Populate User Role

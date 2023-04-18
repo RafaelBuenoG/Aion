@@ -10,7 +10,7 @@ public class Grade
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
 
-    public string CursoId { get; set; }
+    public int CursoId { get; set; }
 
     [Required(ErrorMessage = "Informe o Mês e Ano")]
     public DateTime Data { get; set; }

@@ -19,14 +19,17 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        var disciplinas = _context.Disciplinas;
-        return View(disciplinas);
+        return View();
     }
 
     public IActionResult Sobre()
     {
+        // Testes
+        
         var disciplinas = _context.Disciplinas;
         return View(disciplinas);
+
+        // Testes
     }
 
     public IActionResult Planos()

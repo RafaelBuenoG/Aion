@@ -2,9 +2,11 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Aion.Models;
 using Aion.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Aion.Controllers;
 
+[Authorize(Roles = "Administrador")]
 public class AdminController : Controller
 {
     private readonly ILogger<AdminController> _logger;

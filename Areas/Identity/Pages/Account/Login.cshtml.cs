@@ -45,16 +45,15 @@ namespace Aion.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required(ErrorMessage = "Informe seu e-mail ou nome de usuário")]
-            [EmailAddress(ErrorMessage = "Informe um e-mail válido")]
-            [Display(Name = "E-mail / Usuário", Prompt = "E-mail / Usuário")]
+            [Display(Name = "E-mail / Usuário")]
             public string Email { get; set; }
 
             [Required(ErrorMessage = "Informe sua senha")]
             [DataType(DataType.Password)]
-            [Display(Name = "Senha", Prompt = "Senha")]
+            [Display(Name = "Senha")]
             public string Password { get; set; }
 
-            [Display(Name = "Manter Conectado?")]
+            [Display(Name = "Lembrar")]
             public bool RememberMe { get; set; } = false;
         }
 

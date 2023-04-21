@@ -1,5 +1,5 @@
 ﻿@{
-    var actionAtual = ViewContext.RouteData.Values["action"].ToString();
+    var actionAtual = ViewContext.RouteData.Values["action"] != null ? ViewContext.RouteData.Values["action"].ToString() : "login";
 }
 
 <!DOCTYPE html>

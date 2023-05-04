@@ -80,19 +80,20 @@ form
     width: 80%;
     padding: 30px 0px 40px 0px;
     color: var(--purple01);
-    gap: 20px;
+    gap: 15px;
 }
 
 .title-form
 {
     font-size: var(--medium-title);
     font-weight: 300;
+    margin-bottom: 15px;
 }
 
 .field
 {
     position: relative;
-    margin: 15px 0;
+    margin: 15px 0 0;
 }
 
 .error
@@ -129,6 +130,7 @@ form
 {
     display: flex;
     justify-content: space-between;
+    margin-top: 15px;
 }
 
 .remember-container

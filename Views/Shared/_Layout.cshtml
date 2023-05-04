@@ -35,7 +35,7 @@
                 <li><a class="nav-item @(actionAtual == "Privacidade" ? "selected" : "")" href="javascript:void(0)">Privacidade</a></li>
                 <button class="btn" id="btn-hamburger">Login</button>
             </ul>
-            <a href="#" class="btn" id="btn-nav">Login</a>
+            <a asp-area="Identity" asp-page="/Account/Login" class="btn" id="btn-nav">Login</a>
         </nav>
     </header>
 

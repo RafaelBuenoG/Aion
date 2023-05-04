@@ -19,12 +19,12 @@
             <h1 class="title-form">Faça Login</h1>
             <div class="field">
                 <input asp-for="Input.Email" class="inp-field" type="text" required>
-                <label asp-for="Input.Email" class="form-label" for="username">@Html.DisplayNameFor(m => m.Input.Email)</label>
+                <label asp-for="Input.Email" class="form-label" for="username"></label>
                 <span asp-validation-for="Input.Email" class="error"></span>
             </div>
             <div class="field">
                 <input asp-for="Input.Password" class="inp-field" type="password" required>
-                <label asp-for="Input.Password" class="form-label" for="password">@Html.DisplayNameFor(m => m.Input.Password)</label>
+                <label asp-for="Input.Password" class="form-label" for="password"></label>
                 <span asp-validation-for="Input.Password" class="error"></span>
             </div>
             <div class="remember-forgot">
@@ -40,7 +40,7 @@
         <button class="btn" type="submit">Login</button>
         <div class="line"></div>
         <div class="signup-container">
-            <a href="signup.html" class="signup">Não possui um cadastro?</a>
+            <a asp-area="Identity" asp-page="Register" class="signup">Não possui um cadastro?</a>
         </div>
     </form>
 </section>

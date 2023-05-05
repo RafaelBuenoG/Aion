@@ -102,6 +102,13 @@ html, body
     font-size: 1.8em;
 }
 
+.btn-modal
+{
+    width: 150px;
+    height: 50px;
+    font-size: 1.2em;
+}
+
 .btn-purple
 {
     background-image: none;
@@ -119,6 +126,55 @@ html, body
 .gap15
 {
     gap: 15px;
+}
+
+/* Modal */
+
+.modal
+{
+    width: 500px;
+    padding: 25px;
+    border-radius: 20px;
+    background-color: red;
+}
+
+.title-modal
+{
+    font-size: 1.5em;
+    padding-bottom: 20px;
+}
+
+.field-container
+{
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 20px;
+    padding-bottom: 30px;
+}
+
+.field-modal
+{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-modal > label
+{
+    width: fit-content;
+    font-size: 1.3em;
+}
+
+.inp-modal
+{
+    width: 400px;
+    height: 40px;
+    padding: 8px 15px;
+    border-radius: 15px;
+    background-color: var(--white01);
+    font-size: 1.1em;
 }
 
 /* Default Checkbox */
@@ -145,7 +201,6 @@ html, body
     background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%237D14C1' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
     background-position: center;
 }
-
 
 /* MEDIA QUERYS */
 

@@ -8,10 +8,10 @@
     <div class="header-title-container pad-left">
         <h1 class="header-title">Professores cadastrados</h1>
     </div>
-    <a href="admin-professores-add.html" class="add-container pad-right">
+    <button href="admin-professores-add.html" class="add-container pad-right btn-modal">
         <img class="add-icon" src="~/img/icons/add.svg" alt="add">
         <span class="add-title">Adicionar</span>
-    </a>
+    </button>
 </header>
 <section class="table-container">
     <div class="table">
@@ -50,9 +50,14 @@
         </div>
     </div>
 </section>
-<section class="modal hide">
-    <form method="post" class="form-add">
-        <h1 class="title-modal">Adicionar Professor</h1>
+<section class="modal">
+    <form method="post" class="form-modal">
+        <div class="title-modal-container">
+            <h1 class="title-modal">Adicionar Professor</h1>
+            <button class="close-modal">
+                <img src="~/img/icons/close-rounded.svg" alt="Close">
+            </button>
+        </div>
         <div class="field-container">
             <div class="field-modal">
                 <label for="">Nome</label>
@@ -66,3 +71,7 @@
         <button class="btn btn-modal">Adicionar</button>
     </form>
 </section>
+
+@section Scripts{
+    <script src="~/js/modal.js"></script>
+}

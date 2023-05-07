@@ -51,27 +51,56 @@
     </div>
 </section>
 <section class="modal">
-    <form method="post" class="form-modal">
+    <div class="form-modal">
         <div class="title-modal-container">
             <h1 class="title-modal">Adicionar Professor</h1>
             <button class="close-modal">
                 <img src="~/img/icons/close-rounded.svg" alt="Close">
             </button>
         </div>
-        <div class="field-container">
+        <form method="post" class="field-container">
             <div class="field-modal">
-                <label for="">Nome</label>
-                <input class="inp-modal" type="text" name="" id="" placeholder="Nome">
+                <label for="name">Nome Completo</label>
+                <input class="inp-modal" type="text" id="name" placeholder="Nome">
             </div>
             <div class="field-modal">
-                <label for="">Email</label>
-                <input class="inp-modal" type="text" name="" id="" placeholder="Email">
+                <label for="email">E-mail</label>
+                <input class="inp-modal" type="email" id="email" placeholder="Email">
             </div>
-        </div>
-        <button class="btn btn-modal">Adicionar</button>
-    </form>
+            <div class="field-modal">
+                <label for="select-modal">Matérias</label>
+                <input type="text" class="select-modal" id="select-modal" placeholder="Selecione as Matérias">
+                <div class="dropdown-select">
+                    <div class="list-dropdown-select">
+                        <div class="item-select-container">
+                            <input class="check-select" type="checkbox" id="item-select-0">
+                            <label for="item-select-0" class="item-select" id="items-0" onmousedown="category(0)">Matemática</label>
+                        </div>
+                        <div class="item-select-container">
+                            <input class="check-select" type="checkbox" id="item-select-1">
+                            <label for="item-select-1" class="item-select" id="items-1" onmousedown="category(1)">Física</label>
+                        </div>
+                        <div class="item-select-container">
+                            <input class="check-select" type="checkbox" id="item-select-2">
+                            <label for="item-select-2" class="item-select" id="items-2" onmousedown="category(2)">Português</label>
+                        </div>
+                        <div class="item-select-container">
+                            <input class="check-select" type="checkbox" id="item-select-3">
+                            <label for="item-select-3" class="item-select" id="items-3" onmousedown="category(3)">Biologia</label>
+                        </div>
+                        <div class="item-select-container">
+                            <input class="check-select" type="checkbox" id="item-select-4">
+                            <label for="item-select-4" class="item-select" id="items-4" onmousedown="category(4)">História</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-modal">Adicionar</button>
+        </form>
+    </div>
 </section>
 
 @section Scripts{
     <script src="~/js/modal.js"></script>
+    <script src="~/js/multi-select.js"></script>
 }

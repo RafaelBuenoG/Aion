@@ -104,9 +104,10 @@ html, body
 
 .btn-modal
 {
-    width: 150px;
-    height: 50px;
-    font-size: 1.2em;
+    width: 160px;
+    height: 55px;
+    font-size: 1.3em;
+    margin-top: 10px;
 }
 
 .btn-purple
@@ -147,8 +148,8 @@ html, body
 
 .form-modal
 {
-    width: 500px;
-    padding: 25px;
+    width: 30%;
+    padding: 30px;
     border-radius: 20px;
     background-color: white;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
@@ -181,6 +182,7 @@ html, body
 .title-modal
 {
     font-size: 1.5em;
+    font-weight: 500;
     padding-bottom: 20px;
 }
 
@@ -189,8 +191,7 @@ html, body
     display: flex;
     flex-direction: column;
     width: fit-content;
-    gap: 20px;
-    padding-bottom: 30px;
+    gap: 25px;
 }
 
 .field-modal
@@ -198,23 +199,101 @@ html, body
     width: auto;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .field-modal > label
 {
     width: fit-content;
-    font-size: 1.3em;
+    font-size: 1.2em;
 }
 
 .inp-modal
 {
-    width: 400px;
+    width: 22vw;
     height: 40px;
     padding: 8px 15px;
     border-radius: 15px;
     background-color: var(--white01);
-    font-size: 1.1em;
+    font-size: 1.05em;
+}
+
+/* Default Select */
+
+.select-modal
+{
+    width: 22vw;
+    height: 40px;
+    padding: 8px 15px;
+    border-radius: 15px;
+    background-color: var(--white01);
+    font-size: 1.05em;
+}
+
+.dropdown-select
+{
+    width: 22vw;
+    height: 15vh;
+    background-color: var(--white01);
+    border-radius: 12px;
+    overflow: auto;
+    display: none;
+}
+
+.dropdown-show
+{
+    display: block;
+}
+
+.item-select
+{
+    display: flex;
+    align-items: center;
+    font-size: 1.15em;
+    padding-left: 20px;
+    color: var(--gray02);
+    height: 40px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.item-select:hover
+{
+    background-color: var(--white03);
+    padding-left: 25px;
+    transition: .3s;
+}
+
+.item-select-container
+{
+    position: relative;
+}
+
+.check-select
+{
+    display: none;
+}
+
+.check-select + label::after
+{
+    content: '';
+    position: absolute;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    display: none;
+}
+
+.check-select:checked + label::after
+{
+    display: block;
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%237D14C1' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: center;
+}
+
+.check-select:checked + .item-select
+{
+    padding-left: 25px;
 }
 
 /* Default Checkbox */

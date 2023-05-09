@@ -71,18 +71,67 @@ body    /* for the content to stay in lines */
     font-weight: 300;
 }
 
-.btn-logout-container
+
+
+
+
+.btn-side-container
 {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 12px 0px;
-    gap: 15px;
+    position: relative;
+    height: 6%;
+    border-top: 1px solid var(--white01);
     border-bottom-right-radius: 20px;
-    background-color: var(--red01);
+    background-color: transparent;
 }
 
-.btn-logout-container:hover
+.btn-side-user
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-color: transparent;
+    border-right: 1px solid var(--white03);
+    gap: 5%;
+    cursor: pointer;
+}
+
+.btn-side-user:hover
+{
+    background-color: var(--purple05);
+    transition: .15s;
+}
+
+.btn-side-user img
+{
+    width: 35px;
+}
+
+.btn-side-user span
+{
+    width: auto;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: var(--small-title);
+    font-weight: 300;
+}
+
+.btn-side-logout
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    height: 100%;
+    background-color: var(--red01);
+    border-bottom-right-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-side-logout:hover
 {
     background-color: var(--red02);
     transition: .1s;
@@ -90,13 +139,5 @@ body    /* for the content to stay in lines */
 
 .logout-icon
 {
-    width: 25px;
-}
-
-.btn-logout
-{
-    width: 50%;
-    font-size: var(--p-size);
-    color: white;
-    background-color: transparent;
+    width: 30px;
 }

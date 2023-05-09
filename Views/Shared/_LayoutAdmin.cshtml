@@ -52,10 +52,15 @@
                 </a>
             </li>
         </ul>
-        <a href="javascript:void(0)" class="btn-logout-container">
-            <img class="logout-icon" src="~/img/icons/leave.svg" alt="Sair">
-            <span class="btn-logout">Sair da conta</span>
-        </a>
+        <div class="btn-side-container">
+            <button class="btn-side-user">
+                <img src="~/img/icons/profile-white.svg" alt="">
+                <span>@User.Identity.Name</span>
+            </button>
+            <button class="btn-side-logout">
+                <img class="logout-icon" src="~/img/icons/leave.svg" alt="Sair">
+            </button>
+        </div>
     </nav>
 
     <main>

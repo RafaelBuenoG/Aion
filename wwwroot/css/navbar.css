@@ -103,6 +103,36 @@ header
     transform: scaleX(1);
 }
 
+/* Username */
+
+.user-container
+{
+    display: flex;
+    width: auto;
+    align-items: center;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#username
+{
+    width: auto;
+    font-size: var(--small-title);
+    font-weight: 600;
+    color: var(--purple02);
+    font-family: 'Poppins', sans-serif;
+}
+
+.user-arrow
+{
+    width: 45px;
+}
+
+.user-picture
+{
+    width: 45px;
+}
+
 /* Dont show the button */
 
 .hidden-btn

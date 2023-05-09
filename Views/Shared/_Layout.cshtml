@@ -1,4 +1,10 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using Aion.Models
+
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
+
+@{
     var actionAtual = ViewContext.RouteData.Values["action"] != null ? ViewContext.RouteData.Values["action"].ToString() : "login";
 }
 
@@ -35,7 +41,18 @@
                 <li><a class="nav-item @(actionAtual == "Privacidade" ? "selected" : "")" href="javascript:void(0)">Privacidade</a></li>
                 <button class="btn" id="btn-hamburger">Login</button>
             </ul>
-            <a asp-area="Identity" asp-page="/Account/Login" class="btn" id="btn-nav">Login</a>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <button class="user-container">
+                    <span id="username">@User.Identity.Name</span>
+                    <img class="user-arrow" src="~/img/icons/arrow-down-purple.svg" alt="Mostrar Mais">
+                    <img class="user-picture" src="~/img/icons/profile.svg" alt="Perfil">
+                </button>
+            }
+            else
+            {
+                <a asp-area="Identity" asp-page="/Account/Login" class="btn" id="btn-nav">Login</a>
+            }
         </nav>
     </header>
 

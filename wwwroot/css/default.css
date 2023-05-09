@@ -129,7 +129,7 @@ html, body
     gap: 15px;
 }
 
-/* Modal */
+/* Default Modal Add */
 
 .modal
 {
@@ -146,7 +146,7 @@ html, body
     transition: opacity 0.15s;
 }
 
-.form-modal
+.modal-container
 {
     width: 30%;
     padding: 30px;
@@ -186,7 +186,7 @@ html, body
     padding-bottom: 20px;
 }
 
-.field-container
+.form-modal
 {
     display: flex;
     flex-direction: column;
@@ -243,13 +243,16 @@ html, body
     background-color: var(--white01);
     border-radius: 12px;
     overflow: auto;
-    display: none;
     position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s;
 }
 
 .dropdown-show
 {
-    display: block;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .item-select

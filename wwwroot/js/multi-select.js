@@ -1,28 +1,36 @@
 const inp = document.querySelector('.select-modal');
+const label = document.querySelector('#label-modal')
 const dropDown = document.querySelector('.dropdown-select');
-const blurDrop = document.querySelector('.form-modal')
+const blurDrop = document.querySelector('.modal-container')
 
 const ActiveDropDownClass = 'dropdown-show';
 
-const openDropDown = () => dropDown.classList.add(ActiveDropDownClass);
-const closeDropDown = () => dropDown.classList.remove(ActiveDropDownClass);
+const closeDropDown = () => {
+    dropDown.classList.remove(ActiveDropDownClass);
+    inp.blur()
+}
+const openDropDown = () => {
+    dropDown.classList.add(ActiveDropDownClass);
+    inp.blur()
+}
 
-
-inp.addEventListener('focus', openDropDown);
-// inp.addEventListener('blur', CloseDropDown);
-
-blurDrop.addEventListener('mousedown', (event) => {
-    if (!dropDown.contains(event.target)) closeDropDown()
-    
-    return;
+inp.addEventListener('focus', () => {
+    dropDown.classList.contains(ActiveDropDownClass) ? closeDropDown() : openDropDown()
 })
 
+blurDrop.addEventListener('mousedown', (event) => {
+    if (blurDrop.contains(event.target) && !inp.contains(event.target)
+    && !label.contains(event.target) && !dropDown.contains(event.target))
+    closeDropDown()
+})
+
+// Select Box
 
 let items = []
 
-function category(c)
+function select(id)
 {
-    const nameItem = document.querySelector(`#items-${c}`).innerHTML
+    const nameItem = document.querySelector(`#items-${id}`).innerHTML
     let pos = items.indexOf(nameItem)
 
     if (pos == -1)
@@ -35,9 +43,4 @@ function category(c)
     }
 
     document.querySelector('.select-modal').value = items;
-
-    console.log('posicao: ' + pos);
-    console.log('c: ' + c);
-    console.log(items);
-    console.log('----------------');
 }

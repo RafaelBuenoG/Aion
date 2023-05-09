@@ -51,14 +51,14 @@
     </div>
 </section>
 <section class="modal">
-    <div class="form-modal">
+    <div class="modal-container">
         <div class="title-modal-container">
             <h1 class="title-modal">Adicionar Professor</h1>
             <button class="close-modal">
                 <img src="~/img/icons/close-rounded.svg" alt="Close">
             </button>
         </div>
-        <form method="post" class="field-container">
+        <form method="post" class="form-modal">
             <div class="field-modal">
                 <label for="name">Nome Completo</label>
                 <input class="inp-modal" type="text" id="name" placeholder="Nome">
@@ -68,29 +68,29 @@
                 <input class="inp-modal" type="email" id="email" placeholder="Email">
             </div>
             <div class="field-modal">
-                <label for="select-modal">Matérias</label>
+                <label for="select-modal" id="label-modal">Matérias</label>
                 <input type="text" class="select-modal" id="select-modal" placeholder="Selecione as Matérias" readonly>
                 <div class="dropdown-container">
                     <div class="dropdown-select">
                         <div class="item-select-container">
                             <input class="check-select" type="checkbox" id="item-select-0">
-                            <label for="item-select-0" class="item-select" id="items-0" onmousedown="category(0)">Matemática</label>
+                            <label for="item-select-0" class="item-select" id="items-0" onmousedown="select(0)">Matemática</label>
                         </div>
                         <div class="item-select-container">
                             <input class="check-select" type="checkbox" id="item-select-1">
-                            <label for="item-select-1" class="item-select" id="items-1" onmousedown="category(1)">Física</label>
+                            <label for="item-select-1" class="item-select" id="items-1" onmousedown="select(1)">Física</label>
                         </div>
                         <div class="item-select-container">
                             <input class="check-select" type="checkbox" id="item-select-2">
-                            <label for="item-select-2" class="item-select" id="items-2" onmousedown="category(2)">Português</label>
+                            <label for="item-select-2" class="item-select" id="items-2" onmousedown="select(2)">Português</label>
                         </div>
                         <div class="item-select-container">
                             <input class="check-select" type="checkbox" id="item-select-3">
-                            <label for="item-select-3" class="item-select" id="items-3" onmousedown="category(3)">Biologia</label>
+                            <label for="item-select-3" class="item-select" id="items-3" onmousedown="select(3)">Biologia</label>
                         </div>
                         <div class="item-select-container">
                             <input class="check-select" type="checkbox" id="item-select-4">
-                            <label for="item-select-4" class="item-select" id="items-4" onmousedown="category(4)">História</label>
+                            <label for="item-select-4" class="item-select" id="items-4" onmousedown="select(4)">História</label>
                         </div>
                     </div>
                 </div>

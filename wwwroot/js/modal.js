@@ -3,7 +3,7 @@ const getElement = (...queries) => document.querySelector(...queries);
 const btnOpen = getElement('.btn-modal');
 const btnClose = getElement('.close-modal');
 const background = getElement('.modal');
-const modal = getElement('.form-modal');
+const modal = getElement('.modal-container');
 
 const activeModalClass = 'modal-show';
 

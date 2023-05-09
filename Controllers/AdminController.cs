@@ -29,6 +29,37 @@ public class AdminController : Controller
         return View();
     }
 
+    [HttpPost]
+    public IActionResult Professores(string name, string email, string subjects)
+    {
+        // Cria e cadastra o professor
+        string userName = name.Split(' ')[0] + "." + name.Split(' ')[name.Split(' ').Count() - 1];
+        Professor prof = new()
+        {
+            Nome = name,
+            Email = email,
+            Telefone = "0",
+            Usuario = userName,
+            Senha = "@Aion123"
+        };
+        _context.professores.Add(prof);
+        _context.SaveChanges();
+
+        foreach (var subject in subjects.Split(','))
+        {
+            //int disciplinaId = _context.Disciplinas.FirstOrDefault(d => d.Nome.Equals(subject)).Id;
+            var formacao = new Formacao()
+            {
+                ProfessorId = prof.Id,
+                DisciplinaId = _context.disciplinas.FirstOrDefault(d => d.Nome.Equals(subject)).Id
+            };
+            _context.formacoes.Add(formacao);
+        }
+        _context.SaveChanges();
+        
+        return View();
+    }
+
     public IActionResult Horarios()
     {
         return View();

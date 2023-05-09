@@ -58,18 +58,18 @@
                 <img src="~/img/icons/close-rounded.svg" alt="Close">
             </button>
         </div>
-        <form method="post" class="form-modal">
+        <form asp-action="Professores" method="post" class="form-modal">
             <div class="field-modal">
                 <label for="name">Nome Completo</label>
-                <input class="inp-modal" type="text" id="name" placeholder="Nome">
+                <input class="inp-modal" type="text" id="name" name="name" placeholder="Nome">
             </div>
             <div class="field-modal">
                 <label for="email">E-mail</label>
-                <input class="inp-modal" type="email" id="email" placeholder="Email">
+                <input class="inp-modal" type="email" id="email" name="email" placeholder="Email">
             </div>
             <div class="field-modal">
                 <label for="select-modal" id="label-modal">Matérias</label>
-                <input type="text" class="select-modal" id="select-modal" placeholder="Selecione as Matérias" readonly>
+                <input type="text" class="select-modal" id="select-modal" name="subjects" placeholder="Selecione as Matérias" readonly>
                 <div class="dropdown-container">
                     <div class="dropdown-select">
                         <div class="item-select-container">

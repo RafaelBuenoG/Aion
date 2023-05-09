@@ -26,7 +26,7 @@ public class HomeController : Controller
     {
         // Testes
         
-        var disciplinas = _context.Disciplinas;
+        var disciplinas = _context.disciplinas;
         return View(disciplinas);
 
         // Testes

@@ -15,9 +15,11 @@ public class ApplicationDbContext : IdentityDbContext<User>
 
     public DbSet<Curso> cursos { get; set; }
 
-    public DbSet<Disciplina> Disciplinas { get; set; }
+    public DbSet<Disciplina> disciplinas { get; set; }
 
     public DbSet<Disponibilidade> disponibilidades { get; set; }
+
+    public DbSet<Formacao> formacoes { get; set; }
 
     public DbSet<Grade> grades { get; set; }
 

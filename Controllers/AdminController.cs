@@ -30,7 +30,7 @@ public class AdminController : Controller
     }
 
     [HttpPost]
-    public IActionResult Professores(string name, string email, string subjects)
+    public IActionResult Professores(string name, string email, string phone, string subjects)
     {
         // Cria e cadastra o professor
         string userName = name.Split(' ')[0] + "." + name.Split(' ')[name.Split(' ').Count() - 1];
@@ -38,7 +38,7 @@ public class AdminController : Controller
         {
             Nome = name,
             Email = email,
-            Telefone = "0",
+            Telefone = phone,
             Usuario = userName,
             Senha = "@Aion123"
         };

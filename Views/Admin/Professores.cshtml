@@ -76,26 +76,13 @@
                 <input type="text" class="select-modal" id="select-modal" name="subjects" placeholder="Selecione as Matérias" readonly>
                 <div class="dropdown-container">
                     <div class="dropdown-select">
-                        <div class="item-select-container">
-                            <input class="check-select" type="checkbox" id="item-select-0">
-                            <label for="item-select-0" class="item-select" id="items-0" onmousedown="select(0)">Matemática</label>
-                        </div>
-                        <div class="item-select-container">
-                            <input class="check-select" type="checkbox" id="item-select-1">
-                            <label for="item-select-1" class="item-select" id="items-1" onmousedown="select(1)">Física</label>
-                        </div>
-                        <div class="item-select-container">
-                            <input class="check-select" type="checkbox" id="item-select-2">
-                            <label for="item-select-2" class="item-select" id="items-2" onmousedown="select(2)">Português</label>
-                        </div>
-                        <div class="item-select-container">
-                            <input class="check-select" type="checkbox" id="item-select-3">
-                            <label for="item-select-3" class="item-select" id="items-3" onmousedown="select(3)">Biologia</label>
-                        </div>
-                        <div class="item-select-container">
-                            <input class="check-select" type="checkbox" id="item-select-4">
-                            <label for="item-select-4" class="item-select" id="items-4" onmousedown="select(4)">História</label>
-                        </div>
+                        @foreach (var materia in ViewBag.Materias)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select" type="checkbox" id="item-select-@materia.Id">
+                                <label for="item-select-@materia.Id" class="item-select" id="items-@materia.Id" onmousedown="select(@materia.Id)">@materia.Nome</label>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

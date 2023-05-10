@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Aion.Models;
 using Aion.Data;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 
 namespace Aion.Controllers;
 
@@ -24,8 +25,21 @@ public class AdminController : Controller
         return View();
     }
 
+    [HttpPost]
+    public IActionResult Index(string name)
+    {
+        Disciplina sub = new()
+        {
+            Nome = name
+        };
+        _context.disciplinas.Add(sub);
+        _context.SaveChanges();
+        return View();
+    }
+
     public IActionResult Professores()
     {
+        ViewData["Materias"] = _context.disciplinas.OrderBy(d => d.Nome);
         return View();
     }
 

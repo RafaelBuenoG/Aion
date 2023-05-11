@@ -22,7 +22,8 @@ public class AdminController : Controller
 
     public IActionResult Index()
     {
-        return View();
+        List<Professor> professores = _context.professores.ToList();
+        return View(professores);
     }
 
     [HttpPost]

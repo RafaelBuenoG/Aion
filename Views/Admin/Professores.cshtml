@@ -1,3 +1,5 @@
+@model List<Professor>
+
 @{
     ViewData["Title"] = "Home Page";
     ViewBag.Subtitulo = "Professores";
@@ -17,36 +19,13 @@
     <div class="table">
         <span class="msg-table hide">Nenhum professor cadastrado</span>
         <div class="teacher-container" id="">
-            <a href="javascript:void(0)" class="teacher">
-                <div class="teacher-btn">
-                    <span class="teacher-name">José Gallo Junior</span>
+            @foreach (var professores in Model)
+            {
+                <button class="teacher" id="teacher">
+                    <label for="teacher" class="teacher-name">José Gallo Junior @professores.Id</label>
                     <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Mostrar mais">
-                </div>
-            </a>
-            <a href="javascript:void(0)" class="teacher">
-                <div class="teacher-btn">
-                    <span class="teacher-name">Márcio de Moraes</span>
-                    <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Show More">
-                </div>
-            </a>
-            <a href="javascript:void(0)" class="teacher">
-                <div class="teacher-btn">
-                    <span class="teacher-name">Edriano Campana</span>
-                    <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Show More">
-                </div>
-            </a>
-            <a href="javascript:void(0)" class="teacher">
-                <div class="teacher-btn">
-                    <span class="teacher-name">Ronan Zenatti</span>
-                    <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Show More">
-                </div>
-            </a>
-            <a href="javascript:void(0)" class="teacher">
-                <div class="teacher-btn">
-                    <span class="teacher-name">Sérgio Lacerda</span>
-                    <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Show More">
-                </div>
-            </a>
+                </button>
+            }
         </div>
     </div>
 </section>

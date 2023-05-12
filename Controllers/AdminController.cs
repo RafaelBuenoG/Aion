@@ -73,13 +73,14 @@ public class AdminController : Controller
             var formacao = new Formacao()
             {
                 ProfessorId = prof.Id,
-                DisciplinaId = _context.disciplinas.FirstOrDefault(d => d.Nome.Equals(subjects)).Id
+                DisciplinaId = _context.disciplinas.FirstOrDefault(d => d.Nome.Equals(subject)).Id
             };
             _context.formacoes.Add(formacao);
         }
         _context.SaveChanges();
-
+        
         // Recarrega automáticamente a página quando adicionado
+        ViewData["Materias"] = _context.disciplinas.OrderBy(m => m.Nome);
         List<Professor> professores = _context.professores.ToList();
         return View(professores);
     }

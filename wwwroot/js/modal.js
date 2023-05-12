@@ -4,6 +4,8 @@ const btnOpen = getElement('.btn-modal');
 const btnClose = getElement('.close-modal');
 const background = getElement('.modal');
 const modal = getElement('.modal-container');
+const formSubjects = getElement('#form-subjects')
+const formTeachers = getElement('#form-teachers')
 const form = getElement('#form')
 
 const activeModalClass = 'modal-show';
@@ -20,9 +22,11 @@ background.addEventListener('mousedown', (event) => {
     return;
 })
 
-// Limpar formulário
+// Limpar formulário dos professores
 
-// form.addEventListener('submit', () => {
+// form.addEventListener('submit', (event) => {
+//     event.defaultPrevented();
+// 
 //     document.querySelector("[name='name']").value = ''
 //     document.querySelector("[name='email']").value = ''
 //     document.querySelector("[name='phone']").value = ''
@@ -30,7 +34,7 @@ background.addEventListener('mousedown', (event) => {
 // 
 //     qtdeCheckboxes = document.querySelectorAll("[type='checkbox']")
 //     for (var checkbox of qtdeCheckboxes) checkbox.checked = false
-// 
-//     // Deleta os itens no array do select
+
+    // Deleta os itens no array do select
 //     deleteItems()
 // })

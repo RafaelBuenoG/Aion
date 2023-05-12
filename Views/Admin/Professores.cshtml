@@ -1,5 +1,4 @@
 @model List<Professor>
-
 @{
     ViewData["Title"] = "Home Page";
     ViewBag.Subtitulo = "Professores";
@@ -22,7 +21,7 @@
             @foreach (var professores in Model)
             {
                 <button class="teacher" id="teacher">
-                    <label for="teacher" class="teacher-name">José Gallo Junior @professores.Id</label>
+                    <label for="teacher" class="teacher-name">@professores.Nome</label>
                     <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Mostrar mais">
                 </button>
             }

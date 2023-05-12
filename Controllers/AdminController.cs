@@ -22,8 +22,7 @@ public class AdminController : Controller
 
     public IActionResult Index()
     {
-        List<Professor> professores = _context.professores.ToList();
-        return View(professores);
+        return View();
     }
 
     [HttpPost]
@@ -41,7 +40,8 @@ public class AdminController : Controller
     public IActionResult Professores()
     {
         ViewData["Materias"] = _context.disciplinas.OrderBy(d => d.Nome);
-        return View();
+        List<Professor> professores = _context.professores.ToList();
+        return View(professores);
     }
 
     [HttpPost]
@@ -71,8 +71,9 @@ public class AdminController : Controller
             _context.formacoes.Add(formacao);
         }
         _context.SaveChanges();
-        
-        return View();
+
+        List<Professor> professores = _context.professores.ToList();
+        return View(professores);
     }
 
     public IActionResult Horarios()

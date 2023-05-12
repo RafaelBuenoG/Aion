@@ -22,7 +22,10 @@ public class AdminController : Controller
 
     public IActionResult Index()
     {
-        return View();
+
+        List<Disciplina> materias = _context.disciplinas.ToList();
+        ViewData["hasMateria"] = materias.Count() < 1 ? false : true;
+        return View(materias);
     }
 
     [HttpPost]
@@ -34,13 +37,17 @@ public class AdminController : Controller
         };
         _context.disciplinas.Add(sub);
         _context.SaveChanges();
-        return View();
+
+        // Recarrega automáticamente a página quando adicionado
+        List<Disciplina> materias = _context.disciplinas.ToList();
+        return View(materias);
     }
 
     public IActionResult Professores()
     {
-        ViewData["Materias"] = _context.disciplinas.OrderBy(d => d.Nome);
+        ViewData["Materias"] = _context.disciplinas.OrderBy(m => m.Nome);
         List<Professor> professores = _context.professores.ToList();
+        ViewData["hasProfessor"] = professores.Count() < 1 ? false : true;
         return View(professores);
     }
 
@@ -48,13 +55,13 @@ public class AdminController : Controller
     public IActionResult Professores(string name, string email, string phone, string subjects)
     {
         // Cria e cadastra o professor
-        string userName = name.Split(' ')[0] + "." + name.Split(' ')[name.Split(' ').Count() - 1];
+        //string userName = name.Split(' ')[0] + "." + name.Split(' ')[name.Split(' ').Count() - 1];
         Professor prof = new()
         {
             Nome = name,
             Email = email,
             Telefone = phone,
-            Usuario = userName,
+            Usuario = "userName",
             Senha = "@Aion123"
         };
         _context.professores.Add(prof);
@@ -66,12 +73,13 @@ public class AdminController : Controller
             var formacao = new Formacao()
             {
                 ProfessorId = prof.Id,
-                DisciplinaId = _context.disciplinas.FirstOrDefault(d => d.Nome.Equals(subject)).Id
+                DisciplinaId = _context.disciplinas.FirstOrDefault(d => d.Nome.Equals(subjects)).Id
             };
             _context.formacoes.Add(formacao);
         }
         _context.SaveChanges();
 
+        // Recarrega automáticamente a página quando adicionado
         List<Professor> professores = _context.professores.ToList();
         return View(professores);
     }

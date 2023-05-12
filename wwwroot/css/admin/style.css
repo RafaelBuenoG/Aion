@@ -88,14 +88,14 @@ header
 }
 
 
-.teacher-container
+.table-item
 {
     display: flex;
     flex-direction: column;
     gap: 40px;
 }
 
-.teacher
+.table-item-button
 {
     background-color: var(--white01);
     padding: 5px;
@@ -107,7 +107,7 @@ header
     font-family: 'Poppins', sans-serif;
 }
 
-.teacher-name
+.table-item-name
 {
     width: auto;
     color: black;
@@ -116,7 +116,7 @@ header
     cursor: pointer;
 }
 
-.arrow-icon
+.table-item-button img
 {
     width: 50px;
 }

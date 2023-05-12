@@ -1,3 +1,5 @@
+@model List<Disciplina>
+
 @{
     ViewData["Title"] = "Home Page";
     ViewBag.Subtitulo = "Matérias";
@@ -14,10 +16,26 @@
     </button>
 </header>
 <section class="table-container">
-    <div class="table">
-        <span class="msg-table" id="">Nenhuma matéria cadastrada, @User.Identity.Name</span>
-        <!-- Dados da tabela aqui -->
-    </div>
+    @if (ViewBag.hasMateria == false)
+    {
+        <div class="table">
+            <span class="msg-table">Nenhuma matéria cadastrada</span>
+        </div>
+    }
+    else
+    {
+        <div class="table">
+            <div class="table-item">
+                @foreach (var materias in Model)
+                {
+                    <button class="table-item-button" id="subject">
+                        <label for="subject" class="table-item-name">@materias.Nome</label>
+                        <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Mostrar mais">
+                    </button>
+                }
+            </div>
+        </div>
+    }
 </section>
 <section class="modal">
     <div class="modal-container">
@@ -27,12 +45,12 @@
                 <img src="~/img/icons/close-rounded.svg" alt="Close">
             </button>
         </div>
-        <form method="post" class="form-modal">
+        <form method="post" class="form-modal" id="">
             <div class="field-modal">
                 <label for="name">Matéria</label>
                 <input class="inp-modal" type="text" id="name" name="name" placeholder="Nome da Matéria">
             </div>
-            <button type="submit" class="btn btn-modal">Adicionar</button>
+            <button type="submit" class="btn btn-modal" id="submit">Adicionar</button>
         </form>
     </div>
 </section>

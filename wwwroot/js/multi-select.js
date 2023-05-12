@@ -44,3 +44,10 @@ function select(id)
 
     document.querySelector('.select-modal').value = items;
 }
+
+// Limpar seleção
+
+function deleteItems()
+{
+    items.splice(0, items.length)
+}

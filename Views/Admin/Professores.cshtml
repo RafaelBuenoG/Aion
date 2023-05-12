@@ -1,4 +1,5 @@
 @model List<Professor>
+
 @{
     ViewData["Title"] = "Home Page";
     ViewBag.Subtitulo = "Professores";
@@ -15,19 +16,28 @@
     </button>
 </header>
 <section class="table-container">
-    <div class="table">
-        <span class="msg-table hide">Nenhum professor cadastrado</span>
-        <div class="teacher-container" id="">
-            @foreach (var professores in Model)
-            {
-                <button class="teacher" id="teacher">
-                    <label for="teacher" class="teacher-name">@professores.Nome</label>
-                    <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Mostrar mais">
-                </button>
-            }
+    @if (ViewBag.hasProfessor == false)
+    {
+        <div class="table">
+            <span class="msg-table">Nenhum professor cadastrado</span>
         </div>
-    </div>
+    }
+    else
+    {
+        <div class="table">
+            <div class="table-item">
+                @foreach (var professores in Model)
+                {
+                    <button class="table-item-button" id="teacher">
+                        <label for="teacher" class="table-item-name">@professores.Nome</label>
+                        <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Mostrar mais">
+                    </button>
+                }
+            </div>
+        </div>
+    }
 </section>
+
 <section class="modal">
     <div class="modal-container">
         <div class="title-modal-container">
@@ -36,7 +46,7 @@
                 <img src="~/img/icons/close-rounded.svg" alt="Close">
             </button>
         </div>
-        <form asp-action="Professores" method="post" class="form-modal">
+        <form asp-action="Professores" method="post" class="form-modal" id="form">
             <div class="field-modal">
                 <label for="name">Nome Completo</label>
                 <input class="inp-modal" type="text" id="name" name="name" placeholder="Nome">
@@ -57,14 +67,17 @@
                         @foreach (var materia in ViewBag.Materias)
                         {
                             <div class="item-select-container">
-                                <input class="check-select" type="checkbox" id="item-select-@materia.Id">
+                                <input class="check-select" type="checkbox" id="item-select-@materia.Id" name="subject">
                                 <label for="item-select-@materia.Id" class="item-select" id="items-@materia.Id" onmousedown="select(@materia.Id)">@materia.Nome</label>
                             </div>
                         }
+                        <div class="item-select-container">
+                            <a asp-action="Index" asp-controller="Admin" class="item-select-add"><img src="~/img/icons/add.svg" alt="Add">Adicionar Matéria</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-modal">Adicionar</button>
+            <button type="submit" class="btn btn-modal" id="submit">Adicionar</button>
         </form>
     </div>
 </section>

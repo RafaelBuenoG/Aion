@@ -239,7 +239,8 @@ html, body
 .dropdown-select
 {
     width: 22vw;
-    height: 17vh;
+    height: auto;
+    max-height: 17vh;
     background-color: var(--white01);
     border-radius: 12px;
     overflow: auto;
@@ -272,6 +273,30 @@ html, body
     background-color: var(--white03);
     padding-left: 25px;
     transition: .3s;
+}
+
+.item-select-add
+{
+    display: flex;
+    align-items: center;
+    font-size: 1.15em;
+    padding-left: 20px;
+    color: #444444;
+    height: 40px;
+    transition: .3s;
+    cursor: pointer;
+    position: relative;
+}
+
+.item-select-add:hover
+{
+    background-color: var(--white03);
+}
+
+.item-select-add img
+{
+    width: 30px;
+    margin-right: 10px;
 }
 
 .item-select-container

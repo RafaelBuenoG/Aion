@@ -82,29 +82,43 @@ header
     color: gray;
 }
 
-.hide /* Caso tenha dados, esconda o span */
+.table-item-container
 {
-    display: none;
+    padding-bottom: 40px;
 }
 
-
-.table-item
+.table-item-btn
 {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.table-item-button
-{
+    position: relative;
     background-color: var(--white01);
     padding: 5px;
     border-radius: 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.drop-item
+{
+    display: none;
+}
+
+.drop-item-label
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
     cursor: pointer;
-    font-family: 'Poppins', sans-serif;
+}
+
+.drop-item:checked + .table-item-btn-hd
+{
+    display: flex;
+}
+
+.drop-item:checked + .table-item-btn
+{
+    background-color: red;
 }
 
 .table-item-name
@@ -116,9 +130,87 @@ header
     cursor: pointer;
 }
 
-.table-item-button img
+.table-item-btn img
 {
     width: 50px;
+}
+
+.table-item-btn-hd
+{
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--white01);
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 20px;
+    border-top: 2px solid var(--purple01);
+}
+
+.drop-details
+{
+    width: auto;
+    display: flex;
+    gap: 4vw;
+}
+
+.details-container
+{
+    display: flex;
+    flex-direction: column;
+    width: auto;
+}
+
+.details-container > h1
+{
+    font-size: 1.05em;
+    font-weight: 600;
+    padding-bottom: 2px;
+}
+
+.email-prof
+{
+    color: black;
+}
+
+.email-prof img
+{
+    width: 1.05em;
+    margin-bottom: -2px;
+}
+
+.drop-btn-container
+{
+    display: flex;
+    width: auto;
+    gap: 10px;
+}
+
+.drop-btn-container img
+{
+    width: 30px;
+}
+
+.drop-btn
+{
+    background-color: transparent;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+    padding: 7px;
+    cursor: pointer;
+}
+
+.drop-btn label
+{
+    cursor: pointer;
+}
+
+.drop-btn:hover
+{
+    background-color: var(--white03);
+    transition: .15s;
 }
 
 /* Add Page */

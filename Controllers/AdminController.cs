@@ -85,6 +85,32 @@ public class AdminController : Controller
         return View(professores);
     }
 
+    [HttpPost, ActionName("DeleteMateria")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteMateria(int id)
+    {
+        var disciplina = _context.disciplinas.Find(id);
+        _context.disciplinas.Remove(disciplina);
+        _context.SaveChanges();
+        return RedirectToAction(nameof(Index));
+    }
+
+    [HttpPost, ActionName("DeleteProfessor")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteProfessor(int id)
+    {
+        var professor = _context.professores.Find(id);
+        _context.professores.Remove(professor);
+        _context.SaveChanges();
+        return RedirectToAction(nameof(Professores));
+    }
+
+    public IActionResult EditProfessor(int id)
+    {
+        
+        return RedirectToAction(nameof(Professores));
+    }
+
     public IActionResult Horarios()
     {
         return View();

@@ -1,10 +1,16 @@
-body    /* for the content to stay in lines */
+body
 {
-    display: flex;
+    display: flex; /* Para o conteúdo da página ficar ao lado */
+}
+
+main
+{
+    margin-left: 18%; /* Mesma largura da sidebar para o conteudo não ficar por baixo */
 }
 
 .sidebar
 {
+    position: fixed;
     display: flex;
     flex-direction: column;
     width: 18%;

@@ -4,14 +4,25 @@ const btnOpen = getElement('.btn-modal');
 const btnClose = getElement('.close-modal');
 const background = getElement('.modal');
 const modal = getElement('.modal-container');
-const formSubjects = getElement('#form-subjects')
-const formTeachers = getElement('#form-teachers')
-const form = getElement('#form')
+
+const prof = getElement('#prof-del')
+const backgroundDel = getElement('.modal-del')
+const modalDel = getElement('.modal-container-del')
 
 const activeModalClass = 'modal-show';
 
 const openModal = () => background.classList.add(activeModalClass);
 const closeModal = () => background.classList.remove(activeModalClass);
+
+function openModalDel()
+{
+    backgroundDel.classList.add(activeModalClass);
+}
+
+function closeModalDel()
+{
+    backgroundDel.classList.remove(activeModalClass);
+}
 
 btnOpen.addEventListener('click', openModal)
 btnClose.addEventListener('click', closeModal)
@@ -22,19 +33,8 @@ background.addEventListener('mousedown', (event) => {
     return;
 })
 
-// Limpar formulário dos professores
-
-// form.addEventListener('submit', (event) => {
-//     event.defaultPrevented();
-// 
-//     document.querySelector("[name='name']").value = ''
-//     document.querySelector("[name='email']").value = ''
-//     document.querySelector("[name='phone']").value = ''
-//     document.querySelector("[name='subjects']").value = ''
-// 
-//     qtdeCheckboxes = document.querySelectorAll("[type='checkbox']")
-//     for (var checkbox of qtdeCheckboxes) checkbox.checked = false
-
-    // Deleta os itens no array do select
-//     deleteItems()
-// })
+backgroundDel?.addEventListener('mousedown', (event) => {
+    if (!modalDel.contains(event.target)) closeModalDel()
+    
+    return;
+})

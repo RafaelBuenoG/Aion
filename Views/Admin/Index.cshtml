@@ -27,11 +27,15 @@
         <div class="table">
             <div class="table-item">
                 @foreach (var materias in Model)
-                {
-                    <button class="table-item-button" id="subject">
+                {   
+                    <button class="table-item-btn" id="subject">
                         <label for="subject" class="table-item-name">@materias.Nome</label>
                         <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Mostrar mais">
                     </button>
+                    <form asp-action="DeleteMateria">
+                        <input type="hidden" asp-for="@materias.Id" name="id"/>
+                        <input name="Id" type="submit" value="Delete" class="btn btn-danger" />
+                    </form>
                 }
             </div>
         </div>
@@ -41,7 +45,7 @@
     <div class="modal-container">
         <div class="title-modal-container">
             <h1 class="title-modal">Adicionar Matéria</h1>
-            <button class="close-modal">
+            <button class="close-modal" id="close-modal-add">
                 <img src="~/img/icons/close-rounded.svg" alt="Close">
             </button>
         </div>
@@ -49,6 +53,7 @@
             <div class="field-modal">
                 <label for="name">Matéria</label>
                 <input class="inp-modal" type="text" id="name" name="name" placeholder="Nome da Matéria">
+                <span class="erro"></span>
             </div>
             <button type="submit" class="btn btn-modal" id="submit">Adicionar</button>
         </form>

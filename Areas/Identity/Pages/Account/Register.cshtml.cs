@@ -1,5 +1,9 @@
 // Licensed to the .NET Foundation under one or more agreements.
 // The .NET Foundation licenses this file to you under the MIT license.
+/// <summary>
+///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
+///     directly from your code. This API may change or be removed in future releases.
+/// </summary>
 #nullable disable
 
 using System;
@@ -46,62 +50,42 @@ namespace Aion.Areas.Identity.Pages.Account
             _emailSender = emailSender;
         }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         [BindProperty]
         public InputModel Input { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public string ReturnUrl { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
 
-        /// <summary>
-        ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-        ///     directly from your code. This API may change or be removed in future releases.
-        /// </summary>
         public class InputModel
         {
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
-            [Required]
+            [Required(ErrorMessage = "Informe seu {0}")]
+            [StringLength(100, ErrorMessage = "O {0} deve conter no máximo {1} caracteres")]
+            [Display(Name = "Nome")]
+            public string Name { get; set; }
+
+            [Required(ErrorMessage = "Informe seu {0}")]
             [EmailAddress(ErrorMessage = "Insira um endereço de {0} corretamente")]
             [Display(Name = "E-mail")]
             public string Email { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
-            [Required]
+            [Required(ErrorMessage = "Informe sua Senha")]
             [StringLength(100, ErrorMessage = "A {0} deve conter no mínimo {2} caracteres", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Senha")]
             public string Password { get; set; }
 
-            /// <summary>
-            ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
-            ///     directly from your code. This API may change or be removed in future releases.
-            /// </summary>
             [DataType(DataType.Password)]
             [Display(Name = "Confirmar Senha")]
             [Compare("Password", ErrorMessage = "As Senhas não são iguais")]
             public string ConfirmPassword { get; set; }
-
-            [StringLength(20, ErrorMessage = "O {0} deve conter no máximo 20 caracteres")]
+            
+            [DataType(DataType.PhoneNumber)]
             [Display(Name = "Telefone")]
-            public string Phone { get; set; }
+            public string PhoneNumber { get; set; }
+
+            [Display(Name = "Termos de Uso")]
+            public bool TermsOfUse { get; set; }
         }
 
 
@@ -117,9 +101,9 @@ namespace Aion.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
             if (ModelState.IsValid)
             {
+                string userName = (Input.Name.Split(' ')[0] + "." + Input.Name.Split(' ')[Input.Name.Split(' ').Count() - 1]).ToLower();
                 var user = CreateUser();
-
-                await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
+                await _userStore.SetUserNameAsync(user, userName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
 

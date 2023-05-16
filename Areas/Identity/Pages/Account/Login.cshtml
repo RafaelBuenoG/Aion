@@ -17,6 +17,7 @@
         <h1 class="welcome-title">Bem-vindo</h1>
         <div class="login-container">
             <h1 class="title-form">Faça Login</h1>
+            <div class="error-title" asp-validation-summary="ModelOnly"></div>
             <div class="field">
                 <input asp-for="Input.Email" class="inp-field" type="text" required>
                 <label asp-for="Input.Email" class="form-label" for="username"></label>
@@ -46,18 +47,5 @@
 </section>
 
 @section Scripts {
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <partial name="_ValidationScriptsPartial" />
-
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script type="text/javascript">
-        let mensagemErro = '';
-        $(".validation-summary-errors ul li").each(function() {
-            mensagemErro += $(this).text() + '<br/>';
-        });
-        if (mensagemErro != '')
-        {
-            console.log("funfo")
-        }
-    </script>
 }

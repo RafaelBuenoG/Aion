@@ -44,11 +44,11 @@ namespace Aion.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-            [Required(ErrorMessage = "Informe seu e-mail ou nome de usuário")]
+            [Required(ErrorMessage = "Informe seu E-mail ou nome de Usuário")]
             [Display(Name = "E-mail / Usuário")]
             public string Email { get; set; }
 
-            [Required(ErrorMessage = "Informe sua senha")]
+            [Required(ErrorMessage = "Informe sua {0}")]
             [DataType(DataType.Password)]
             [Display(Name = "Senha")]
             public string Password { get; set; }

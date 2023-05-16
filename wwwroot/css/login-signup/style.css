@@ -87,7 +87,7 @@ form
 {
     font-size: var(--medium-title);
     font-weight: 300;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .field
@@ -99,6 +99,13 @@ form
 .error
 {
     color: var(--red01);
+}
+
+.error-title
+{
+    font-size: 1.1em;
+    color: var(--red01);
+    padding-bottom: 8px;
 }
 
 .form-label

@@ -61,7 +61,7 @@
                                 </div>
                             </div>
                             <div class="drop-btn-container">
-                                <button class="drop-btn">
+                                <button class="drop-btn btn-modal-edt">
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 @* <input type="hidden" asp-for="@professores.Id" name="id"/>
@@ -144,6 +144,50 @@
                 </div>
             </div>
             <button type="submit" class="btn btn-modal" id="submit">Adicionar</button>
+        </form>
+    </div>
+</section>
+
+<section class="modal-edt">
+    <div class="modal-container modal-container-edt">
+        <div class="title-modal-container">
+            <h1 class="title-modal">Editar Professor</h1>
+            <button class="close-modal-edt">
+                <img src="~/img/icons/close-rounded.svg" alt="Close">
+            </button>
+        </div>
+        <form asp-action="Professores" method="post" class="form-modal" id="form">
+            <div class="field-modal">
+                <label for="name">Nome Completo</label>
+                <input class="inp-modal" type="text" id="name" name="name" placeholder="Nome">
+            </div>
+            <div class="field-modal">
+                <label for="email">E-mail</label>
+                <input class="inp-modal" type="email" id="email" name="email" placeholder="Email">
+            </div>
+            <div class="field-modal">
+                <label for="phone">Telefone</label>
+                <input class="inp-modal" type="tel" id="phone" name="phone" placeholder="Telefone">
+            </div>
+            <div class="field-modal">
+                <label for="select-modal" id="label-modal">Matérias</label>
+                <input type="text" class="select-modal" id="select-modal" name="subjects" placeholder="Selecione as Matérias" readonly>
+                <div class="dropdown-container">
+                    <div class="dropdown-select">
+                        @foreach (var materia in ViewBag.Materias)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select" type="checkbox" id="item-select-@materia.Id" name="subject">
+                                <label for="item-select-@materia.Id" class="item-select" id="items-@materia.Id" onmousedown="select(@materia.Id)">@materia.Nome</label>
+                            </div>
+                        }
+                        <div class="item-select-container">
+                            <a asp-action="Index" asp-controller="Admin" class="item-select-add"><img src="~/img/icons/add.svg" alt="Add">Adicionar Matéria</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-modal" id="submit">Editar</button>
         </form>
     </div>
 </section>

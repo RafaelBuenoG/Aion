@@ -80,7 +80,7 @@ namespace Aion.Areas.Identity.Pages.Account
             [Compare("Password", ErrorMessage = "As Senhas não são iguais")]
             public string ConfirmPassword { get; set; }
             
-            [DataType(DataType.PhoneNumber)]
+            [Required(ErrorMessage = "Informe seu {0}")]
             [Display(Name = "Telefone")]
             public string PhoneNumber { get; set; }
 
@@ -103,6 +103,7 @@ namespace Aion.Areas.Identity.Pages.Account
             {
                 string userName = (Input.Name.Split(' ')[0] + "." + Input.Name.Split(' ')[Input.Name.Split(' ').Count() - 1]).ToLower();
                 var user = CreateUser();
+                user.Nome = Input.Name;
                 await _userStore.SetUserNameAsync(user, userName, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);

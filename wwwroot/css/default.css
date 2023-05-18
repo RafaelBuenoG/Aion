@@ -280,7 +280,23 @@ html, body
     font-size: 1.05em;
 }
 
+.select-modal-edt
+{
+    width: 22vw;
+    height: 40px;
+    padding: 8px 15px;
+    border-radius: 15px;
+    background-color: var(--white01);
+    font-size: 1.05em;
+}
+
 .dropdown-container
+{
+    position: relative;
+    margin-top: -10px;
+}
+
+.dropdown-container-edt
 {
     position: relative;
     margin-top: -10px;
@@ -300,7 +316,27 @@ html, body
     transition: opacity .15s;
 }
 
+.dropdown-select-edt
+{
+    width: 22vw;
+    height: auto;
+    max-height: 17vh;
+    background-color: var(--white01);
+    border-radius: 12px;
+    overflow: auto;
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .15s;
+}
+
 .dropdown-show
+{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.dropdown-show-edt
 {
     opacity: 1;
     pointer-events: auto;
@@ -318,7 +354,26 @@ html, body
     cursor: pointer;
 }
 
+.item-select-edt
+{
+    display: flex;
+    align-items: center;
+    font-size: 1.15em;
+    padding-left: 20px;
+    color: var(--gray02);
+    height: 40px;
+    transition: .3s;
+    cursor: pointer;
+}
+
 .item-select:hover
+{
+    background-color: var(--white03);
+    padding-left: 25px;
+    transition: .3s;
+}
+
+.item-select-edt:hover
 {
     background-color: var(--white03);
     padding-left: 25px;
@@ -359,7 +414,22 @@ html, body
     display: none;
 }
 
+.check-select-edt
+{
+    display: none;
+}
+
 .check-select + label::after
+{
+    content: '';
+    position: absolute;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    display: none;
+}
+
+.check-select-edt + label::after
 {
     content: '';
     position: absolute;
@@ -376,7 +446,19 @@ html, body
     background-position: center;
 }
 
+.check-select-edt:checked + label::after
+{
+    display: block;
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 10 10'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%237D14C1' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: center;
+}
+
 .check-select:checked + .item-select
+{
+    padding-left: 25px;
+}
+
+.check-select-edt:checked + .item-select
 {
     padding-left: 25px;
 }

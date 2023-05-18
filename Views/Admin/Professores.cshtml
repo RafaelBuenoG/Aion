@@ -170,15 +170,15 @@
                 <input class="inp-modal" type="tel" id="phone" name="phone" placeholder="Telefone">
             </div>
             <div class="field-modal">
-                <label for="select-modal" id="label-modal">Matérias</label>
-                <input type="text" class="select-modal" id="select-modal" name="subjects" placeholder="Selecione as Matérias" readonly>
-                <div class="dropdown-container">
-                    <div class="dropdown-select">
+                <label for="select-modal-edt" id="label-modal-edt">Matérias</label>
+                <input type="text" class="select-modal-edt" id="select-modal-edt" name="subjects-edt" placeholder="Selecione as Matérias" readonly>
+                <div class="dropdown-container-edt">
+                    <div class="dropdown-select-edt">
                         @foreach (var materia in ViewBag.Materias)
                         {
                             <div class="item-select-container">
-                                <input class="check-select" type="checkbox" id="item-select-@materia.Id" name="subject">
-                                <label for="item-select-@materia.Id" class="item-select" id="items-@materia.Id" onmousedown="select(@materia.Id)">@materia.Nome</label>
+                                <input class="check-select-edt" type="checkbox" id="item-select-edt-@materia.Id" name="subject-edt">
+                                <label for="item-select-edt-@materia.Id" class="item-select-edt" id="items-edt-@materia.Id" onmousedown="selectEdt(@materia.Id)">@materia.Nome</label>
                             </div>
                         }
                         <div class="item-select-container">
@@ -195,4 +195,5 @@
 @section Scripts{
     <script src="~/js/modal.js"></script>
     <script src="~/js/multi-select.js"></script>
+    <script src="~/js/multi-select2.js"></script>
 }

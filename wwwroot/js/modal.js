@@ -21,8 +21,8 @@ const closeModalEdt = () => backgroundEdt.classList.remove(activeModalClass);
 const openModal = () => background.classList.add(activeModalClass);
 const closeModal = () => background.classList.remove(activeModalClass);
 
-btnCloseEdt.addEventListener('click', closeModalEdt)
-btnOpenEdt.addEventListener('click', openModalEdt)
+btnCloseEdt?.addEventListener('click', closeModalEdt)
+btnOpenEdt?.addEventListener('click', openModalEdt)
 
 function openModalDel()
 {
@@ -42,7 +42,7 @@ background.addEventListener('mousedown', (event) => {
     
     return;
 })
-backgroundEdt.addEventListener('mousedown', (event) => {
+backgroundEdt?.addEventListener('mousedown', (event) => {
     if (!modalEdt.contains(event.target)) closeModalEdt()
     
     return;

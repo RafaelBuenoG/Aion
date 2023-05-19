@@ -111,6 +111,19 @@ public class AdminController : Controller
         return RedirectToAction(nameof(Professores));
     }
 
+    public IActionResult Cursos()
+    {
+        List<Curso> cursos = _context.cursos.ToList();
+        ViewData["hasCurso"] = cursos.Count() < 1 ? false : true;
+        return View(cursos);
+    }
+
+    [HttpPost]
+    public IActionResult Cursos(string name, string type, string qtySem)
+    {
+        return RedirectToAction(nameof(Cursos));
+    }
+
     public IActionResult Horarios()
     {
         return View();

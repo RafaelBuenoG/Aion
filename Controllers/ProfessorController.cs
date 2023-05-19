@@ -2,11 +2,11 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Aion.Models;
 using Aion.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Aion.Controllers;
 
-// Pesquisar mais sobre (PatoRestaurant)
-// [Authorize(Roles = "Administrador")] Especifica que so pode acessar o controller quem tiver o cargo de admin e funcionario
+[Authorize(Roles = "Professor")]
 public class ProfessorController : Controller
 {
     private readonly ILogger<ProfessorController> _logger;

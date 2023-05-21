@@ -26,11 +26,11 @@
                 <label asp-for="Input.Email" class="form-label" for="username"></label>
                 <span asp-validation-for="Input.Email" class="error"></span>
             </div>
-            <div class="field">
+            @* <div class="field">
                 <input asp-for="Input.PhoneNumber" class="inp-field" type="tel" name="phone" autocomplete="tel" required>
                 <label asp-for="Input.PhoneNumber" class="form-label" for="phone"></label>
                 <span asp-validation-for="Input.PhoneNumber" class="error"></span>
-            </div>
+            </div> *@
             <div class="field">
                 <input asp-for="Input.Password" class="inp-field" type="password" autocomplete="new-password" required>
                 <label asp-for="Input.Password" class="form-label" for="password"></label>

@@ -28,21 +28,32 @@
             <div class="table-item">
                 @foreach (var cursos in Model)
                 {   
-                    <button class="table-item-btn" id="course">
-                        <label for="course" class="table-item-name">@cursos.Nome</label>
-                        <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Mostrar mais">
-                    </button>
-                    <form asp-action="">
-                        <input type="hidden" asp-for="@cursos.Id" name="id"/>
-                        <input name="Id" type="submit" value="Delete" class="btn btn-danger" />
-                    </form>
+                    <section class="table-item-container">
+                        <div class="table-item-btn" id="course">
+                            <label style="cursor: auto;" for="course" class="table-item-name">@cursos.Nome</label>
+                            <div class="drop-btn-container">
+                                <button class="drop-btn btn-modal-edt">
+                                    <img src="~/img/icons/edit.svg" alt="Edit">
+                                </button>
+                                <button class="drop-btn">
+                                    <form asp-action="DeleteCurso">
+                                        <label for="btn-delete-@cursos.Id">
+                                            <img src="~/img/icons/delete.svg" alt="Delete">
+                                        </label>
+                                        <input type="hidden" asp-for="@cursos.Id" name="id"/>
+                                        <input style="display: none;" name="Id" id="btn-delete-@cursos.Id" type="submit"/>
+                                    </form>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
                 }
             </div>
         </div>
     }
 </section>
 <section class="modal">
-    <div class="modal-container">
+    <div class="modal-container modal-container-typeco">
         <div class="title-modal-container">
             <h1 class="title-modal">Adicionar Curso</h1>
             <button class="close-modal" id="close-modal-add">
@@ -55,6 +66,27 @@
                 <input class="inp-modal" type="text" id="name" name="name" placeholder="Nome do Curso">
                 <span class="erro"></span>
             </div>
+            <div class="field-modal">
+                <label for="select-modal-typeco" id="label-modal-typeco">Tipo</label>
+                <input type="text" class="select-modal-typeco" id="select-modal-typeco" name="type" placeholder="Selecione o Tipo" readonly>
+                <div class="dropdown-container-typeco">
+                    <div class="dropdown-select-typeco">
+                        <div class="item-select-container">
+                            <input class="check-select-typeco" type="checkbox" id="item-select-typeco-0" name="course">
+                            <label for="item-select-typeco-0" class="item-select-typeco" id="items-typeco-0" onmousedown="selectTypeCo(0)">Semestral</label>
+                        </div>
+                        <div class="item-select-container">
+                            <input class="check-select-typeco" type="checkbox" id="item-select-typeco-1" name="course">
+                            <label for="item-select-typeco-1" class="item-select-typeco" id="items-typeco-1" onmousedown="selectTypeCo(1)">Anual</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field-modal">
+                <label for="name">Quantidade de semestres</label>
+                <input class="inp-modal" type="number" id="name" name="qtySem" placeholder="Quantidade de semestres">
+                <span class="erro"></span>
+            </div>
             <button type="submit" class="btn btn-modal" id="submit">Adicionar</button>
         </form>
     </div>
@@ -62,4 +94,5 @@
 
 @section Scripts{
     <script src="~/js/modal.js"></script>
+    <script src="~/js/multi-select-co.js"></script>
 }

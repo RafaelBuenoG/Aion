@@ -159,11 +159,11 @@ header
 .user-drop
 {
     position: absolute;
+    right: 0;
     display: flex;
     flex-direction: column;
-    width: 170%;
+    width: 300px;
     padding: 15px;
-    transform: translateX(-25%);
     background-color: var(--white02);
     border-radius: 20px;
     opacity: 0;

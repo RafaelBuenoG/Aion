@@ -28,14 +28,25 @@
             <div class="table-item">
                 @foreach (var materias in Model)
                 {   
-                    <button class="table-item-btn" id="subject">
-                        <label for="subject" class="table-item-name">@materias.Nome</label>
-                        <img class="arrow-icon" src="~/img/icons/arrow-down.svg" alt="Mostrar mais">
-                    </button>
-                    <form asp-action="DeleteMateria">
-                        <input type="hidden" asp-for="@materias.Id" name="id"/>
-                        <input name="Id" type="submit" value="Delete" class="btn btn-danger" />
-                    </form>
+                    <section class="table-item-container">
+                        <div class="table-item-btn" id="materia">
+                            <label style="cursor: auto;" for="materia" class="table-item-name">@materias.Nome</label>
+                            <div class="drop-btn-container">
+                                <button class="drop-btn btn-modal-edt">
+                                    <img src="~/img/icons/edit.svg" alt="Edit">
+                                </button>
+                                <button class="drop-btn">
+                                    <form asp-action="DeleteMateria">
+                                        <label for="btn-delete-@materias.Id">
+                                            <img src="~/img/icons/delete.svg" alt="Delete">
+                                        </label>
+                                        <input type="hidden" asp-for="@materias.Id" name="id"/>
+                                        <input style="display: none;" name="Id" id="btn-delete-@materias.Id" type="submit"/>
+                                    </form>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
                 }
             </div>
         </div>

@@ -20,7 +20,7 @@ public class AdminController : Controller
         _context = context;
     }
 
-    public IActionResult Index()
+    public IActionResult Materias()
     {
 
         List<Disciplina> materias = _context.disciplinas.ToList();
@@ -29,7 +29,7 @@ public class AdminController : Controller
     }
 
     [HttpPost]
-    public IActionResult Index(string name)
+    public IActionResult Materias(string name)
     {
         Disciplina sub = new()
         {
@@ -92,7 +92,7 @@ public class AdminController : Controller
         var disciplina = _context.disciplinas.Find(id);
         _context.disciplinas.Remove(disciplina);
         _context.SaveChanges();
-        return RedirectToAction(nameof(Index));
+        return RedirectToAction(nameof(Materias));
     }
 
     [HttpPost, ActionName("DeleteProfessor")]
@@ -119,8 +119,27 @@ public class AdminController : Controller
     }
 
     [HttpPost]
-    public IActionResult Cursos(string name, string type, string qtySem)
+    public IActionResult Cursos(string name, string type, int qtySem)
     {
+        Curso course = new()
+        {
+            Nome = name,
+            Tipo = type,
+            QtdeSem = qtySem
+        };
+        _context.cursos.Add(course);
+        _context.SaveChanges();
+
+        // Recarrega automáticamente a página quando adicionado
+        List<Curso> cursos = _context.cursos.ToList();
+        return View(cursos);
+    }
+
+    public IActionResult DeleteCurso(int id)
+    {
+        var curso = _context.cursos.Find(id);
+        _context.cursos.Remove(curso);
+        _context.SaveChanges();
         return RedirectToAction(nameof(Cursos));
     }
 

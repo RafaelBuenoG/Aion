@@ -169,6 +169,13 @@ form
     font-weight: 600;
 }
 
+.disabled
+{
+    cursor: not-allowed;
+    background-image: none;
+    background-color: #9a51ca;
+}
+
 .line
 {
     width: 100%;

@@ -43,7 +43,7 @@
             </div>
             <div class="remember-forgot">
                 <div class="remember-container">
-                    <input type="checkbox" id="remember" class="inp-checkbox">
+                    <input type="checkbox" id="remember" class="inp-checkbox" onclick="TermsConditions()">
                     <label for="remember" class="remember-label">
                         Eu li e concordo com os&nbsp<a href="javascript:void(0)">termos de uso</a>
                     </label>
@@ -51,7 +51,7 @@
             </div>
         </div>
         
-        <button class="btn" type="submit">Criar Conta</button>
+        <button class="btn disabled" type="submit" id="criar" disabled>Criar Conta</button>
         <div class="line"></div>
         <div class="signup-container">
             <a asp-area="Identity" asp-page="/Account/Login" class="signup">Já possui um cadastro?</a>
@@ -60,5 +60,22 @@
 </section>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+        let btn = document.querySelector('#criar')
+        let check = document.querySelector('#remember')
+
+        function TermsConditions()
+        {
+            console.log('aaa')
+            if (check.checked == true)
+            {
+                console.log("aaaaa");
+                btn.removeAttribute("disabled");
+                btn.classList.remove("disabled");
+                return;
+            }
+            btn.setAttribute("disabled", true);
+            btn.classList.add("disabled");
+        }
+    </script>
 }

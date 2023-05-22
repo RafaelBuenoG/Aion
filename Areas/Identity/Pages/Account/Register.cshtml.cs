@@ -83,9 +83,6 @@ namespace Aion.Areas.Identity.Pages.Account
             // [Required(ErrorMessage = "Informe seu {0}")]
             // [Display(Name = "Telefone")]
             // public string PhoneNumber { get; set; }
-
-            [Display(Name = "Termos de Uso")]
-            public bool TermsOfUse { get; set; }
         }
 
 

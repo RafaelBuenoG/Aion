@@ -32,17 +32,12 @@
                         <div class="table-item-btn" id="materia">
                             <label style="cursor: auto;" for="materia" class="table-item-name">@materias.Nome</label>
                             <div class="drop-btn-container">
-                                <button class="drop-btn btn-modal-edt">
-                                    <img src="~/img/icons/edit.svg" alt="Edit">
-                                </button>
                                 <button class="drop-btn">
-                                    <form asp-action="DeleteMateria">
-                                        <label for="btn-delete-@materias.Id">
-                                            <img src="~/img/icons/delete.svg" alt="Delete">
-                                        </label>
-                                        <input type="hidden" asp-for="@materias.Id" name="id"/>
-                                        <input style="display: none;" name="Id" id="btn-delete-@materias.Id" type="submit"/>
-                                    </form>
+                                    <label for="btn-delete-@materias.Id">
+                                        <img src="~/img/icons/delete.svg" alt="Delete">
+                                    </label>
+                                    <input type="hidden" asp-for="@materias.Id" name="id"/>
+                                    <input style="display: none;" class="btn-modal-del" name="Id" id="btn-delete-@materias.Id"/>
                                 </button>
                             </div>
                         </div>
@@ -68,6 +63,17 @@
             </div>
             <button type="submit" class="btn btn-modal" id="submit">Adicionar</button>
         </form>
+    </div>
+</section>
+<section class="modal modal-del">
+    <div class="modal-container modal-container-del">
+        <div class="title-modal-container-del">
+            <h1 class="title-modal-del">Tem certeza que deseja remover essa matéria?</h1>
+        </div>
+        <div class="btn-container-confirm">
+            <button type="submit" class="btn btn-modal btn-white-outline close-modal-del">Cancelar</button>
+            <button type="submit" class="btn btn-modal">Remover</button>
+        </div>
     </div>
 </section>
 

@@ -36,13 +36,18 @@
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 <button class="drop-btn">
-                                    <form asp-action="DeleteCurso">
+                                    @* <form asp-action="DeleteCurso">
                                         <label for="btn-delete-@cursos.Id">
                                             <img src="~/img/icons/delete.svg" alt="Delete">
                                         </label>
                                         <input type="hidden" asp-for="@cursos.Id" name="id"/>
                                         <input style="display: none;" name="Id" id="btn-delete-@cursos.Id" type="submit"/>
-                                    </form>
+                                    </form> *@
+                                    <label for="btn-delete-@cursos.Id">
+                                        <img src="~/img/icons/delete.svg" alt="Delete">
+                                    </label>
+                                    <input type="hidden" asp-for="@cursos.Id" name="id"/>
+                                    <input style="display: none;" class="btn-modal-del" name="Id" id="btn-delete-@cursos.Id"/>
                                 </button>
                             </div>
                         </div>
@@ -87,12 +92,63 @@
                 <input class="inp-modal" type="number" id="name" name="qtySem" placeholder="Quantidade de semestres">
                 <span class="erro"></span>
             </div>
-            <button type="submit" class="btn btn-modal" id="submit">Adicionar</button>
+            <button type="submit" class="btn btn-modal">Adicionar</button>
         </form>
+    </div>
+</section>
+<section class="modal modal-edt">
+    <div class="modal-container modal-container-edt modal-container-typecoEdt">
+        <div class="title-modal-container">
+            <h1 class="title-modal">Editar Curso</h1>
+            <button class="close-modal close-modal-edt" id="close-modal-add">
+                <img src="~/img/icons/close-rounded.svg" alt="Close">
+            </button>
+        </div>
+        <form method="post" class="form-modal" id="form">
+            <div class="field-modal">
+                <label for="name">Curso</label>
+                <input class="inp-modal" type="text" id="name" name="name" placeholder="Nome do Curso">
+                <span class="erro"></span>
+            </div>
+            <div class="field-modal">
+                <label for="select-modal-typecoEdt" id="label-modal-typecoEdt">Tipo</label>
+                <input type="text" class="select-modal-typecoEdt" id="select-modal-typecoEdt" name="typeEdt" placeholder="Selecione o Tipo" readonly>
+                <div class="dropdown-container-typecoEdt">
+                    <div class="dropdown-select-typecoEdt">
+                        <div class="item-select-container">
+                            <input class="check-select-typecoEdt" type="checkbox" id="item-select-typecoEdt-0" name="courseEdt">
+                            <label for="item-select-typecoEdt-0" class="item-select-typecoEdt" id="items-typecoEdt-0" onmousedown="selectTypeCoEdt(0)">Semestral</label>
+                        </div>
+                        <div class="item-select-container">
+                            <input class="check-select-typecoEdt" type="checkbox" id="item-select-typecoEdt-1" name="courseEdt">
+                            <label for="item-select-typecoEdt-1" class="item-select-typecoEdt" id="items-typecoEdt-1" onmousedown="selectTypeCoEdt(1)">Anual</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="field-modal">
+                <label for="name">Quantidade de semestres</label>
+                <input class="inp-modal" type="number" id="name" name="qtySem" placeholder="Quantidade de semestres">
+                <span class="erro"></span>
+            </div>
+            <button type="submit" class="btn btn-modal">Salvar</button>
+        </form>
+    </div>
+</section>
+<section class="modal modal-del">
+    <div class="modal-container modal-container-del">
+        <div class="title-modal-container-del">
+            <h1 class="title-modal-del">Tem certeza que deseja remover esse curso?</h1>
+        </div>
+        <div class="btn-container-confirm">
+            <button type="submit" class="btn btn-modal btn-white-outline close-modal-del">Cancelar</button>
+            <button type="submit" class="btn btn-modal">Remover</button>
+        </div>
     </div>
 </section>
 
 @section Scripts{
     <script src="~/js/modal.js"></script>
     <script src="~/js/multi-select-co.js"></script>
+    <script src="~/js/multi-select-co2.js"></script>
 }

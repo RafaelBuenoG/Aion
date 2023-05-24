@@ -5,7 +5,7 @@ const btnClose = getElement('.close-modal');
 const background = getElement('.modal');
 const modal = getElement('.modal-container');
 
-const btnOpenEdt = getElement('.btn-modal-edt');
+//const btnOpenEdt = getElement('.btn-modal-edt');
 const btnCloseEdt = getElement('.close-modal-edt');
 const backgroundEdt = getElement('.modal-edt');
 const modalEdt = getElement('.modal-container-edt');
@@ -21,14 +21,14 @@ const activeModalClass = 'modal-show';
 
 const openModalDel = () => backgroundDel.classList.add(activeModalClass);
 const closeModalDel = () => backgroundDel.classList.remove(activeModalClass);
-const openModalEdt = () => backgroundEdt.classList.add(activeModalClass);
+//const openModalEdt = () => backgroundEdt.classList.add(activeModalClass);
 const closeModalEdt = () => backgroundEdt.classList.remove(activeModalClass);
 const openModal = () => background.classList.add(activeModalClass);
 const closeModal = () => background.classList.remove(activeModalClass);
 
 btnOpenDel?.addEventListener('click', openModalDel)
 btnCloseDel?.addEventListener('click', closeModalDel)
-btnOpenEdt?.addEventListener('click', openModalEdt)
+//btnOpenEdt?.addEventListener('click', openModalEdt)
 btnCloseEdt?.addEventListener('click', closeModalEdt)
 btnOpen.addEventListener('click', openModal)
 btnClose.addEventListener('click', closeModal)
@@ -44,9 +44,15 @@ backgroundEdt?.addEventListener('mousedown', (event) => {
     
     return;
 })
-
 backgroundDel?.addEventListener('mousedown', (event) => {
     if (!modalDel.contains(event.target)) closeModalDel()
     
     return;
 })
+
+/////////////////////////////
+
+function openModalEdt(id){
+    backgroundEdt.classList.add(activeModalClass);
+    console.log(id);
+}

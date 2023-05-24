@@ -18,12 +18,12 @@
             <div class="error" asp-validation-summary="ModelOnly"></div>
             <div class="field">
                 <input asp-for="Input.Name" class="inp-field" type="text" autocomplete="name" required>
-                <label asp-for="Input.Name" class="form-label" for="username"></label>
+                <label asp-for="Input.Name" class="form-label" for="name"></label>
                 <span asp-validation-for="Input.Name" class="error"></span>
             </div>
             <div class="field">
                 <input asp-for="Input.Email" class="inp-field" type="text" autocomplete="email" required>
-                <label asp-for="Input.Email" class="form-label" for="username"></label>
+                <label asp-for="Input.Email" class="form-label" for="email"></label>
                 <span asp-validation-for="Input.Email" class="error"></span>
             </div>
             @* <div class="field">

@@ -147,6 +147,35 @@ public class AdminController : Controller
         return RedirectToAction(nameof(Cursos));
     }
 
+    [HttpPost, ActionName("EditCurso")]
+    public IActionResult EditCurso(int id)
+    {
+        var curso = _context.cursos.Find(id);
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(curso);
+                    _context.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!CursoExists(curso.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+
+        return RedirectToAction(nameof(Cursos));
+    }
+
     public IActionResult Horarios()
     {
         return View();
@@ -156,6 +185,11 @@ public class AdminController : Controller
     {
         return View();
     }
+
+    private bool CursoExists(int id)
+        {
+            return _context.cursos.Any(e => e.Id == id);
+        }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

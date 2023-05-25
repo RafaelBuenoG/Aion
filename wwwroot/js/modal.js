@@ -52,7 +52,15 @@ backgroundDel?.addEventListener('mousedown', (event) => {
 
 /////////////////////////////
 
-function openModalEdt(id){
+function openModalEdtCursos(id, name, type, qty){
     backgroundEdt.classList.add(activeModalClass);
-    console.log(id);
+    let inpName = getElement('#name-edt');
+    let inpType = getElement('#select-modal-typecoEdt');
+    let inpQty = getElement('#qtySem-edt');
+    inpName.value = name;
+    inpType.value = type;
+    inpQty.value = qty;
+
+    let inpSub = getElement('#id-edt');
+    inpSub.setAttribute("asp-for", id);
 }

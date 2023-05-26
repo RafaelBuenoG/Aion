@@ -42,7 +42,7 @@ public class AdminController : Controller
         List<Disciplina> materias = _context.disciplinas.ToList();
         return View(materias);
     }
-    
+
     [HttpPost, ActionName("DeleteMateria")]
     [ValidateAntiForgeryToken]
     public IActionResult DeleteMateria(int id)
@@ -56,7 +56,7 @@ public class AdminController : Controller
     public IActionResult Professores()
     {
         ViewData["Materias"] = _context.disciplinas.OrderBy(m => m.Nome);
-        List<Professor> professores = _context.professores.ToList();
+        List<Professor> professores = _context.professores.Include(p => p.Formacao).ThenInclude(f => f.Disciplina).ToList();
         ViewData["hasProfessor"] = professores.Count() < 1 ? false : true;
         return View(professores);
     }
@@ -88,7 +88,7 @@ public class AdminController : Controller
             _context.formacoes.Add(formacao);
         }
         _context.SaveChanges();
-        
+
         // Recarrega automáticamente a página quando adicionado
         ViewData["Materias"] = _context.disciplinas.OrderBy(m => m.Nome);
         List<Professor> professores = _context.professores.ToList();
@@ -103,25 +103,25 @@ public class AdminController : Controller
         professor.Email = email;
         professor.Telefone = phone;
 
-            if (ModelState.IsValid)
+        if (ModelState.IsValid)
+        {
+            try
             {
-                try
+                _context.Update(professor);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!ProfessorExists(professor.Id))
                 {
-                    _context.Update(professor);
-                    _context.SaveChanges();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!ProfessorExists(professor.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
             }
+        }
         return RedirectToAction(nameof(Professores));
     }
 
@@ -160,7 +160,7 @@ public class AdminController : Controller
         List<Curso> cursos = _context.cursos.ToList();
         return View(cursos);
     }
-    
+
     [HttpPost, ActionName("DeleteCurso")]
     public IActionResult DeleteCurso(int id)
     {
@@ -178,25 +178,25 @@ public class AdminController : Controller
         curso.Tipo = type;
         curso.QtdeSem = qtySem;
 
-            if (ModelState.IsValid)
+        if (ModelState.IsValid)
+        {
+            try
             {
-                try
+                _context.Update(curso);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CursoExists(curso.Id))
                 {
-                    _context.Update(curso);
-                    _context.SaveChanges();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!CursoExists(curso.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    throw;
                 }
             }
+        }
         return RedirectToAction(nameof(Cursos));
     }
 

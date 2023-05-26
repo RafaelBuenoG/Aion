@@ -55,13 +55,14 @@
                                 </div>
                                 <div class="details-container">
                                     <h1>Matérias</h1>
-                                    <p>Matemática</p>
-                                    <p>Português</p>
-                                    <p>Educação Física</p>
+                                    @foreach (var disciplina in @professores.Formacao)
+                                    {
+                                        <p>@disciplina.Disciplina.Nome</p>
+                                    }
                                 </div>
                             </div>
                             <div class="drop-btn-container">
-                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtProfessores('@professores.Id', '@professores.Nome', '@professores.Email', '@professores.Telefone')" id="id-@professores.Id">
+                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtProfessores('@professores.Id', '@professores.Nome', '@professores.Email', '@professores.Telefone', '@string.Join(',', professores.Formacao.Select(f => f.DisciplinaId).ToList())')" id="id-@professores.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 <button class="drop-btn">
@@ -144,7 +145,7 @@
                 <label for="phone-edt">Telefone</label>
                 <input class="inp-modal" type="tel" id="phone-edt" name="phone" placeholder="Telefone">
             </div>
-            @* <div class="field-modal">
+            <div class="field-modal">
                 <label for="select-modal-edt" id="label-modal-edt">Matérias</label>
                 <input type="text" class="select-modal-edt" id="select-modal-edt" name="subjects-edt" placeholder="Selecione as Matérias" readonly>
                 <div class="dropdown-container-edt">
@@ -161,7 +162,7 @@
                         </div>
                     </div>
                 </div>
-            </div> *@
+            </div>
             <input type="hidden" name="id" id="id-edt">
             <button type="submit" class="btn btn-modal" id="submit-edt">Salvar</button>
         </form>

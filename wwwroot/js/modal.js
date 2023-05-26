@@ -42,7 +42,7 @@ function openModalEdtCursos(id, name, type, qty)
     let inpSub = getElement('#id-edt');
     inpSub.value = id;
 }
-function openModalEdtProfessores(id, name, email, phone)
+function openModalEdtProfessores(id, name, email, phone, materias)
 {
     backgroundEdt.classList.add(activeModalClass);
     let inpName = getElement('#name-edt');
@@ -54,6 +54,12 @@ function openModalEdtProfessores(id, name, email, phone)
 
     let inpSub = getElement('#id-edt');
     inpSub.value = id;
+    let materiasList = materias.split(',');
+    console.log(materiasList);
+
+    for (i = 0; i < materiasList.length; i++) {
+        console.log(materiasList[i]);
+    }
 }
 const closeModalEdt = () => backgroundEdt.classList.remove(activeModalClass);
 

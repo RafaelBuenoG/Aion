@@ -148,9 +148,12 @@ public class AdminController : Controller
     }
 
     [HttpPost, ActionName("EditCurso")]
-    public IActionResult EditCurso(int id)
+    public IActionResult EditCurso(int id, string name, string type, int qtySem)
     {
-        var curso = _context.cursos.Find(id);
+        var curso = _context.cursos.FirstOrDefault(c => c.Id == id);
+        curso.Nome = name;
+        curso.Tipo = type;
+        curso.QtdeSem = qtySem;
 
             if (ModelState.IsValid)
             {
@@ -170,9 +173,7 @@ public class AdminController : Controller
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
             }
-
         return RedirectToAction(nameof(Cursos));
     }
 

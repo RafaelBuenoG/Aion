@@ -62,5 +62,5 @@ function openModalEdtCursos(id, name, type, qty){
     inpQty.value = qty;
 
     let inpSub = getElement('#id-edt');
-    inpSub.setAttribute("asp-for", id);
+    inpSub.value = id;
 }

@@ -42,6 +42,16 @@ public class AdminController : Controller
         List<Disciplina> materias = _context.disciplinas.ToList();
         return View(materias);
     }
+    
+    [HttpPost, ActionName("DeleteMateria")]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteMateria(int id)
+    {
+        var disciplina = _context.disciplinas.Find(id);
+        _context.disciplinas.Remove(disciplina);
+        _context.SaveChanges();
+        return RedirectToAction(nameof(Materias));
+    }
 
     public IActionResult Professores()
     {
@@ -85,29 +95,42 @@ public class AdminController : Controller
         return View(professores);
     }
 
-    [HttpPost, ActionName("DeleteMateria")]
-    [ValidateAntiForgeryToken]
-    public IActionResult DeleteMateria(int id)
+    [HttpPost, ActionName("EditProfessor")]
+    public IActionResult EditProfessor(int id, string name, string email, string phone)
     {
-        var disciplina = _context.disciplinas.Find(id);
-        _context.disciplinas.Remove(disciplina);
-        _context.SaveChanges();
-        return RedirectToAction(nameof(Materias));
+        var professor = _context.professores.FirstOrDefault(p => p.Id == id);
+        professor.Nome = name;
+        professor.Email = email;
+        professor.Telefone = phone;
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(professor);
+                    _context.SaveChanges();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!ProfessorExists(professor.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+            }
+        return RedirectToAction(nameof(Professores));
     }
 
     [HttpPost, ActionName("DeleteProfessor")]
-    [ValidateAntiForgeryToken]
     public IActionResult DeleteProfessor(int id)
     {
         var professor = _context.professores.Find(id);
         _context.professores.Remove(professor);
         _context.SaveChanges();
-        return RedirectToAction(nameof(Professores));
-    }
-
-    public IActionResult EditProfessor(int id)
-    {
-        
         return RedirectToAction(nameof(Professores));
     }
 
@@ -188,9 +211,14 @@ public class AdminController : Controller
     }
 
     private bool CursoExists(int id)
-        {
-            return _context.cursos.Any(e => e.Id == id);
-        }
+    {
+        return _context.cursos.Any(c => c.Id == id);
+    }
+
+    private bool ProfessorExists(int id)
+    {
+        return _context.professores.Any(p => p.Id == id);
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

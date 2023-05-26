@@ -36,8 +36,7 @@
                                     <label for="btn-delete-@materias.Id">
                                         <img src="~/img/icons/delete.svg" alt="Delete">
                                     </label>
-                                    <input type="hidden" asp-for="@materias.Id" name="id"/>
-                                    <input style="display: none;" class="btn-modal-del" name="Id" id="btn-delete-@materias.Id"/>
+                                    <input style="display: none;" class="btn-modal-del" name="Id" onclick="openModalDel('@materias.Id', '@materias.Nome')" id="btn-delete-@materias.Id"/>
                                 </button>
                             </div>
                         </div>
@@ -66,15 +65,16 @@
     </div>
 </section>
 <section class="modal modal-del">
-    <div class="modal-container modal-container-del">
+    <form asp-action="DeleteMateria" method="post" class="modal-container modal-container-del">
         <div class="title-modal-container-del">
-            <h1 class="title-modal-del">Tem certeza que deseja remover essa matéria?</h1>
+            <h1 class="title-modal-del">Tem certeza que deseja remover a matéria <span id="name-del"></span> ?</h1>
         </div>
         <div class="btn-container-confirm">
-            <button type="submit" class="btn btn-modal btn-white-outline close-modal-del">Cancelar</button>
+            <button type="button" class="btn btn-modal btn-white-outline close-modal-del">Cancelar</button>
+            <input type="hidden" name="id" id="id-del"/>
             <button type="submit" class="btn btn-modal">Remover</button>
         </div>
-    </div>
+    </form>
 </section>
 
 @section Scripts{

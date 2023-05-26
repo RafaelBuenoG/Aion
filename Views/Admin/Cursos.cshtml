@@ -36,18 +36,10 @@
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 <button class="drop-btn">
-                                    @* <form asp-action="DeleteCurso">
-                                        <label for="btn-delete-@cursos.Id">
-                                            <img src="~/img/icons/delete.svg" alt="Delete">
-                                        </label>
-                                        <input type="hidden" asp-for="@cursos.Id" name="id"/>
-                                        <input style="display: none;" name="Id" id="btn-delete-@cursos.Id" type="submit"/>
-                                    </form> *@
                                     <label for="btn-delete-@cursos.Id">
                                         <img src="~/img/icons/delete.svg" alt="Delete">
                                     </label>
-                                    <input type="hidden" asp-for="@cursos.Id" name="id"/>
-                                    <input style="display: none;" class="btn-modal-del" name="Id" id="btn-delete-@cursos.Id"/>
+                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@cursos.Id', '@cursos.Nome')" id="btn-delete-@cursos.Id"/>
                                 </button>
                             </div>
                         </div>
@@ -137,15 +129,16 @@
     </div>
 </section>
 <section class="modal modal-del">
-    <div class="modal-container modal-container-del">
+    <form asp-action="DeleteCurso" method="post" class="modal-container modal-container-del">
         <div class="title-modal-container-del">
-            <h1 class="title-modal-del">Tem certeza que deseja remover esse curso?</h1>
+            <h1 class="title-modal-del">Tem certeza que deseja remover o curso <span id="name-del"></span> ?</h1>
         </div>
         <div class="btn-container-confirm">
-            <button type="submit" class="btn btn-modal btn-white-outline close-modal-del">Cancelar</button>
+            <button type="button" class="btn btn-modal btn-white-outline close-modal-del">Cancelar</button>
+            <input type="hidden" name="id" id="id-del"/>
             <button type="submit" class="btn btn-modal">Remover</button>
         </div>
-    </div>
+    </form>
 </section>
 
 @section Scripts{

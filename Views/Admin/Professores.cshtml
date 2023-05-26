@@ -61,37 +61,18 @@
                                 </div>
                             </div>
                             <div class="drop-btn-container">
-                                <button class="drop-btn btn-modal-edt">
+                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtProfessores('@professores.Id', '@professores.Nome', '@professores.Email', '@professores.Telefone')" id="id-@professores.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 <button class="drop-btn">
                                     <label for="btn-delete-@professores.Id">
                                         <img src="~/img/icons/delete.svg" alt="Delete">
                                     </label>
-                                    <input type="hidden" asp-for="@professores.Id" name="id"/>
-                                    <input style="display: none;" class="btn-modal-del" name="Id" id="btn-delete-@professores.Id"/>
+                                    <input style="display: none;" class="btn-modal-del" name="Id" onclick="openModalDel('@professores.Id', '@professores.Nome')" id="btn-delete-@professores.Id"/>
                                 </button>
                             </div>
                         </div>
                     </div>
-
-                    @* <section class="modal-del">
-                        <div class="modal-container-del">
-                            <div class="title-modal-container">
-                                <h1 class="title-modal">Deseja remover o professor?</h1>
-                                <button class="close-modal" onclick="closeModalDel()">
-                                    <img src="~/img/icons/close-rounded.svg" alt="Close">
-                                </button>
-                            </div>
-                            <form asp-action="DeleteProfessor" class="drop-btn">
-                                <label for="btn-delete-@professores.Id">
-                                    <img src="~/img/icons/delete.svg" alt="Delete">
-                                </label>
-                                <input type="hidden" asp-for="@professores.Id" name="id"/>
-                                <input style="display: none;" name="Id" id="btn-delete-@professores.Id" type="submit" value="Delete"/>
-                            </form>
-                        </div>
-                    </section> *@
                 }
             </div>
         </div>
@@ -150,7 +131,7 @@
                 <img src="~/img/icons/close-rounded.svg" alt="Close">
             </button>
         </div>
-        <form asp-action="Professores" method="post" class="form-modal" id="form-edt">
+        <form asp-action="EditProfessor" method="post" class="form-modal" id="form-edt">
             <div class="field-modal">
                 <label for="name-edt">Nome Completo</label>
                 <input class="inp-modal" type="text" id="name-edt" name="name" placeholder="Nome">
@@ -163,7 +144,7 @@
                 <label for="phone-edt">Telefone</label>
                 <input class="inp-modal" type="tel" id="phone-edt" name="phone" placeholder="Telefone">
             </div>
-            <div class="field-modal">
+            @* <div class="field-modal">
                 <label for="select-modal-edt" id="label-modal-edt">Matérias</label>
                 <input type="text" class="select-modal-edt" id="select-modal-edt" name="subjects-edt" placeholder="Selecione as Matérias" readonly>
                 <div class="dropdown-container-edt">
@@ -180,21 +161,23 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <button type="submit" class="btn btn-modal" id="submit-edt">Editar</button>
+            </div> *@
+            <input type="hidden" name="id" id="id-edt">
+            <button type="submit" class="btn btn-modal" id="submit-edt">Salvar</button>
         </form>
     </div>
 </section>
 <section class="modal modal-del">
-    <div class="modal-container modal-container-del">
+    <form asp-action="DeleteProfessor" method="post" class="modal-container modal-container-del">
         <div class="title-modal-container-del">
-            <h1 class="title-modal-del">Tem certeza que deseja remover esse professor?</h1>
+            <h1 class="title-modal-del">Tem certeza que deseja remover o professor(a) <span id="name-del"></span> ?</h1>
         </div>
         <div class="btn-container-confirm">
-            <button type="submit" class="btn btn-modal btn-white-outline close-modal-del">Cancelar</button>
+            <button type="button" class="btn btn-modal btn-white-outline close-modal-del">Cancelar</button>
+            <input type="hidden" name="id" id="id-del"/>
             <button type="submit" class="btn btn-modal">Remover</button>
         </div>
-    </div>
+    </form>
 </section>
 
 @section Scripts{

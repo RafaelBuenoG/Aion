@@ -32,7 +32,7 @@ function selectEdt(id)
 {
     const nameItemEdt = document.querySelector(`#items-edt-${id}`).innerHTML
     let posEdt = itemsEdt.indexOf(nameItemEdt)
-
+    
     if (posEdt == -1)
     {
         itemsEdt.push(nameItemEdt)

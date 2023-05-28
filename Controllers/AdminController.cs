@@ -79,7 +79,6 @@ public class AdminController : Controller
 
         foreach (var subject in subjects.Split(','))
         {
-            //int disciplinaId = _context.Disciplinas.FirstOrDefault(d => d.Nome.Equals(subject)).Id;
             var formacao = new Formacao()
             {
                 ProfessorId = prof.Id,
@@ -96,7 +95,7 @@ public class AdminController : Controller
     }
 
     [HttpPost, ActionName("EditProfessor")]
-    public IActionResult EditProfessor(int id, string name, string email, string phone)
+    public IActionResult EditProfessor(int id, string name, string email, string phone, string subjects)
     {
         var professor = _context.professores.FirstOrDefault(p => p.Id == id);
         professor.Nome = name;

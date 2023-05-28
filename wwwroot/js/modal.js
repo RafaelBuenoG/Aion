@@ -54,11 +54,13 @@ function openModalEdtProfessores(id, name, email, phone, materias)
 
     let inpSub = getElement('#id-edt');
     inpSub.value = id;
-    let materiasList = materias.split(',');
-    console.log(materiasList);
 
-    for (i = 0; i < materiasList.length; i++) {
-        console.log(materiasList[i]);
+    let materiaId = materias.split(',');
+    for (i = 0; i < materiaId.length; i++)
+    {
+        
+        // Pega a função do select para adicionar ao array
+        selectEdt(materiaId[i])
     }
 }
 const closeModalEdt = () => backgroundEdt.classList.remove(activeModalClass);

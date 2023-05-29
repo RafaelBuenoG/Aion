@@ -16,7 +16,10 @@ const modalDel = getElement('.modal-container-del');
 const activeModalClass = 'modal-show';
 
 const openModal = () => background.classList.add(activeModalClass);
-const closeModal = () => background.classList.remove(activeModalClass);
+const closeModal = () => {
+    background.classList.remove(activeModalClass);
+    closeDropDown();
+}
 
 function openModalDel(id, name)
 {
@@ -42,9 +45,11 @@ function openModalEdtCursos(id, name, type, qty)
     let inpSub = getElement('#id-edt');
     inpSub.value = id;
 }
+
 function openModalEdtProfessores(id, name, email, phone, materias)
 {
     backgroundEdt.classList.add(activeModalClass);
+    
     let inpName = getElement('#name-edt');
     let inpEmail = getElement('#email-edt');
     let inpPhone = getElement('#phone-edt');
@@ -57,13 +62,34 @@ function openModalEdtProfessores(id, name, email, phone, materias)
 
     let materiaId = materias.split(',');
     for (i = 0; i < materiaId.length; i++)
-    {
+    {   
+        let input = document.querySelector(`#item-select-edt-${materiaId[i]}`)
+        const nameItemEdta = document.querySelector(`#items-edt-${materiaId[i]}`).innerHTML
+
+        let posEdta = itemsEdt.indexOf(nameItemEdta)
+        if (posEdta == -1)
+        {
+            itemsEdt.push(nameItemEdta)
+            input.checked = true;
+        }
+        document.querySelector('.select-modal-edt').value = itemsEdt;
         
-        // Pega a função do select para adicionar ao array
-        selectEdt(materiaId[i])
+        // Quando o modal for fechado os itens do select perdem o atributo "checked"
+        backgroundEdt?.addEventListener('mousedown', (event) => {
+            if (!modalEdt.contains(event.target)) checkFalse(input)
+        })  
     }
 }
-const closeModalEdt = () => backgroundEdt.classList.remove(activeModalClass);
+
+const checkFalse = (input) => {
+    input.checked = false;
+}
+
+const closeModalEdt = () => {
+    backgroundEdt.classList.remove(activeModalClass)
+    closeDropDownEdt();
+    deleteItemsEdt();
+};
 
 btnCloseDel.addEventListener('click', closeModalDel)
 btnCloseEdt?.addEventListener('click', closeModalEdt)

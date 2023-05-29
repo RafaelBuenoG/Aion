@@ -63,8 +63,8 @@ function openModalEdtProfessores(id, name, email, phone, materias)
     let materiaId = materias.split(',');
     for (i = 0; i < materiaId.length; i++)
     {   
-        let input = document.querySelector(`#item-select-edt-${materiaId[i]}`)
-        const nameItemEdta = document.querySelector(`#items-edt-${materiaId[i]}`).innerHTML
+        let input = getElement(`#item-select-edt-${materiaId[i]}`)
+        const nameItemEdta = getElement(`#items-edt-${materiaId[i]}`).innerHTML
 
         let posEdta = itemsEdt.indexOf(nameItemEdta)
         if (posEdta == -1)
@@ -72,7 +72,7 @@ function openModalEdtProfessores(id, name, email, phone, materias)
             itemsEdt.push(nameItemEdta)
             input.checked = true;
         }
-        document.querySelector('.select-modal-edt').value = itemsEdt;
+        getElement('.select-modal-edt').value = itemsEdt;
         
         // Quando o modal for fechado os itens do select perdem o atributo "checked"
         backgroundEdt?.addEventListener('mousedown', (event) => {

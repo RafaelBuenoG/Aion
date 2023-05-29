@@ -102,6 +102,13 @@ public class AdminController : Controller
         professor.Email = email;
         professor.Telefone = phone;
 
+        foreach (var subject in subjects.Split(','))
+        {
+            var formacao = _context.formacoes.FirstOrDefault(f => f.Professor.Equals(professor));
+            _context.Update(formacao);
+        }
+        _context.SaveChanges();
+
         if (ModelState.IsValid)
         {
             try

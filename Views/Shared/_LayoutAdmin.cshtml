@@ -63,9 +63,11 @@
                 <img src="~/img/icons/profile-white.svg" alt="">
                 <span>@User.Identity.Name</span>
             </button>
-            <button class="btn-side-logout">
-                <img class="logout-icon" src="~/img/icons/leave.svg" alt="Sair">
-            </button>
+            <form class="btn-side-logout" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
+                <button type="submit">
+                    <img class="logout-icon" src="~/img/icons/leave.svg" alt="Sair">
+                </button>
+            </form>
         </div>
     </nav>
 

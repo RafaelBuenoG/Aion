@@ -90,7 +90,7 @@ public class AdminController : Controller
 
         // Recarrega automáticamente a página quando adicionado
         ViewData["Materias"] = _context.disciplinas.OrderBy(m => m.Nome);
-        List<Professor> professores = _context.professores.ToList();
+        List<Professor> professores = _context.professores.Include(p => p.Formacao).ThenInclude(f => f.Disciplina).ToList();
         return View(professores);
     }
 
@@ -102,12 +102,12 @@ public class AdminController : Controller
         professor.Email = email;
         professor.Telefone = phone;
 
-        foreach (var subject in subjects.Split(','))
-        {
-            var formacao = _context.formacoes.FirstOrDefault(f => f.Professor.Equals(professor));
-            _context.Update(formacao);
-        }
-        _context.SaveChanges();
+        // foreach (var subject in subjects.Split(','))
+        // {
+        //     var formacao = _context.formacoes.FirstOrDefault(f => f.Professor.Equals(professor));
+        //     _context.Update(formacao);
+        // }
+        // _context.SaveChanges();
 
         if (ModelState.IsValid)
         {

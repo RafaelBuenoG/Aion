@@ -24,12 +24,7 @@ public class HomeController : Controller
 
     public IActionResult Sobre()
     {
-        // Testes
-        
-        var disciplinas = _context.disciplinas;
-        return View(disciplinas);
-
-        // Testes
+        return View();
     }
 
     public IActionResult Planos()

@@ -84,8 +84,8 @@ main
     justify-content: center;
     position: relative;
     height: 6%;
-    border-top: 1px solid var(--white01);
     border-bottom-right-radius: 20px;
+    border-top-left-radius: 10px;
     background-color: transparent;
 }
 
@@ -96,7 +96,6 @@ main
     justify-content: center;
     height: 100%;
     background-color: transparent;
-    border-right: 1px solid var(--white03);
     gap: 5%;
     cursor: pointer;
 }
@@ -130,6 +129,7 @@ main
     height: 100%;
     background-color: var(--red01);
     border-bottom-right-radius: 20px;
+    border-top-left-radius: 10px;
     cursor: pointer;
 }
 

@@ -6,6 +6,17 @@
 
 @{
     var actionAtual = ViewContext.RouteData.Values["action"] != null ? ViewContext.RouteData.Values["action"].ToString() : "login";
+    
+    var nameUser = "";
+    if (User.Identity.Name.Split('.').Count() > 1)
+    {
+        nameUser = User.Identity.Name.Split('.')[0] + " " + User.Identity.Name.Split('.')[User.Identity.Name.Split('.').Count() - 1];
+    }
+    else
+    {
+        nameUser = User.Identity.Name.Split('.')[0];
+    }
+    ViewData["NameUser"] = nameUser;
 }
 
 <!DOCTYPE html>
@@ -45,7 +56,7 @@
             {
                 <div class="drop-container">
                     <button class="user-container">
-                        <span id="username">@User.Identity.Name</span>
+                        <span id="username">@ViewBag.NameUser</span>
                         <img class="user-arrow" src="~/img/icons/arrow-down-purple.svg" alt="Mostrar Mais">
                         <img class="user-picture" src="~/img/icons/profile.svg" alt="Perfil">
                     </button>

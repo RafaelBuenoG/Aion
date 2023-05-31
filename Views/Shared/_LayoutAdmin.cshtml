@@ -1,5 +1,6 @@
 @{
     var actionAtual = ViewContext.RouteData.Values["action"].ToString();
+    ViewData["FirstNameUser"] = User.Identity.Name.Split('.')[0];
 }
 
 <!DOCTYPE html>
@@ -61,7 +62,7 @@
         <div class="btn-side-container">
             <button class="btn-side-user">
                 <img src="~/img/icons/profile-white.svg" alt="">
-                <span>@User.Identity.Name</span>
+                <span>@ViewBag.FirstNameUser</span>
             </button>
             <form class="btn-side-logout" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
                 <button type="submit">

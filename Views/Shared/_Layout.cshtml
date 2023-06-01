@@ -100,11 +100,9 @@
                         }
                         <li>
                             <a class="logout">
-                                <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                                    <button type="submit">
-                                        <span>Sair da Conta</span>
-                                    </button>
-                                </form>
+                                <button class="btn-modal-conf">
+                                    <span>Sair da Conta</span>
+                                </button>
                             </a>
                         </li>
                     </ul>
@@ -114,6 +112,18 @@
             {
                 <a asp-area="Identity" asp-page="/Account/Login" class="btn" id="btn-nav">Login</a>
             }
+            <section class="modal-conf">
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post" class="modal-container-conf">
+                <div class="title-modal-container-del">
+                    <h1 class="title-modal-del">Tem certeza que deseja sair da sua conta?</h1>
+                </div>
+                <div class="btn-container-confirm">
+                    <button type="button" class="btn btn-white-outline close-modal-conf">Cancelar</button>
+                    <button type="submit" class="btn">Sair</button>
+                </div>
+            </form>
+        </section>
+        
         </nav>
     </header>
 
@@ -122,6 +132,7 @@
     </main>
 
     @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/modal-confirm.js"></script>
 
 </body>
 

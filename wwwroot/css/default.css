@@ -129,9 +129,9 @@ html, body
     gap: 15px;
 }
 
-/* Default Modal Add */
+/* Default Modal */
 
-.modal
+.modal, .modal-edt, .modal-conf
 {
     position: fixed;
     display: grid;
@@ -146,22 +146,7 @@ html, body
     transition: opacity 0.15s;
 }
 
-.modal-edt
-{
-    position: fixed;
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.3);
-    top: 0;
-    left: 0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.15s;
-}
-
-.modal-container
+.modal-container, .modal-container-conf
 {
     width: 30%;
     padding: 30px;
@@ -191,18 +176,7 @@ html, body
     position: relative;
 }
 
-.close-modal
-{
-    position: absolute;
-    width: 40px;
-    height: 40px;
-    top: -5px;
-    right: 0px;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.close-modal-edt
+.close-modal, .close-modal-edt
 {
     position: absolute;
     width: 40px;

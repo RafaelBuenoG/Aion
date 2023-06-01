@@ -131,13 +131,13 @@ public class AdminController : Controller
     public IActionResult Professores(string name, string email, string phone, string subjects)
     {
         // Cria e cadastra o professor
-        //string userName = name.Split(' ')[0] + "." + name.Split(' ')[name.Split(' ').Count() - 1];
+        string userName = (name.Split(' ')[0] + "." + name.Split(' ')[name.Split(' ').Count() - 1]).ToLower();
         Professor prof = new()
         {
             Nome = name,
             Email = email,
             Telefone = phone,
-            Usuario = "userName",
+            Usuario = userName,
             Senha = "@Aion123"
         };
         _context.professores.Add(prof);
@@ -163,11 +163,13 @@ public class AdminController : Controller
     [HttpPost, ActionName("EditProfessor")]
     public IActionResult EditProfessor(int id, string name, string email, string phone, string subjects)
     {
+        string userName = (name.Split(' ')[0] + "." + name.Split(' ')[name.Split(' ').Count() - 1]).ToLower();
         var professor = _context.professores.FirstOrDefault(p => p.Id == id);
         professor.Nome = name;
         professor.Email = email;
         professor.Telefone = phone;
-
+        professor.Usuario = userName;
+        
         // foreach (var subject in subjects.Split(','))
         // {
         //     var formacao = _context.formacoes.FirstOrDefault(f => f.Professor.Equals(professor));

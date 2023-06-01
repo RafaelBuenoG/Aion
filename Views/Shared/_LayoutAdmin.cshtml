@@ -64,12 +64,23 @@
                 <img src="~/img/icons/profile-white.svg" alt="">
                  <span>@ViewBag.FirstNameUser</span> 
             </button>
-            <form class="btn-side-logout" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
-                <button type="submit">
+            <div class="btn-side-logout btn-modal-conf">
+                <button class="btn-modal-conf">
                     <img class="logout-icon" src="~/img/icons/leave.svg" alt="Sair">
                 </button>
-            </form>
+            </div>
         </div>
+        <section class="modal-conf">
+            <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post" class="modal-container-conf">
+                <div class="title-modal-container-del">
+                    <h1 class="title-modal-del">Tem certeza que deseja sair da sua conta?</h1>
+                </div>
+                <div class="btn-container-confirm">
+                    <button type="button" class="btn btn-white-outline close-modal-conf">Cancelar</button>
+                    <button type="submit" class="btn">Sair</button>
+                </div>
+            </form>
+        </section>
     </nav>
 
     <main>
@@ -77,6 +88,7 @@
     </main>
     
     @await RenderSectionAsync("Scripts", required: false)
+    <script src="~/js/modal-confirm.js"></script>
 </body>
 
 </html>

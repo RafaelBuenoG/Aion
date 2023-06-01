@@ -1,7 +1,7 @@
 const getElement = (...queries) => document.querySelector(...queries);
 
-const btnOpen = getElement('.btn-modal');
-const btnClose = getElement('.close-modal');
+const btnOpenAdd = getElement('.btn-modal');
+const btnCloseAdd = getElement('.close-modal');
 const background = getElement('.modal');
 const modal = getElement('.modal-container');
 
@@ -15,8 +15,8 @@ const modalDel = getElement('.modal-container-del');
 
 const activeModalClass = 'modal-show';
 
-const openModal = () => background.classList.add(activeModalClass);
-const closeModal = () => {
+const openModalAdd = () => background.classList.add(activeModalClass);
+const closeModalAdd = () => {
     background.classList.remove(activeModalClass);
     closeDropDown();
 }
@@ -76,13 +76,17 @@ function openModalEdtProfessores(id, name, email, phone, materias)
         
         // Quando o modal for fechado os itens do select perdem o atributo "checked"
         backgroundEdt?.addEventListener('mousedown', (event) => {
-            if (!modalEdt.contains(event.target)) checkFalse(input)
+            if (!modalEdt.contains(event.target)) checkFalse()
         })  
     }
 }
 
-const checkFalse = (input) => {
-    input.checked = false;
+const checkFalse = () => {
+    let inpChecks = document.getElementsByClassName('check-select-edt');
+    for (i = 0; i < inpChecks.length; i++)
+    {
+        inpChecks[i].checked = false;
+    }
 }
 
 const closeModalEdt = () => {
@@ -93,12 +97,12 @@ const closeModalEdt = () => {
 
 btnCloseDel.addEventListener('click', closeModalDel)
 btnCloseEdt?.addEventListener('click', closeModalEdt)
-btnOpen.addEventListener('click', openModal)
-btnClose.addEventListener('click', closeModal)
+btnOpenAdd.addEventListener('click', openModalAdd)
+btnCloseAdd.addEventListener('click', closeModalAdd)
 
 // A diferença do mousedown pro click é que só quando o mouse for clicado a função será executada, e não quando soltado o clique.
 background.addEventListener('mousedown', (event) => {
-    if (!modal.contains(event.target)) closeModal()
+    if (!modal.contains(event.target)) closeModalAdd()
     
     return;
 })

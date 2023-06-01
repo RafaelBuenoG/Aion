@@ -6,17 +6,7 @@
 
 @{
     var actionAtual = ViewContext.RouteData.Values["action"] != null ? ViewContext.RouteData.Values["action"].ToString() : "login";
-    
-    var nameUser = "";
-    if (User.Identity.Name.Split('.').Count() > 1)
-    {
-        nameUser = User.Identity.Name.Split('.')[0] + " " + User.Identity.Name.Split('.')[User.Identity.Name.Split('.').Count() - 1];
-    }
-    else
-    {
-        nameUser = User.Identity.Name.Split('.')[0];
-    }
-    ViewData["NameUser"] = nameUser;
+    if (User.Identity.Name != null) ViewData["NameUser"] = (User.Identity.Name.Split('.').Count() > 1) ? User.Identity.Name.Split('.')[0] + " " + User.Identity.Name.Split('.')[User.Identity.Name.Split('.').Count() - 1] : User.Identity.Name.Split('.')[0];
 }
 
 <!DOCTYPE html>

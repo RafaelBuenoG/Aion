@@ -6,24 +6,24 @@
 
 <section class="progress-bar-container">
     <div class="progress-bar">
-        <div class="progress prog-left"></div>
+        <div class="progress prog-left done"></div>
         <div class="progress"></div>
         <div class="progress prog-right"></div>
     </div>
 </section>
 <form method="post" class="section-main">
     <div class="question-container">
-        <h1 class="reg-title">Quais dias da semana estão disponíveis<br> para você?</h1>
+        <h1 class="reg-title">Qual o melhor horário para você?</h1>
         <a href="javascript:void(0)" class="select">
             <div class="select-container">
-                <span class="select-title">Selecionar dias</span>
+                <span class="select-title">Selecionar horário</span>
                 <img class="icon-arrow-down" src="../../img/icons/arrow-down.svg" alt="Mostrar Mais">
             </div>
         </a>
     </div>
     <div class="btn-container">
         <div class="btn-prev-container">
-            <a href="javascript:void(0)" class="btn-prev-a hide">
+            <a asp-action="RegDados" class="btn-prev-a">
                 <img class="prev-icon" src="../../img/icons/arrow-left.svg" alt="Voltar">
                 <span class="btn-prev">Voltar</span>
             </a>

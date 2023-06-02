@@ -1,0 +1,13 @@
+@{
+    ViewData["Title"] = "Home Page";
+    ViewBag.Subtitulo = "Registrar Dados";
+    Layout= "~/Views/Shared/_LayoutProfessor.cshtml";
+}
+
+<section class="success-page">
+    <div class="success-container">
+        <img class="success-icon" src="../../img/icons/success.svg" alt="Sucesso">
+        <h1 class="reg-title">Seus dados foram registrados <br> com sucesso!</h1>
+    </div>
+    <a asp-action="Index" class="btn btn-medium btn-align">Concluir</a>
+</section>

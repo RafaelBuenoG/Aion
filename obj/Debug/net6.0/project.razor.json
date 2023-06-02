@@ -18464,6 +18464,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Usuario\\Desktop\\Aion\\Views\\Professor\\RegDadosSuccess.cshtml",
+      "TargetPath": "Views\\Professor\\RegDadosSuccess.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Usuario\\Desktop\\Aion\\Views\\Professor\\Config.cshtml",
       "TargetPath": "Views\\Professor\\Config.cshtml",
       "FileKind": "mvc"
@@ -18491,6 +18496,11 @@
     {
       "FilePath": "c:\\Users\\Usuario\\Desktop\\Aion\\Views\\Admin\\Turmas.cshtml",
       "TargetPath": "Views\\Admin\\Turmas.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Usuario\\Desktop\\Aion\\Views\\Professor\\RegDados2.cshtml",
+      "TargetPath": "Views\\Professor\\RegDados2.cshtml",
       "FileKind": "mvc"
     },
     {

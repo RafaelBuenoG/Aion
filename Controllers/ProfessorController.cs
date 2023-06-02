@@ -28,6 +28,37 @@ public class ProfessorController : Controller
     {
         return View();
     }
+    
+    [HttpPost]
+    public IActionResult RegDados(string week)
+    {
+        return RedirectToAction(nameof(RegDados2), week);
+    }
+
+    public IActionResult RegDados2()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult RegDados2(string week, string horaInicio, string horaFim)
+    {
+        Disponibilidade disp = new()
+        {
+            // DiaSemana = week,
+            HoraInicio = horaInicio,
+            HoraFim = horaFim,
+            // ProfessorId = ;
+        };
+        _context.disponibilidades.Add(disp);
+        _context.SaveChanges();
+        return RedirectToAction(nameof(RegDadosSuccess));
+    }
+
+    public IActionResult RegDadosSuccess()
+    {
+        return View();
+    }
 
     public IActionResult HorarioFinal()
     {

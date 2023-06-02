@@ -119,6 +119,66 @@ public class AdminController : Controller
         return RedirectToAction(nameof(Materias));
     }
 
+    public IActionResult Turmas()
+    {
+        ViewData["Cursos"] = _context.cursos.OrderBy(c => c.Nome);
+        List<Turma> turmas = _context.turmas.ToList();
+        ViewData["hasTurma"] = turmas.Count() < 1 ? false : true;
+        return View(turmas);
+    }
+
+    [HttpPost]
+    public IActionResult Turmas(string name, string data)
+    {
+        Turma tur = new()
+        {
+            Nome = name
+        };
+        _context.turmas.Add(tur);
+        _context.SaveChanges();
+
+        // Recarrega automáticamente a página quando adicionado
+        List<Turma> turmas = _context.turmas.ToList();
+        return View(turmas);
+    }
+
+    [HttpPost, ActionName("EditTurma")]
+    public IActionResult Turmas(int id, string name, string data, string course)
+    {
+        var turma = _context.turmas.FirstOrDefault(c => c.Id == id);
+        turma.Nome = name;
+
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _context.Update(turma);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TurmaExists(turma.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+        return RedirectToAction(nameof(Turma));
+    }
+
+    [HttpPost, ActionName("DeleteTurma")]
+    public IActionResult DeleteTurma(int id)
+    {
+        var turma = _context.turmas.Find(id);
+        _context.turmas.Remove(turma);
+        _context.SaveChanges();
+        return RedirectToAction(nameof(Turma));
+    }
+
     public IActionResult Professores()
     {
         ViewData["Materias"] = _context.disciplinas.OrderBy(m => m.Nome);
@@ -226,6 +286,11 @@ public class AdminController : Controller
     private bool ProfessorExists(int id)
     {
         return _context.professores.Any(p => p.Id == id);
+    }
+
+    private bool TurmaExists(int id)
+    {
+        return _context.turmas.Any(t => t.Id == id);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

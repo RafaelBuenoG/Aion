@@ -29,6 +29,8 @@ public class ApplicationDbContext : IdentityDbContext<User>
 
     public DbSet<Professor> professores { get; set; }
 
+    public DbSet<Turma> turmas { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

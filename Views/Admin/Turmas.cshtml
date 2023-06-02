@@ -1,0 +1,146 @@
+@model List<Turma>
+
+@{
+    ViewData["Title"] = "Home Page";
+    ViewBag.Subtitulo = "Turmas";
+    Layout= "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<header>
+    <div class="header-title-container pad-left">
+        <h1 class="header-title">Turmas já cadastradas</h1>
+    </div>
+    <button class="add-container pad-right btn-modal">
+        <img class="add-icon" src="~/img/icons/add.svg" alt="add">
+        <span class="add-title">Adicionar</span>
+    </button>
+</header>
+<section class="table-container">
+    @if (ViewBag.hasTurma == false)
+    {
+        <div class="table">
+            <span class="msg-table">Nenhuma turma cadastrada</span>
+        </div>
+    }
+    else
+    {
+        <div class="table">
+            <div class="table-item">
+                @foreach (var turmas in Model)
+                {   
+                    <section class="table-item-container">
+                        <div class="table-item-btn" id="course">
+                            <label style="cursor: auto;" for="course" class="table-item-name">@turmas.Nome</label>
+                            <div class="drop-btn-container">
+                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtTurmas('@turmas.Id', '@turmas.Nome')" id="id-@turmas.Id">
+                                    <img src="~/img/icons/edit.svg" alt="Edit">
+                                </button>
+                                <button class="drop-btn">
+                                    <label for="btn-delete-@turmas.Id">
+                                        <img src="~/img/icons/delete.svg" alt="Delete">
+                                    </label>
+                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@turmas.Id', '@turmas.Nome')" id="btn-delete-@turmas.Id"/>
+                                </button>
+                            </div>
+                        </div>
+                    </section>
+                }
+            </div>
+        </div>
+    }
+</section>
+<section class="modal">
+    <div class="modal-container modal-container-coclass">
+        <div class="title-modal-container">
+            <h1 class="title-modal">Adicionar Turma</h1>
+            <button class="close-modal" id="close-modal-add">
+                <img src="~/img/icons/close-rounded.svg" alt="Close">
+            </button>
+        </div>
+        <form method="post" class="form-modal" id="form-add">
+            <div class="field-modal">
+                <label for="name">Turma</label>
+                <input class="inp-modal" type="text" id="name-add" name="name" placeholder="Nome da Turma" autocomplete="false">
+                <span class="erro"></span>
+            </div>
+            <div class="field-modal">
+                <label for="select-modal-coclass" id="label-modal-coclass">Curso</label>
+                <input type="text" class="select-modal-coclass" id="select-modal-coclass" name="courses" placeholder="Selecione o Curso" readonly>
+                <div class="dropdown-container-coclass">
+                    <div class="dropdown-select-coclass">
+                        @foreach (var cursos in ViewBag.Cursos)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select-coclass" type="checkbox" id="item-select-coclass-@cursos.Id" name="course">
+                                <label for="item-select-coclass-@cursos.Id" class="item-select-coclass" id="items-coclass-@cursos.Id" onmousedown="selectCoClass(@cursos.Id)">@cursos.Nome</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="field-modal">
+                <label for="data">Mês e ano de início</label>
+                <input class="inp-modal" type="number" id="data" name="data" placeholder="Selecione o mês e ano">
+                <span class="erro"></span>
+            </div>
+            <button type="submit" class="btn btn-modal">Adicionar</button>
+        </form>
+    </div>
+</section>
+<section class="modal modal-edt">
+    <div class="modal-container modal-container-edt modal-container-coclassEdt">
+        <div class="title-modal-container">
+            <h1 class="title-modal">Editar Turma</h1>
+            <button class="close-modal close-modal-edt" id="close-modal-edt">
+                <img src="~/img/icons/close-rounded.svg" alt="Close">
+            </button>
+        </div>
+        <form asp-action="EditTurma" method="post" class="form-modal" id="form-edt">
+            <div class="field-modal">
+                <label for="name-edt">Turma</label>
+                <input class="inp-modal" type="text" id="name-edt" name="name" placeholder="Nome do Curso" autocomplete="false">
+                <span class="erro"></span>
+            </div>
+            <div class="field-modal">
+                <label for="select-modal-coclassEdt" id="label-modal-coclassEdt">Curso</label>
+                <input type="text" class="select-modal-coclassEdt" id="select-modal-coclassEdt" name="courses" placeholder="Selecione o Curso" readonly>
+                <div class="dropdown-container-coclassEdt">
+                    <div class="dropdown-select-coclassEdt">
+                        @foreach (var cursos in ViewBag.Cursos)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select-coclassEdt" type="checkbox" id="item-select-coclassEdt-@cursos.Id" name="course">
+                                <label for="item-select-coclassEdt-@cursos.Id" class="item-select-coclassEdt" id="items-coclassEdt-@cursos.Id" onmousedown="selectCoClassEdt(@cursos.Id)">@cursos.Nome</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="field-modal">
+                <label for="data">Mês e ano de início</label>
+                <input class="inp-modal" type="number" id="data" name="data" placeholder="Selecione o mês e ano">
+                <span class="erro"></span>
+            </div>
+            <input type="hidden" name="id" id="id-edt"/>
+            <button type="submit" class="btn btn-modal">Salvar</button>
+        </form>
+    </div>
+</section>
+<section class="modal modal-del">
+    <form asp-action="DeleteTurma" method="post" class="modal-container modal-container-del">
+        <div class="title-modal-container-del">
+            <h1 class="title-modal-del">Tem certeza que deseja remover a turma <span id="name-del"></span> ?</h1>
+        </div>
+        <div class="btn-container-confirm">
+            <button type="button" class="btn btn-modal btn-white-outline close-modal-del">Cancelar</button>
+            <input type="hidden" name="id" id="id-del"/>
+            <button type="submit" class="btn btn-modal">Remover</button>
+        </div>
+    </form>
+</section>
+
+@section Scripts{
+    <script src="~/js/modal.js"></script>
+    <script src="~/js/multi-select-class-add.js"></script>
+    <script src="~/js/multi-select-class-edt.js"></script>
+}

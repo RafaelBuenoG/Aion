@@ -46,6 +46,16 @@ function openModalEdtCursos(id, name, type, qty)
     inpSub.value = id;
 }
 
+function openModalEdtCursos(id, name)
+{
+    backgroundEdt.classList.add(activeModalClass);
+    let inpName = getElement('#name-edt');
+    inpName.value = name;
+
+    let inpSub = getElement('#id-edt');
+    inpSub.value = id;
+}
+
 function openModalEdtProfessores(id, name, email, phone, materias)
 {
     backgroundEdt.classList.add(activeModalClass);

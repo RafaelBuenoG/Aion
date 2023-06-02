@@ -41,6 +41,12 @@
                 </a>
             </li>
             <li>
+                <a asp-action="Turmas" asp-controller="Admin" class="side-item-container @(actionAtual == "Turmas" ? "selected" : "")">
+                    <img class="side-item-icon" src="~/img/icons/class.svg" alt="Turmas" />
+                    <span class="side-item-title">Turmas</span>
+                </a>
+            </li>
+            <li>
                 <a asp-action="Professores" asp-controller="Admin" class="side-item-container @(actionAtual == "Professores" ? "selected" : "")">
                     <img class="side-item-icon" src="~/img/icons/person.svg" alt="Professores" />
                     <span class="side-item-title">Professores</span>
@@ -52,12 +58,12 @@
                     <span class="side-item-title">Gerar Horários</span>
                 </a>
             </li>
-            <li>
+            @* <li>
                 <a asp-action="Config" asp-controller="Admin" class="side-item-container @(actionAtual == "Config" ? "selected" : "")">
                     <img class="side-item-icon" src="~/img/icons/settings.svg" alt="Configurações" />
                     <span class="side-item-title">Configurações</span>
                 </a>
-            </li>
+            </li> *@
         </ul>
         <div class="btn-side-container">
             <button class="btn-side-user">

@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Aion.Models;
 using Aion.Data;
 using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Aion.Controllers;
 
@@ -48,7 +49,7 @@ public class ProfessorController : Controller
             // DiaSemana = week,
             HoraInicio = horaInicio,
             HoraFim = horaFim,
-            // ProfessorId = ;
+            ProfessorId = int.Parse(User.Claims.ToArray()[0].Value),
         };
         _context.disponibilidades.Add(disp);
         _context.SaveChanges();

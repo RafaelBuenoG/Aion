@@ -1,3 +1,5 @@
+@model IEnumerable<DiaSemana>
+
 @{
     ViewData["Title"] = "Home Page";
     ViewBag.Subtitulo = "Registrar Dados";
@@ -6,7 +8,7 @@
 
 <section class="progress-bar-container">
     <div class="progress-bar">
-        <div class="progress prog-left"></div>
+        <div class="progress prog-left done"></div>
         <div class="progress"></div>
         <div class="progress prog-right"></div>
     </div>
@@ -14,12 +16,18 @@
 <form method="post" class="section-main">
     <div class="question-container">
         <h1 class="reg-title">Quais dias da semana estão disponíveis<br> para você?</h1>
-        <a href="javascript:void(0)" class="select">
-            <div class="select-container">
-                <span class="select-title">Selecionar dias</span>
-                <img class="icon-arrow-down" src="../../img/icons/arrow-down.svg" alt="Mostrar Mais">
+        <input type="text" class="select-modal-reg" id="select-modal" name="weekDays" placeholder="Selecione os dias" readonly>
+        <div class="dropdown-container-reg">
+            <div class="dropdown-select-reg">
+                @foreach (var dia in Model)
+                {
+                    <div class="item-select-container">
+                        <input class="check-select" type="checkbox" id="item-select-@dia">
+                        <label for="item-select-@dia" class="item-select" id="items-week-@dia" onmousedown="selectDay('@dia')">@dia</label>
+                    </div>
+                }
             </div>
-        </a>
+        </div>
     </div>
     <div class="btn-container">
         <div class="btn-prev-container">
@@ -31,3 +39,7 @@
         <button type="submit" class="btn btn-medium center">Avançar</button>
     </div>
 </form>
+
+@section Scripts{
+    <script src="~/js/multi-select-reg.js"></script>
+}

@@ -27,7 +27,8 @@ public class ProfessorController : Controller
 
     public IActionResult RegDados()
     {
-        return View();
+        var days = Enum.GetValues(typeof(DiaSemana)).Cast<DiaSemana>();
+        return View(days);
     }
     
     [HttpPost]
@@ -41,20 +42,20 @@ public class ProfessorController : Controller
         return View();
     }
 
-    [HttpPost]
-    public IActionResult RegDados2(string week, string horaInicio, string horaFim)
-    {
-        Disponibilidade disp = new()
-        {
-            // DiaSemana = week,
-            HoraInicio = horaInicio,
-            HoraFim = horaFim,
-            ProfessorId = int.Parse(User.Claims.ToArray()[0].Value),
-        };
-        _context.disponibilidades.Add(disp);
-        _context.SaveChanges();
-        return RedirectToAction(nameof(RegDadosSuccess));
-    }
+    // [HttpPost]
+    // public IActionResult RegDados2(string week, string horaInicio, string horaFim)
+    // {
+    //     Disponibilidade disp = new()
+    //     {
+    //         // DiaSemana = week,
+    //         HoraInicio = horaInicio,
+    //         HoraFim = horaFim,
+    //         // ProfessorId = int.Parse(User.Claims.ToArray()[0].Value),
+    //     };
+    //     _context.disponibilidades.Add(disp);
+    //     _context.SaveChanges();
+    //     return RedirectToAction(nameof(RegDadosSuccess));
+    // }
 
     public IActionResult RegDadosSuccess()
     {

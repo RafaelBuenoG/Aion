@@ -169,39 +169,6 @@
     line-height: 50px;
 }
 
-.select-modal-reg
-{
-    width: 40vw;
-    height: 60px;
-    padding: 8px 15px;
-    border-radius: 15px;
-    background-color: var(--white01);
-    font-size: 1.4em;
-    cursor: pointer;
-}
-
-.dropdown-container-reg
-{
-    position: relative;
-    margin-top: -50px;
-}
-
-.dropdown-select-reg
-{
-    width: 40vw;
-    height: auto;
-    max-height: 25vh;
-    background-color: var(--white01);
-    border-radius: 12px;
-    overflow: auto;
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .15s;
-    top: 50%;
-    left: 25.5%;
-}
-
 .dropdown-show-reg
 {
     opacity: 1;
@@ -210,43 +177,8 @@
 
 .btn-container
 {
-    display: grid;
-    grid-template-columns: 50% 50%;
-}
-
-.btn-prev-container
-{
     display: flex;
-    padding-left: 20%;
-}
-
-.btn-prev-a
-{
-    display: flex;
-    width: auto;
-    align-items: center;
-    color: var(--purple02);
-}
-
-.prev-icon
-{
-    width: 40px;
-}
-
-.btn-prev
-{
-    width: auto;
-    font-size: 1.35em;
-}
-
-.center
-{
-    transform: translate(-50%);
-}
-
-.hide
-{
-    display: none;
+    justify-content: center;
 }
 
 .success-page
@@ -311,4 +243,41 @@
 {
     font-size: var(--p-size);
     color: gray;
+}
+
+/* Tabela de disponibilidade */
+
+.table-reg
+{
+    width: 60vw;
+    font-size: 1.5em;
+}
+
+.thead-reg > tr
+{
+    height: 5vh;
+}
+
+.thead-reg > tr > th
+{
+    width: 14.2%;
+    background-color: var(--purple06);
+    border: 2px solid var(--purple06);
+    color: white;
+}
+
+.tbody-reg > tr
+{
+    height: 5vh;
+}
+
+.tbody-reg > tr > td
+{
+    width: 14.2%;
+    border: 2px solid var(--purple01);
+}
+
+.hide
+{
+    display: none;
 }

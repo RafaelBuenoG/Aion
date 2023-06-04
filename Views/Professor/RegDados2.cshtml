@@ -1,4 +1,4 @@
-@{
+@* @{
     ViewData["Title"] = "Home Page";
     ViewBag.Subtitulo = "Registrar Dados";
     Layout= "~/Views/Shared/_LayoutProfessor.cshtml";
@@ -13,13 +13,8 @@
 </section>
 <form method="post" class="section-main">
     <div class="question-container">
-        <h1 class="reg-title">Qual o melhor horário para você?</h1>
-        <a href="javascript:void(0)" class="select">
-            <div class="select-container">
-                <span class="select-title">Selecionar horário</span>
-                <img class="icon-arrow-down" src="../../img/icons/arrow-down.svg" alt="Mostrar Mais">
-            </div>
-        </a>
+        <h1 class="reg-title">Quais são seus horários disponíveis?</h1>
+        <input type="text" name="weekDay" value="@ViewBag.Days">
     </div>
     <div class="btn-container">
         <div class="btn-prev-container">
@@ -30,4 +25,4 @@
         </div>
         <button type="submit" class="btn btn-medium center">Avançar</button>
     </div>
-</form>
+</form> *@

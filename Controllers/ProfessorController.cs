@@ -32,9 +32,9 @@ public class ProfessorController : Controller
     }
     
     [HttpPost]
-    public IActionResult RegDados(string week)
+    public IActionResult RegDados(string weekDays)
     {
-        return RedirectToAction(nameof(RegDados2), week);
+        return RedirectToAction(nameof(RegDados2));
     }
 
     public IActionResult RegDados2()
@@ -42,20 +42,21 @@ public class ProfessorController : Controller
         return View();
     }
 
-    // [HttpPost]
-    // public IActionResult RegDados2(string week, string horaInicio, string horaFim)
-    // {
-    //     Disponibilidade disp = new()
-    //     {
-    //         // DiaSemana = week,
-    //         HoraInicio = horaInicio,
-    //         HoraFim = horaFim,
-    //         // ProfessorId = int.Parse(User.Claims.ToArray()[0].Value),
-    //     };
-    //     _context.disponibilidades.Add(disp);
-    //     _context.SaveChanges();
-    //     return RedirectToAction(nameof(RegDadosSuccess));
-    // }
+    [HttpPost]
+    public IActionResult RegDados2(string weekDay, string horaInicio, string horaFim)
+    {
+        Console.WriteLine(weekDay);
+        // Disponibilidade disp = new()
+        // {
+        //     // DiaSemana = week,
+        //     HoraInicio = horaInicio,
+        //     HoraFim = horaFim,
+        //     // ProfessorId = int.Parse(User.Claims.ToArray()[0].Value),
+        // };
+        // _context.disponibilidades.Add(disp);
+        // _context.SaveChanges();
+        return RedirectToAction(nameof(RegDadosSuccess));
+    }
 
     public IActionResult RegDadosSuccess()
     {

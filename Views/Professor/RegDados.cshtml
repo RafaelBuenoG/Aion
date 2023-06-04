@@ -6,15 +6,15 @@
     Layout= "~/Views/Shared/_LayoutProfessor.cshtml";
 }
 
-<section class="progress-bar-container">
+@* <section class="progress-bar-container">
     <div class="progress-bar">
         <div class="progress prog-left done"></div>
         <div class="progress"></div>
         <div class="progress prog-right"></div>
     </div>
-</section>
+</section> *@
 <form method="post" class="section-main">
-    <div class="question-container">
+    @* <div class="question-container">
         <h1 class="reg-title">Quais dias da semana estão disponíveis<br> para você?</h1>
         <input type="text" class="select-modal-reg" id="select-modal" name="weekDays" placeholder="Selecione os dias" readonly>
         <div class="dropdown-container-reg">
@@ -28,18 +28,98 @@
                 }
             </div>
         </div>
+    </div> *@
+    <div class="question-container">
+        <h1 class="reg-title">Marque quais são os seus horários disponíveis!</h1>
+        <table class="table-reg">
+            <thead class="thead-reg">
+                <tr>
+                    @foreach (var dia in Model) {<th>@dia</th>}
+                </tr>
+            </thead>
+            <tbody class="tbody-reg">
+                <tr>
+                    @foreach (var dia in Model)
+                    {
+                        <td class="td-@dia">
+                            <input class="hide" type="checkbox" id="first-@dia" value="07:10" onclick="SelectCell('@dia')">
+                            <label for="first-@dia">7:10</label>
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    @foreach (var dia in Model)
+                    {
+                        <td class="td-@dia">
+                            <input class="hide" type="checkbox" id="second-@dia" value="08:00" onclick="SelectCell2('@dia')">
+                            <label for="second-@dia">08:00</label>
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    @foreach (var dia in Model)
+                    {
+                        <td class="td-@dia">
+                            <input class="hide" type="checkbox" id="third-@dia" value="08:50" onclick="SelectCell3('@dia')">
+                            <label for="third-@dia">08:50</label>
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    @foreach (var dia in Model)
+                    {
+                        <td class="td-@dia">
+                            <input class="hide" type="checkbox" id="fourth-@dia" value="10:00" onclick="SelectCell4('@dia')">
+                            <label for="fourth-@dia">10:00</label>
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    @foreach (var dia in Model)
+                    {
+                        <td class="td-@dia">
+                            <input class="hide" type="checkbox" id="fifth-@dia" value="10:50" onclick="SelectCell5('@dia')">
+                            <label for="fifth-@dia">10:50</label>
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    @foreach (var dia in Model)
+                    {
+                        <td class="td-@dia">
+                            <input class="hide" type="checkbox" id="sixth-@dia" value="11:40" onclick="SelectCell6('@dia')">
+                            <label for="sixth-@dia">11:40</label>
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    @foreach (var dia in Model)
+                    {
+                        <td class="td-@dia">
+                            <input class="hide" type="checkbox" id="seventh-@dia" value="13:10" onclick="SelectCell7('@dia')">
+                            <label for="seventh-@dia">13:10</label>
+                        </td>
+                    }
+                </tr>
+                <tr>
+                    @foreach (var dia in Model)
+                    {
+                        <td class="td-@dia">
+                            <input class="hide" type="checkbox" id="eighth-@dia" value="14:00" onclick="SelectCell8('@dia')">
+                            <label for="eighth-@dia">14:00</label>
+                        </td>
+                    }
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div class="btn-container">
-        <div class="btn-prev-container">
-            <a href="javascript:void(0)" class="btn-prev-a hide">
-                <img class="prev-icon" src="../../img/icons/arrow-left.svg" alt="Voltar">
-                <span class="btn-prev">Voltar</span>
-            </a>
-        </div>
-        <button type="submit" class="btn btn-medium center">Avançar</button>
+        
+        <button type="submit" class="btn btn-medium">Salvar</button>
     </div>
 </form>
 
 @section Scripts{
-    <script src="~/js/multi-select-reg.js"></script>
+    @* <script src="~/js/multi-select-reg.js"></script> *@
+    <script src="~/js/table.js"></script>
 }

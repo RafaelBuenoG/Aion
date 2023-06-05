@@ -117,3 +117,38 @@ function SelectCell8(day)
         td[7].style.color = '#333'
     };
 }
+
+function SelectAllCell()
+{
+    let inpSel = document.querySelector('#selectAll')
+    let labelSel = document.querySelector('#selectAllLabel')
+    let allInp = document.getElementsByClassName('hide')
+    let alltd = document.getElementsByClassName('td-all')
+
+    function Select()
+    {
+        for (i = 0; i < allInp.length; i++)
+        {
+            allInp[i].checked = true
+            alltd[i].style.backgroundColor = '#823bc5'
+            alltd[i].style.color = '#fff'
+        }
+        labelSel.innerHTML = 'Desfazer seleção'
+    }
+
+    function Deselect()
+    {
+        for (i = 0; i < allInp.length; i++)
+        {
+            allInp[i].checked = false
+            alltd[i].style.backgroundColor = '#fff'
+            alltd[i].style.color = '#333'
+        }
+        labelSel.innerHTML = 'Selecionar todos'
+    }
+
+    (inpSel.checked == true) ? Select() : Deselect()
+}
+
+const inpSel = document.querySelector('#selectAll')
+inpSel.addEventListener('click', SelectAllCell)

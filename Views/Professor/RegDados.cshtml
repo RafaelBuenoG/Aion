@@ -13,7 +13,7 @@
         <div class="progress prog-right"></div>
     </div>
 </section> *@
-<form method="post" class="section-main">
+<form method="post" class="form-table">
     @* <div class="question-container">
         <h1 class="reg-title">Quais dias da semana estão disponíveis<br> para você?</h1>
         <input type="text" class="select-modal-reg" id="select-modal" name="weekDays" placeholder="Selecione os dias" readonly>
@@ -34,7 +34,7 @@
         <table class="table-reg">
             <thead class="thead-reg">
                 <tr>
-                    @foreach (var dia in Model) {<th>@dia</th>}
+                    @foreach (var dia in Model) {<th><label>@dia</label></th>}
                 </tr>
             </thead>
             <tbody class="tbody-reg">
@@ -43,7 +43,7 @@
                     {
                         <td class="td-@dia">
                             <input class="hide" type="checkbox" id="first-@dia" value="07:10" onclick="SelectCell('@dia')">
-                            <label for="first-@dia">7:10</label>
+                            <label for="first-@dia">07:10</label>
                         </td>
                     }
                 </tr>
@@ -112,9 +112,12 @@
                 </tr>
             </tbody>
         </table>
+        <div class="select-all-container">
+            <input type="checkbox" class="inp-checkbox" id="selectAll">
+            <label for="selectAll">Selecionar todos</label>
+        </div>
     </div>
     <div class="btn-container">
-        
         <button type="submit" class="btn btn-medium">Salvar</button>
     </div>
 </form>

@@ -9,7 +9,7 @@ function SelectCell(day)
     };
     if (inpCell[0].checked == false) {
         td[0].style.backgroundColor = '#fff'
-        td[0].style.color = '#000'
+        td[0].style.color = '#333'
     };
 }
 
@@ -24,7 +24,7 @@ function SelectCell2(day)
     };
     if (inpCell[0].checked == false) {
         td[1].style.backgroundColor = '#fff'
-        td[1].style.color = '#000'
+        td[1].style.color = '#333'
     };
 }
 
@@ -39,7 +39,7 @@ function SelectCell3(day)
     };
     if (inpCell[0].checked == false) {
         td[2].style.backgroundColor = '#fff'
-        td[2].style.color = '#000'
+        td[2].style.color = '#333'
     };
 }
 
@@ -54,7 +54,7 @@ function SelectCell4(day)
     };
     if (inpCell[0].checked == false) {
         td[3].style.backgroundColor = '#fff'
-        td[3].style.color = '#000'
+        td[3].style.color = '#333'
     };
 }
 
@@ -69,7 +69,7 @@ function SelectCell5(day)
     };
     if (inpCell[0].checked == false) {
         td[4].style.backgroundColor = '#fff'
-        td[4].style.color = '#000'
+        td[4].style.color = '#333'
     };
 }
 
@@ -84,7 +84,7 @@ function SelectCell6(day)
     };
     if (inpCell[0].checked == false) {
         td[5].style.backgroundColor = '#fff'
-        td[5].style.color = '#000'
+        td[5].style.color = '#333'
     };
 }
 
@@ -99,7 +99,7 @@ function SelectCell7(day)
     };
     if (inpCell[0].checked == false) {
         td[6].style.backgroundColor = '#fff'
-        td[6].style.color = '#000'
+        td[6].style.color = '#333'
     };
 }
 
@@ -114,6 +114,6 @@ function SelectCell8(day)
     };
     if (inpCell[0].checked == false) {
         td[7].style.backgroundColor = '#fff'
-        td[7].style.color = '#000'
+        td[7].style.color = '#333'
     };
 }

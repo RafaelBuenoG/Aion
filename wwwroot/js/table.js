@@ -152,3 +152,14 @@ function SelectAllCell()
 
 const inpSel = document.querySelector('#selectAll')
 inpSel.addEventListener('click', SelectAllCell)
+
+function GetCells()
+{
+    let arrayCell = []
+    let checked = document.querySelectorAll('input:checked')
+    for (i = 0; i < checked.length; i++)
+    {
+        let values = checked[i].id
+        arrayCell.push(values)
+    }
+}

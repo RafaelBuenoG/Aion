@@ -83,6 +83,13 @@ public class AdminController : Controller
         return RedirectToAction(nameof(PeriodoLetivo));
     }
 
+    public IActionResult Grades()
+    {
+        List<Grade> grades = _context.grades.ToList();
+        ViewData["hasGrade"] = grades.Count() < 1 ? false : true;
+        return View(grades);
+    }
+
     public IActionResult Cursos()
     {
         List<Curso> cursos = _context.cursos.ToList();

@@ -35,13 +35,8 @@ main
 
 .logo
 {
-    width: 200px;
+    width: 180px;
     justify-content: center;
-}
-
-.side-list
-{
-    margin-top: -40px;
 }
 
 .side-item-container
@@ -49,7 +44,7 @@ main
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px;
+    padding: 2.5vh;
     color: white;
     cursor: pointer;
 }

@@ -64,23 +64,23 @@
                 <span class="erro"></span>
             </div>
             <div class="field-modal">
-                <label for="select-modal-coclass" id="label-modal-coclass">Curso</label>
-                <input type="text" class="select-modal-coclass" id="select-modal-coclass" name="courses" placeholder="Selecione o Curso" readonly>
+                <label for="select-modal-coclass" id="label-modal-coclass">Grade</label>
+                <input type="text" class="select-modal-coclass" id="select-modal-coclass" name="grid" placeholder="Selecione a Grade" readonly>
                 <div class="dropdown-container-coclass">
                     <div class="dropdown-select-coclass">
-                        @foreach (var cursos in ViewBag.Cursos)
+                        @foreach (var grade in Model)
                         {
                             <div class="item-select-container">
-                                <input class="check-select-coclass" type="checkbox" id="item-select-coclass-@cursos.Id" name="course">
-                                <label for="item-select-coclass-@cursos.Id" class="item-select-coclass" id="items-coclass-@cursos.Id" onmousedown="selectCoClass(@cursos.Id)">@cursos.Nome</label>
+                                <input class="check-select-coclass" type="checkbox" id="item-select-coclass-@grade.Id" name="course">
+                                <label for="item-select-coclass-@grade.Id" class="item-select-coclass" id="items-coclass-@grade.Id" onmousedown="selectCoClass(@grade.Id)">@grade.Nome</label>
                             </div>
                         }
                     </div>
                 </div>
             </div>
             <div class="field-modal">
-                <label for="data">Mês e ano de início</label>
-                <input class="inp-modal" type="number" id="data" name="data" placeholder="Selecione o mês e ano">
+                <label for="data">Data de início</label>
+                <input class="inp-modal" type="date" id="data" name="data" placeholder="Selecione a Data">
                 <span class="erro"></span>
             </div>
             <button type="submit" class="btn btn-modal">Adicionar</button>
@@ -98,27 +98,27 @@
         <form asp-action="EditTurma" method="post" class="form-modal" id="form-edt">
             <div class="field-modal">
                 <label for="name-edt">Turma</label>
-                <input class="inp-modal" type="text" id="name-edt" name="name" placeholder="Nome do Curso" autocomplete="false">
+                <input class="inp-modal" type="text" id="name-edt" name="name" placeholder="Nome da Turma" autocomplete="false">
                 <span class="erro"></span>
             </div>
             <div class="field-modal">
-                <label for="select-modal-coclassEdt" id="label-modal-coclassEdt">Curso</label>
-                <input type="text" class="select-modal-coclassEdt" id="select-modal-coclassEdt" name="courses" placeholder="Selecione o Curso" readonly>
+                <label for="select-modal-coclassEdt" id="label-modal-coclassEdt">Grade</label>
+                <input type="text" class="select-modal-coclassEdt" id="select-modal-coclassEdt" name="grid" placeholder="Selecione a Grade" readonly>
                 <div class="dropdown-container-coclassEdt">
                     <div class="dropdown-select-coclassEdt">
-                        @foreach (var cursos in ViewBag.Cursos)
+                        @foreach (var grade in Model)
                         {
                             <div class="item-select-container">
-                                <input class="check-select-coclassEdt" type="checkbox" id="item-select-coclassEdt-@cursos.Id" name="course">
-                                <label for="item-select-coclassEdt-@cursos.Id" class="item-select-coclassEdt" id="items-coclassEdt-@cursos.Id" onmousedown="selectCoClassEdt(@cursos.Id)">@cursos.Nome</label>
+                                <input class="check-select-coclass" type="checkbox" id="item-select-coclass-@grade.Id" name="course">
+                                <label for="item-select-coclass-@grade.Id" class="item-select-coclass" id="items-coclass-@grade.Id" onmousedown="selectCoClass(@grade.Id)">@grade.Nome</label>
                             </div>
                         }
                     </div>
                 </div>
             </div>
             <div class="field-modal">
-                <label for="data">Mês e ano de início</label>
-                <input class="inp-modal" type="number" id="data" name="data" placeholder="Selecione o mês e ano">
+                <label for="data">Data de início</label>
+                <input class="inp-modal" type="date" id="data" name="data" placeholder="Selecione a Data">
                 <span class="erro"></span>
             </div>
             <input type="hidden" name="id" id="id-edt"/>

@@ -20,6 +20,69 @@ public class AdminController : Controller
         _context = context;
     }
 
+    public IActionResult PeriodoLetivo()
+    {
+        List<PeriodoLetivo> periodos = _context.periodoLetivos.ToList();
+        ViewData["hasPeriodo"] = periodos.Count() < 1 ? false : true;
+        return View(periodos);
+    }
+
+    [HttpPost]
+    public IActionResult PeriodoLetivo(int year, int semester)
+    {
+        if (ModelState.IsValid)
+        {
+            PeriodoLetivo periodo = new()
+            {
+                Ano = year,
+                Semestre = semester,
+            };
+            _context.periodoLetivos.Add(periodo);
+            _context.SaveChanges();
+        }
+
+        List<PeriodoLetivo> periodos = _context.periodoLetivos.ToList();
+        return View();
+    }
+
+    [HttpPost, ActionName("EditPeriodo")]
+    public IActionResult EditPeriodo(int id, int year, int semester)
+    {
+        var periodo = _context.periodoLetivos.FirstOrDefault(p => p.Id == id);
+        periodo.Ano = year;
+        periodo.Semestre = semester;
+        
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _context.Update(periodo);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CursoExists(periodo.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+        return RedirectToAction(nameof(PeriodoLetivo));
+    }
+
+    [HttpPost, ActionName("DeletePeriodo")]
+    public IActionResult DeletePeriodoLetivo(int id)
+    {
+        var periodo = _context.periodoLetivos.Find(id);
+        _context.periodoLetivos.Remove(periodo);
+        _context.SaveChanges();
+        return RedirectToAction(nameof(PeriodoLetivo));
+    }
+
     public IActionResult Cursos()
     {
         List<Curso> cursos = _context.cursos.ToList();
@@ -121,14 +184,13 @@ public class AdminController : Controller
 
     public IActionResult Turmas()
     {
-        ViewData["Cursos"] = _context.cursos.OrderBy(c => c.Nome);
-        List<Turma> turmas = _context.turmas.ToList();
+        List<Turma> turmas = _context.turmas.Include(g => g.Grade).ToList();
         ViewData["hasTurma"] = turmas.Count() < 1 ? false : true;
         return View(turmas);
     }
 
     [HttpPost]
-    public IActionResult Turmas(string name, string data)
+    public IActionResult Turmas(string name, string data, string grid)
     {
         Turma tur = new()
         {
@@ -138,12 +200,12 @@ public class AdminController : Controller
         _context.SaveChanges();
 
         // Recarrega automáticamente a página quando adicionado
-        List<Turma> turmas = _context.turmas.ToList();
+        List<Turma> turmas = _context.turmas.Include(g => g.Grade).ToList();
         return View(turmas);
     }
 
     [HttpPost, ActionName("EditTurma")]
-    public IActionResult Turmas(int id, string name, string data, string course)
+    public IActionResult Turmas(int id, string name, string data, string grid)
     {
         var turma = _context.turmas.FirstOrDefault(c => c.Id == id);
         turma.Nome = name;

@@ -50,7 +50,7 @@
     }
 </section>
 <section class="modal">
-    <div class="modal-container modal-container-typeco">
+    <div class="modal-container modal-container-grid">
         <div class="title-modal-container">
             <h1 class="title-modal">Adicionar Grade</h1>
             <button class="close-modal" id="close-modal-add">
@@ -64,21 +64,32 @@
                 <span class="erro"></span>
             </div>
             <div class="field-modal">
-                <label for="curso">Cursos</label>
-                <input class="inp-modal" type="text" id="curso-add" name="curso" placeholder="Selecione os cursos" autocomplete="false">
-                <span class="erro"></span>
+                <label for="select-modal-grid" id="label-modal-grid">Curso</label>
+                <input type="text" class="select-modal-grid" id="select-modal-grid" name="type" placeholder="Selecione o curso" readonly>
+                <div class="dropdown-container-grid">
+                    <div class="dropdown-select-grid">
+                        @foreach (var curso in ViewBag.Cursos)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select-grid" type="checkbox" id="item-select-grid-@curso.Id" name="course">
+                                <label for="item-select-grid-@curso.Id" class="item-select-grid" id="items-grid-@curso.Id" onmousedown="selectGrid(@curso.Id)">@curso.Nome</label>
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
             <div class="field-modal">
                 <label for="number-add">Número da Grade</label>
                 <input type="text" class="inp-modal" id="number-add" name="number" placeholder="Digite o número da Grade (Opcional)">
                 <span class="erro"></span>
             </div>
+            <select class="select-modal-grid" name="Teste" id="teste" asp-items="@ViewBag.Cursos2"></select>
             <button type="submit" class="btn btn-modal">Adicionar</button>
         </form>
     </div>
 </section>
 <section class="modal modal-edt">
-    <div class="modal-container modal-container-edt modal-container-typecoEdt">
+    <div class="modal-container modal-container-edt modal-container-gridEdt">
         <div class="title-modal-container">
             <h1 class="title-modal">Editar Grade</h1>
             <button class="close-modal close-modal-edt" id="close-modal-edt">
@@ -121,6 +132,6 @@
 
 @section Scripts{
     <script src="~/js/modal.js"></script>
-    <script src="~/js/multi-select-course-add.js"></script>
-    <script src="~/js/multi-select-course-edt.js"></script>
+    <script src="~/js/multi-select-grid-add.js"></script>
+    @* <script src="~/js/multi-select-course-edt.js"></script> *@
 }

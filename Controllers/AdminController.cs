@@ -4,6 +4,7 @@ using Aion.Models;
 using Aion.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Aion.Controllers;
 
@@ -85,6 +86,8 @@ public class AdminController : Controller
 
     public IActionResult Grades()
     {
+        ViewData["Cursos2"] = new SelectList(_context.cursos.ToList(), "Id", "Nome");
+        ViewData["Cursos"] = _context.cursos.OrderBy(c => c.Nome);
         List<Grade> grades = _context.grades.ToList();
         ViewData["hasGrade"] = grades.Count() < 1 ? false : true;
         return View(grades);

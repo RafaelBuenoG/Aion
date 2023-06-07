@@ -337,6 +337,30 @@ public class AdminController : Controller
         return RedirectToAction(nameof(Professores));
     }
 
+    public IActionResult Atribuicoes()
+    {
+        List<Atribuicao> atribuicoes = _context.atribuicoes.ToList();
+        ViewData["hasAtribuicao"] = _context.atribuicoes.Count() < 1 ? false : true;
+        return View(atribuicoes);
+    }
+
+    [HttpPost]
+    public IActionResult Atribuicoes(int professorId, int gradeDisciplinaId, int turmaId, bool matriz)
+    {
+        Atribuicao atr = new()
+        {
+            ProfessorId = professorId,
+            GradeDisciplinasId = gradeDisciplinaId,
+            TurmaId = turmaId,
+            Matriz = matriz
+        };
+        _context.Add(atr);
+        _context.SaveChanges();
+
+        List<Atribuicao> atribuicoes = _context.atribuicoes.ToList();
+        return View(atribuicoes);
+    }
+
     public IActionResult Horarios()
     {
         return View();

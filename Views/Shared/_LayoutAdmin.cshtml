@@ -35,13 +35,6 @@
                 </a>
             </li>
             <li>
-            <li>
-                <a asp-action="PeriodoLetivo" asp-controller="Admin" class="side-item-container @(actionAtual == "PeriodoLetivo" ? "selected" : "")">
-                    <img class="side-item-icon" src="~/img/icons/calendar.svg" alt="Cursos" />
-                    <span class="side-item-title">Períodos Letivos</span>
-                </a>
-            </li>
-            <li>
                 <a asp-action="Grades" asp-controller="Admin" class="side-item-container @(actionAtual == "Grades" ? "selected" : "")">
                     <img class="side-item-icon" src="~/img/icons/grid.svg" alt="Cursos" />
                     <span class="side-item-title">Grades</span>
@@ -69,6 +62,12 @@
                 <a asp-action="Professores" asp-controller="Admin" class="side-item-container @(actionAtual == "Professores" ? "selected" : "")">
                     <img class="side-item-icon" src="~/img/icons/person.svg" alt="Professores" />
                     <span class="side-item-title">Professores</span>
+                </a>
+            </li>
+            <li>
+                <a asp-action="Atribuicoes" asp-controller="Admin" class="side-item-container @(actionAtual == "Atribuicoes" ? "selected" : "")">
+                    <img class="side-item-icon" src="~/img/icons/assign.svg" alt="Cursos" />
+                    <span class="side-item-title">Atribuições</span>
                 </a>
             </li>
             <li>

@@ -1,4 +1,4 @@
-@model List<Grade>
+@model List<Atribuicao>
 
 @{
     ViewData["Title"] = "Home Page";
@@ -8,7 +8,7 @@
 
 <header>
     <div class="header-title-container pad-left">
-        <h1 class="header-title">Atribuições já cadastradas</h1>
+        <h1 class="header-title">Atribuições feitas</h1>
     </div>
     <button class="add-container pad-right btn-modal">
         <img class="add-icon" src="~/img/icons/add.svg" alt="add">
@@ -16,10 +16,10 @@
     </button>
 </header>
 <section class="table-container">
-    @if (ViewBag.hasGrade == false)
+    @if (ViewBag.hasAtribuicao == false)
     {
         <div class="table">
-            <span class="msg-table">Nenhuma atribuição cadastrada</span>
+            <span class="msg-table">Nenhuma atribuição feita</span>
         </div>
     }
     else
@@ -30,9 +30,9 @@
                 {   
                     <section class="table-item-container">
                         <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name">@atribuicoes.Curso</label>
+                            <label style="cursor: auto;" for="course" class="table-item-name">@atribuicoes.Professor</label>
                             <div class="drop-btn-container">
-                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtCursos('@atribuicoes.Id', '@atribuicoes.Curso', '@atribuicoes.Data', '@atribuicoes.Numero')" id="id-@atribuicoes.Id">
+                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtCursos('@atribuicoes.Id', '@atribuicoes.ProfessorId', '@atribuicoes.GradeDisciplinasId', '@atribuicoes.TurmaId', '@atribuicoes.Matriz')" id="id-@atribuicoes.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 <button class="drop-btn">
@@ -59,18 +59,18 @@
         </div>
         <form method="post" class="form-modal" id="form-add">
             <div class="field-modal">
-                <label for="date-add">Data de início</label>
-                <input class="inp-modal" type="date" id="date-add" name="date" placeholder="Data de início">
+                <label for="teacher-add">Professor</label>
+                <input class="inp-modal" type="text" id="teacher-add" name="teacher" placeholder="Selecione o professor">
                 <span class="erro"></span>
             </div>
             <div class="field-modal">
-                <label for="curso">Cursos</label>
-                <input class="inp-modal" type="text" id="curso-add" name="curso" placeholder="Selecione os cursos" autocomplete="false">
+                <label for="gridSub">Grade Disciplina?</label>
+                <input class="inp-modal" type="text" id="gridSub-add" name="gridSub" placeholder="Selecione a grade">
                 <span class="erro"></span>
             </div>
             <div class="field-modal">
-                <label for="number-add">Número da Grade</label>
-                <input type="text" class="inp-modal" id="number-add" name="number" placeholder="Digite o número da Grade (Opcional)">
+                <label for="turma-add">Turma</label>
+                <input type="text" class="inp-modal" id="turma-add" name="turma" placeholder="Selecione a turma">
                 <span class="erro"></span>
             </div>
             <button type="submit" class="btn btn-modal">Adicionar</button>

@@ -4,7 +4,6 @@ using Aion.Models;
 using Aion.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Aion.Controllers;
 

@@ -30,16 +30,16 @@
                 {   
                     <section class="table-item-container">
                         <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name">@grades.Curso</label>
+                            <label style="cursor: auto;" for="course" class="table-item-name">Grade: @grades.Curso.Nome</label>
                             <div class="drop-btn-container">
-                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtCursos('@grades.Id', '@grades.Curso', '@grades.Data', '@grades.Numero')" id="id-@grades.Id">
+                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtGrades('@grades.Id', '@grades.Curso.Nome', '@grades.Data', '@grades.Numero')" id="id-@grades.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 <button class="drop-btn">
                                     <label for="btn-delete-@grades.Id">
                                         <img src="~/img/icons/delete.svg" alt="Delete">
                                     </label>
-                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@grades.Id')" id="btn-delete-@grades.Id"/>
+                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@grades.Id','@grades.Curso.Nome')" id="btn-delete-@grades.Id"/>
                                 </button>
                             </div>
                         </div>
@@ -60,12 +60,12 @@
         <form method="post" class="form-modal" id="form-add">
             <div class="field-modal">
                 <label for="date-add">Data de início da Grade</label>
-                <input class="inp-modal" type="date" id="date-add" name="date" placeholder="Data de início">
+                <input class="inp-modal" type="text" id="date-add" name="date" placeholder="dd/mm/aaaa">
                 <span class="erro"></span>
             </div>
             <div class="field-modal">
                 <label for="select-modal-grid" id="label-modal-grid">Curso</label>
-                <input type="text" class="select-modal-grid" id="select-modal-grid" name="type" placeholder="Selecione o curso" readonly>
+                <input type="text" class="select-modal-grid" id="select-modal-grid" name="course" placeholder="Selecione o curso" readonly>
                 <div class="dropdown-container-grid">
                     <div class="dropdown-select-grid">
                         @foreach (var curso in ViewBag.Cursos)
@@ -95,16 +95,26 @@
                 <img src="~/img/icons/close-rounded.svg" alt="Close">
             </button>
         </div>
-        <form asp-action="EditCurso" method="post" class="form-modal" id="form-edt">
+        <form asp-action="EditGrade" method="post" class="form-modal" id="form-edt">
             <div class="field-modal">
                 <label for="date-edt">Data de Início</label>
-                <input class="inp-modal" type="date" id="date-edt" name="date" placeholder="Data de início" autocomplete="false">
+                <input class="inp-modal" type="text" id="date-edt" name="date" placeholder="Data de início" autocomplete="false">
                 <span class="erro"></span>
             </div>
             <div class="field-modal">
-                <label for="curso-edt">Cursos</label>
-                <input class="inp-modal" type="text" id="curso-edt" name="curso" placeholder="Selecione os cursos">
-                <span class="erro"></span>
+                <label for="select-modal-gridEdt" id="label-modal-gridEdt">Curso</label>
+                <input type="text" class="select-modal-gridEdt" id="select-modal-gridEdt" name="course" placeholder="Selecione o curso" readonly>
+                <div class="dropdown-container-gridEdt">
+                    <div class="dropdown-select-gridEdt">
+                        @foreach (var curso in ViewBag.Cursos)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select-gridEdt" type="checkbox" id="item-select-gridEdt-@curso.Id" name="course">
+                                <label for="item-select-gridEdt-@curso.Id" class="item-select-gridEdt" id="items-gridEdt-@curso.Id" onmousedown="selectGridEdt(@curso.Id)">@curso.Nome</label>
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
             <div class="field-modal">
                 <label for="number-edt">Número da Grade</label>
@@ -117,9 +127,9 @@
     </div>
 </section>
 <section class="modal modal-del">
-    <form asp-action="DeleteCurso" method="post" class="modal-container modal-container-del">
+    <form asp-action="DeleteGrade" method="post" class="modal-container modal-container-del">
         <div class="title-modal-container-del">
-            <h1 class="title-modal-del">Tem certeza que deseja remover a grade dos cursos <span id="name-del"></span> ?</h1>
+            <h1 class="title-modal-del">Tem certeza que deseja remover a grade do curso <span id="name-del"></span> ?</h1>
         </div>
         <div class="btn-container-confirm">
             <button type="button" class="btn btn-modal btn-white-outline close-modal-del">Cancelar</button>
@@ -132,5 +142,5 @@
 @section Scripts{
     <script src="~/js/modal.js"></script>
     <script src="~/js/multi-select-grid-add.js"></script>
-    @* <script src="~/js/multi-select-course-edt.js"></script> *@
+    <script src="~/js/multi-select-grid-edt.js"></script>
 }

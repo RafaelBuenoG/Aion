@@ -85,11 +85,71 @@ public class AdminController : Controller
 
     public IActionResult Grades()
     {
-        ViewData["Cursos2"] = new SelectList(_context.cursos.ToList(), "Id", "Nome");
         ViewData["Cursos"] = _context.cursos.OrderBy(c => c.Nome);
-        List<Grade> grades = _context.grades.ToList();
+        List<Grade> grades = _context.grades.Include(c => c.Curso).ToList();
         ViewData["hasGrade"] = grades.Count() < 1 ? false : true;
         return View(grades);
+    }
+
+    [HttpPost]
+    public IActionResult Grades(DateTime date, string course, string number)
+    {
+        int curso = _context.cursos.FirstOrDefault(c => c.Nome.Equals(course)).Id;
+        if (ModelState.IsValid)
+        {
+            Grade grid = new()
+            {
+                Data = date,
+                CursoId = curso,
+                Numero = number,
+            };
+            _context.Add(grid);
+            _context.SaveChanges();
+        }
+        ViewData["CursoNome"] = curso;
+        ViewData["Cursos"] = _context.cursos.OrderBy(c => c.Nome);
+        List<Grade> grades = _context.grades.Include(c => c.Curso).ToList();
+        return View(grades);
+    }
+
+    [HttpPost, ActionName("DeleteGrade")]
+    public IActionResult DeleteGrade(int id)
+    {
+        var grade = _context.grades.Find(id);
+        _context.grades.Remove(grade);
+        _context.SaveChanges();
+        return RedirectToAction(nameof(Grades));
+    }
+
+    [HttpPost, ActionName("EditGrade")]
+    public IActionResult EditGrade(int id, DateTime date, string course, string number)
+    {
+        int curso = _context.cursos.FirstOrDefault(c => c.Nome.Equals(course)).Id;
+        var grade = _context.grades.FirstOrDefault(g => g.Id == id);
+        grade.Data = date;
+        grade.CursoId = curso;
+        grade.Numero = number;
+
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _context.Update(grade);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!CursoExists(grade.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+        return RedirectToAction(nameof(Grades));
     }
 
     public IActionResult Cursos()

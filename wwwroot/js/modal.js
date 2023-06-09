@@ -46,11 +46,16 @@ function openModalEdtCursos(id, name, type, qty)
     inpSub.value = id;
 }
 
-function openModalEdtCursos(id, name)
+function openModalEdtGrades(id, course, date, number)
 {
     backgroundEdt.classList.add(activeModalClass);
-    let inpName = getElement('#name-edt');
-    inpName.value = name;
+    let inpDate = getElement('#date-edt');
+    let inpCourse = getElement('#select-modal-gridEdt');
+    let inpNumber = getElement('#number-edt');
+    let dateFormat = date.split(' ');
+    inpDate.value = dateFormat[0];
+    inpCourse.value = course;
+    inpNumber.value = number;
 
     let inpSub = getElement('#id-edt');
     inpSub.value = id;

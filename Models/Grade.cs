@@ -19,5 +19,5 @@ public class Grade
     public string Numero { get; set; }
 
     [ForeignKey("CursoId")]
-    public Curso Curso{ get; set; }
+    public Curso Curso { get; set; }
 }

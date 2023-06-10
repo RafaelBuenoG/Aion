@@ -68,20 +68,30 @@
                 <input type="text" class="select-modal-coclass" id="select-modal-coclass" name="grid" placeholder="Selecione a Grade" readonly>
                 <div class="dropdown-container-coclass">
                     <div class="dropdown-select-coclass">
-                        @foreach (var grade in Model)
+                        @foreach (var grade in ViewBag.Grades)
                         {
                             <div class="item-select-container">
                                 <input class="check-select-coclass" type="checkbox" id="item-select-coclass-@grade.Id" name="course">
-                                <label for="item-select-coclass-@grade.Id" class="item-select-coclass" id="items-coclass-@grade.Id" onmousedown="selectCoClass(@grade.Id)">@grade.Nome</label>
+                                <label for="item-select-coclass-@grade.Id" class="item-select-coclass" id="items-coclass-@grade.Id" onmousedown="selectCoClass(@grade.Id)">@grade.Curso.Nome</label>
                             </div>
                         }
                     </div>
                 </div>
             </div>
             <div class="field-modal">
-                <label for="data">Data de início</label>
-                <input class="inp-modal" type="date" id="data" name="data" placeholder="Selecione a Data">
-                <span class="erro"></span>
+                <label for="select-modal-peclass" id="label-modal-peclass">Período Letivo</label>
+                <input class="select-modal-peclass" type="text" id="select-modal-peclass" name="schYear" placeholder="Selecione o Período Letivo" readonly>
+                <div class="dropdown-container-peclass">
+                    <div class="dropdown-select-peclass">
+                        @foreach (var periodo in ViewBag.Periodos)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select-peclass" type="checkbox" id="item-select-peclass-@periodo.Id" name="course">
+                                <label for="item-select-peclass-@periodo.Id" class="item-select-peclass" id="items-peclass-@periodo.Id" onmousedown="selectPeClass(@periodo.Id)">@periodo.Ano, Sem: @periodo.Semestre</label>
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
             <button type="submit" class="btn btn-modal">Adicionar</button>
         </form>

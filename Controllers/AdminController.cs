@@ -106,7 +106,7 @@ public class AdminController : Controller
             _context.Add(grid);
             _context.SaveChanges();
         }
-        ViewData["CursoNome"] = curso;
+
         ViewData["Cursos"] = _context.cursos.OrderBy(c => c.Nome);
         List<Grade> grades = _context.grades.Include(c => c.Curso).ToList();
         return View(grades);
@@ -253,30 +253,40 @@ public class AdminController : Controller
 
     public IActionResult Turmas()
     {
+        ViewData["Grades"] = _context.grades.Include(c => c.Curso).OrderBy(g => g.Curso.Nome);
+        ViewData["Periodos"] = _context.periodoLetivos.OrderBy(p => p.Ano);
         List<Turma> turmas = _context.turmas.Include(g => g.Grade).ToList();
         ViewData["hasTurma"] = turmas.Count() < 1 ? false : true;
         return View(turmas);
     }
 
     [HttpPost]
-    public IActionResult Turmas(string name, string data, string grid)
+    public IActionResult Turmas(string name, string grid, string schYear)
     {
+        var periodoSplit = schYear.Split(", Sem: ");
+        int grade = _context.grades.FirstOrDefault(c => c.Curso.Nome.Equals(grid)).Id;
+        int periodo = _context.periodoLetivos.FirstOrDefault(p => p.Ano.Equals(Int32.Parse(periodoSplit[0]))
+            && p.Semestre.Equals(Int32.Parse(periodoSplit[1]))).Id;
         Turma tur = new()
         {
-            Nome = name
+            Nome = name,
+            GradeId = grade,
+            AnoSemIngresso = periodo,
         };
         _context.turmas.Add(tur);
         _context.SaveChanges();
 
         // Recarrega automáticamente a página quando adicionado
+        ViewData["Grades"] = _context.grades.Include(c => c.Curso).OrderBy(g => g.Curso.Nome);
+        ViewData["Periodos"] = _context.periodoLetivos.OrderBy(p => p.Ano);
         List<Turma> turmas = _context.turmas.Include(g => g.Grade).ToList();
         return View(turmas);
     }
 
     [HttpPost, ActionName("EditTurma")]
-    public IActionResult Turmas(int id, string name, string data, string grid)
+    public IActionResult Turmas(int id, string name, string grid, string schYear)
     {
-        var turma = _context.turmas.FirstOrDefault(c => c.Id == id);
+        var turma = _context.turmas.FirstOrDefault(t => t.Id == id);
         turma.Nome = name;
 
         if (ModelState.IsValid)

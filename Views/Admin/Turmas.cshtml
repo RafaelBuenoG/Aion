@@ -32,7 +32,7 @@
                         <div class="table-item-btn" id="course">
                             <label style="cursor: auto;" for="course" class="table-item-name">@turmas.Nome</label>
                             <div class="drop-btn-container">
-                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtTurmas('@turmas.Id', '@turmas.Nome')" id="id-@turmas.Id">
+                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtTurmas('@turmas.Id', '@turmas.Nome', '@turmas.Grade.Curso.Nome', '@turmas.PeriodoLetivo.Ano, Sem: @turmas.PeriodoLetivo.Semestre')" id="id-@turmas.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 <button class="drop-btn">
@@ -116,20 +116,30 @@
                 <input type="text" class="select-modal-coclassEdt" id="select-modal-coclassEdt" name="grid" placeholder="Selecione a Grade" readonly>
                 <div class="dropdown-container-coclassEdt">
                     <div class="dropdown-select-coclassEdt">
-                        @foreach (var grade in Model)
+                        @foreach (var grade in ViewBag.Grades)
                         {
                             <div class="item-select-container">
-                                <input class="check-select-coclass" type="checkbox" id="item-select-coclass-@grade.Id" name="course">
-                                <label for="item-select-coclass-@grade.Id" class="item-select-coclass" id="items-coclass-@grade.Id" onmousedown="selectCoClass(@grade.Id)">@grade.Nome</label>
+                                <input class="check-select-coclassEdt" type="checkbox" id="item-select-coclassEdt-@grade.Id" name="course">
+                                <label for="item-select-coclassEdt-@grade.Id" class="item-select-coclassEdt" id="items-coclassEdt-@grade.Id" onmousedown="selectCoClassEdt(@grade.Id)">@grade.Curso.Nome</label>
                             </div>
                         }
                     </div>
                 </div>
             </div>
             <div class="field-modal">
-                <label for="data">Data de início</label>
-                <input class="inp-modal" type="date" id="data" name="data" placeholder="Selecione a Data">
-                <span class="erro"></span>
+                <label for="select-modal-peclassEdt" id="label-modal-peclassEdt">Período Letivo</label>
+                <input class="select-modal-peclassEdt" type="text" id="select-modal-peclassEdt" name="schYear" placeholder="Selecione o Período Letivo" readonly>
+                <div class="dropdown-container-peclassEdt">
+                    <div class="dropdown-select-peclassEdt">
+                        @foreach (var periodo in ViewBag.Periodos)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select-peclassEdt" type="checkbox" id="item-select-peclassEdt-@periodo.Id" name="course">
+                                <label for="item-select-peclassEdt-@periodo.Id" class="item-select-peclassEdt" id="items-peclassEdt-@periodo.Id" onmousedown="selectPeClassEdt('@periodo.Id')">@periodo.Ano, Sem: @periodo.Semestre</label>
+                            </div>
+                        }
+                    </div>
+                </div>
             </div>
             <input type="hidden" name="id" id="id-edt"/>
             <button type="submit" class="btn btn-modal">Salvar</button>

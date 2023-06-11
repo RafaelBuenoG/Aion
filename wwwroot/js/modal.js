@@ -61,6 +61,20 @@ function openModalEdtGrades(id, course, date, number)
     inpSub.value = id;
 }
 
+function openModalEdtTurmas(id, name, grid, schYear)
+{
+    backgroundEdt.classList.add(activeModalClass);
+    let inpName = getElement('#name-edt');
+    let inpGrid = getElement('#select-modal-coclassEdt');
+    let inpSchYear = getElement('#select-modal-peclassEdt');
+    inpName.value = name;
+    inpGrid.value = grid;
+    inpSchYear.value = schYear;
+
+    let inpSub = getElement('#id-edt');
+    inpSub.value = id;
+}
+
 function openModalEdtProfessores(id, name, email, phone, materias)
 {
     backgroundEdt.classList.add(activeModalClass);

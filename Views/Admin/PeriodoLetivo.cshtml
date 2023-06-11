@@ -32,9 +32,6 @@
                         <div class="table-item-btn" id="course">
                             <label style="cursor: auto;" for="course" class="table-item-name">@periodo.Ano, Sem: @periodo.Semestre</label>
                             <div class="drop-btn-container">
-                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtPeriodos('@periodo.Id', '@periodo.Ano', '@periodo.Semestre')" id="id-@periodo.Id">
-                                    <img src="~/img/icons/edit.svg" alt="Edit">
-                                </button>
                                 <button class="drop-btn">
                                     <label for="btn-delete-@periodo.Id">
                                         <img src="~/img/icons/delete.svg" alt="Delete">
@@ -72,30 +69,6 @@
         </form>
     </div>
 </section>
-<section class="modal modal-edt">
-    <div class="modal-container modal-container-edt modal-container-typecoEdt">
-        <div class="title-modal-container">
-            <h1 class="title-modal">Editar Período Letivo</h1>
-            <button class="close-modal close-modal-edt" id="close-modal-edt">
-                <img src="~/img/icons/close-rounded.svg" alt="Close">
-            </button>
-        </div>
-        <form asp-action="EditPeriodo" method="post" class="form-modal" id="form-edt">
-            <div class="field-modal">
-                <label for="year-edt">Ano de início</label>
-                <input class="inp-modal" type="number" id="year-edt" name="year" placeholder="Ano" autocomplete="false">
-                <span class="erro"></span>
-            </div>
-            <div class="field-modal">
-                <label for="semester-edt">Semestre de início</label>
-                <input class="inp-modal" type="number" id="semester-edt" name="semester" placeholder="1 ou 2">
-                <span class="erro"></span>
-            </div>
-            <input type="hidden" name="id" id="id-edt"/>
-            <button type="submit" class="btn btn-modal">Salvar</button>
-        </form>
-    </div>
-</section>
 <section class="modal modal-del">
     <form asp-action="DeletePeriodo" method="post" class="modal-container modal-container-del">
         <div class="title-modal-container-del">
@@ -111,6 +84,4 @@
 
 @section Scripts{
     <script src="~/js/modal.js"></script>
-    <script src="~/js/multi-select-course-add.js"></script>
-    <script src="~/js/multi-select-course-edt.js"></script>
 }

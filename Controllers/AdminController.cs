@@ -42,7 +42,8 @@ public class AdminController : Controller
         }
 
         List<PeriodoLetivo> periodos = _context.periodoLetivos.ToList();
-        return View();
+        ViewData["hasPeriodo"] = periodos.Count() < 1 ? false : true;
+        return View(periodos);
     }
 
     [HttpPost, ActionName("EditPeriodo")]
@@ -255,7 +256,8 @@ public class AdminController : Controller
     {
         ViewData["Grades"] = _context.grades.Include(c => c.Curso).OrderBy(g => g.Curso.Nome);
         ViewData["Periodos"] = _context.periodoLetivos.OrderBy(p => p.Ano);
-        List<Turma> turmas = _context.turmas.Include(g => g.Grade).ToList();
+        List<Turma> turmas = _context.turmas.Include(g => g.Grade).ThenInclude(c => c.Curso)
+        .Include(p => p.PeriodoLetivo).ToList();
         ViewData["hasTurma"] = turmas.Count() < 1 ? false : true;
         return View(turmas);
     }
@@ -279,7 +281,8 @@ public class AdminController : Controller
         // Recarrega automáticamente a página quando adicionado
         ViewData["Grades"] = _context.grades.Include(c => c.Curso).OrderBy(g => g.Curso.Nome);
         ViewData["Periodos"] = _context.periodoLetivos.OrderBy(p => p.Ano);
-        List<Turma> turmas = _context.turmas.Include(g => g.Grade).ToList();
+        List<Turma> turmas = _context.turmas.Include(g => g.Grade).ThenInclude(c => c.Curso)
+        .Include(p => p.PeriodoLetivo).ToList();
         return View(turmas);
     }
 
@@ -287,7 +290,14 @@ public class AdminController : Controller
     public IActionResult Turmas(int id, string name, string grid, string schYear)
     {
         var turma = _context.turmas.FirstOrDefault(t => t.Id == id);
+        var periodoSplit = schYear.Split(", Sem: ");
+        int grade = _context.grades.FirstOrDefault(c => c.Curso.Nome.Equals(grid)).Id;
+        int periodo = _context.periodoLetivos.FirstOrDefault(p => p.Ano.Equals(Int32.Parse(periodoSplit[0]))
+            && p.Semestre.Equals(Int32.Parse(periodoSplit[1]))).Id;
+
         turma.Nome = name;
+        turma.GradeId = grade;
+        turma.AnoSemIngresso = periodo;
 
         if (ModelState.IsValid)
         {
@@ -308,7 +318,7 @@ public class AdminController : Controller
                 }
             }
         }
-        return RedirectToAction(nameof(Turma));
+        return RedirectToAction(nameof(Turmas));
     }
 
     [HttpPost, ActionName("DeleteTurma")]
@@ -317,7 +327,7 @@ public class AdminController : Controller
         var turma = _context.turmas.Find(id);
         _context.turmas.Remove(turma);
         _context.SaveChanges();
-        return RedirectToAction(nameof(Turma));
+        return RedirectToAction(nameof(Turmas));
     }
 
     public IActionResult Professores()

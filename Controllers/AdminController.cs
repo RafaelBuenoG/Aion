@@ -421,6 +421,9 @@ public class AdminController : Controller
 
     public IActionResult Atribuicoes()
     {
+        ViewData["Professores"] = _context.professores.OrderBy(p => p.Nome);
+        // ViewData["Grades"] = _context.gradeDisciplinas.OrderBy(g => g.Nome);
+        ViewData["Turmas"] = _context.turmas.OrderBy(p => p.Nome);
         List<Atribuicao> atribuicoes = _context.atribuicoes.ToList();
         ViewData["hasAtribuicao"] = _context.atribuicoes.Count() < 1 ? false : true;
         return View(atribuicoes);
@@ -439,8 +442,49 @@ public class AdminController : Controller
         _context.Add(atr);
         _context.SaveChanges();
 
+        ViewData["Professores"] = _context.professores.OrderBy(p => p.Nome);
+        // ViewData["Grades"] = _context.gradeDisciplinas.OrderBy(g => g.Nome);
+        ViewData["Turmas"] = _context.turmas.OrderBy(p => p.Nome);
         List<Atribuicao> atribuicoes = _context.atribuicoes.ToList();
         return View(atribuicoes);
+    }
+
+    public IActionResult EditAtribuicoes(int id, int professorId, int gradeDisciplinaId, int turmaId, bool matriz)
+    {
+        var atribuicao = _context.atribuicoes.FirstOrDefault(a => a.Id == id);
+        atribuicao.ProfessorId = professorId;
+        atribuicao.GradeDisciplinasId = gradeDisciplinaId;
+        atribuicao.TurmaId = turmaId;
+
+
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _context.Update(atribuicao);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!AtribuicaoExists(atribuicao.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+        return RedirectToAction(nameof(Atribuicoes));
+    }
+
+    public IActionResult DeleteAtribuicoes(int id)
+    {
+        var atribuicao = _context.atribuicoes.Find(id);
+        _context.atribuicoes.Remove(atribuicao);
+        _context.SaveChanges();
+        return RedirectToAction(nameof(Atribuicoes));
     }
 
     public IActionResult Horarios()
@@ -466,6 +510,11 @@ public class AdminController : Controller
     private bool TurmaExists(int id)
     {
         return _context.turmas.Any(t => t.Id == id);
+    }
+
+    private bool AtribuicaoExists(int id)
+    {
+        return _context.atribuicoes.Any(a => a.Id == id);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

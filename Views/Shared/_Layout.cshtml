@@ -54,7 +54,7 @@
                         @if (Context.User.IsInRole("Administrador"))
                         {
                             <li>
-                                <a asp-action="Cursos" asp-controller="Admin">
+                                <a asp-action="PeriodoLetivo" asp-controller="Admin">
                                     <img src="~/img/icons/panel.svg">
                                     <span>Painel do Admin</span>
                                 </a>
@@ -133,6 +133,7 @@
 
     @await RenderSectionAsync("Scripts", required: false)
     <script src="~/js/modal-confirm.js"></script>
+    <script src="~/js/username-to-upper.js"></script>
 
 </body>
 

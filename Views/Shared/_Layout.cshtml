@@ -1,12 +1,46 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using Aion.Models
+@using System.Text.RegularExpressions
+
 
 @inject SignInManager<User> SignInManager
 @inject UserManager<User> UserManager
 
 @{
+    string FirstLetterToUpper(string userName)
+    {
+        var names = userName.Split(".");
+        
+        if (names.Length >= 2)
+        {
+            string firstName = names[0];
+            string secName = names[1];
+
+            string firstLetterToUpper = char.ToUpper(firstName[0]).ToString();
+            string secLetterToUpper = char.ToUpper(secName[0]).ToString();
+
+            var regexOne = new Regex(Regex.Escape(firstName[0].ToString()));
+            var regexTwo = new Regex(Regex.Escape(secName[0].ToString()));
+            string result = regexOne.Replace(firstName, firstLetterToUpper, 1) + " " + regexTwo.Replace(secName, secLetterToUpper, 1);
+
+            return result;
+        }
+        else
+        {
+            string firstName = names[0];
+            string firstLetterToUpper = char.ToUpper(firstName[0]).ToString();
+
+            var regexOne = new Regex(Regex.Escape(firstName[0].ToString()));
+            string result = regexOne.Replace(firstName, firstLetterToUpper, 1);
+
+            return result;
+        }
+    }
+}
+
+@{
     var actionAtual = ViewContext.RouteData.Values["action"] != null ? ViewContext.RouteData.Values["action"].ToString() : "login";
-    if (User.Identity.Name != null) ViewData["NameUser"] = (User.Identity.Name.Split('.').Count() > 1) ? User.Identity.Name.Split('.')[0] + " " + User.Identity.Name.Split('.')[User.Identity.Name.Split('.').Count() - 1] : User.Identity.Name.Split('.')[0];
+    if (User.Identity.Name != null) ViewData["NameUser"] = FirstLetterToUpper(User.Identity.Name);
 }
 
 <!DOCTYPE html>
@@ -133,7 +167,6 @@
 
     @await RenderSectionAsync("Scripts", required: false)
     <script src="~/js/modal-confirm.js"></script>
-    <script src="~/js/username-to-upper.js"></script>
 
 </body>
 

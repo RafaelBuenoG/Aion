@@ -1,6 +1,22 @@
+@using System.Text.RegularExpressions
+
+@{
+    string FirstLetterToUpper(string userName)
+    {
+        var names = userName.Split(".");
+        string firstName = names[0];
+        string firstLetterToUpper = char.ToUpper(firstName[0]).ToString();
+
+        var regexOne = new Regex(Regex.Escape(firstName[0].ToString()));
+        string result = regexOne.Replace(firstName, firstLetterToUpper, 1);
+
+        return result;
+    }
+}
+
 @{
     var actionAtual = ViewContext.RouteData.Values["action"].ToString();
-    if (User.Identity.Name != null) ViewData["FirstNameUser"] = User.Identity.Name.Split('.')[0];
+    if (User.Identity.Name != null) ViewData["FirstNameUser"] = FirstLetterToUpper(User.Identity.Name);
 }
 
 <!DOCTYPE html>

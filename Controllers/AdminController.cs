@@ -492,10 +492,10 @@ public class AdminController : Controller
         return View();
     }
 
-    public IActionResult Config()
-    {
-        return View();
-    }
+    // public IActionResult Config()
+    // {
+    //     return View();
+    // }
 
     private bool CursoExists(int id)
     {

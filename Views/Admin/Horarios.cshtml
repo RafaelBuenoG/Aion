@@ -8,21 +8,44 @@
     <div class="header-title-container pad-left">
         <h1 class="header-title">Gerar horários</h1>
     </div>
-    <a href="javascript:void(0)" class="add-container pad-right">
-        <img class="add-icon" src="../../img/icons/add.svg" alt="add">
+    <button class="add-container pad-right bnt-modal">
+        <img class="add-icon" src="~/img/icons/add.svg" alt="add">
         <span class="add-title">Gerar</span>
-    </a>
+    </button>
 </header>
-<section class="table-container">
-    <div class="table">
-        <span class="msg-table">Nenhum horário gerado</span>
-        <!-- Dados da tabela aqui -->
-    </div>
+<section class="table-carousel-container">
+    @* @if (ViewBag.hasHorarios == false)
+    {
+        <div class="table">
+            <span class="msg-table">Nenhum horário gerado</span>
+        </div>
+    }
+    else
+    { *@
+        <button type="button" class="arrow-left control">
+            <img src="~/img/icons/arrow-left-2.svg" alt="arrow-left">
+        </button>
+        <button type="button" class="arrow-right control">
+            <img src="~/img/icons/arrow-right-3.svg" alt="arrow-right">
+        </button>
+        <div class="table-wrapper">
+            <div class="table-carousel">
+                <img src="https://source.unsplash.com/random/1180x750/?beach" alt="example" class="grid-table current-grid-table">
+                <img src="https://source.unsplash.com/random/1180x750/?animal" alt="example" class="grid-table">
+                <img src="https://source.unsplash.com/random/1180x750/?landscape" alt="example" class="grid-table">
+                <img src="https://source.unsplash.com/random/1180x750/?city" alt="example" class="grid-table">
+            </div>
+        </div>
+    @* } *@
 </section>
 <footer>
-    <input class="btn" type="button" value="Enviar">
     <button class="btn btn-white-outline">
         <span class="btn-span">Download</span>
-        <img class="icon-arrow-right" src="../../img/icons/arrow-right-2.svg" alt="">
+        <img class="icon-arrow-right" src="~/img/icons/arrow-right-2.svg" alt="">
     </button>
+    <input class="btn" type="button" value="Enviar">
 </footer>
+
+@section Scripts{
+    <script src="~/js/table-carousel.js"></script>
+}

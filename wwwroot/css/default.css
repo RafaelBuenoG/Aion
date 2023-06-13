@@ -401,6 +401,94 @@ html, body
     background-position: center;
 }
 
+/* Table Carousel */
+
+.table-carousel-container
+{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    align-items: center;
+}
+
+.table-wrapper
+{
+    font-size: var(--p-size);
+    padding-top: 1vh;
+    width: 75%;
+    height: 80vh;
+    overflow-x: auto;
+}
+
+.table-carousel
+{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 10vw;
+}
+
+.table-carousel > img
+{
+    width: 100%;
+}
+
+.arrow-right, .arrow-left
+{
+    position: absolute;
+    width: auto;
+    top: 0;
+    left: auto;
+    right: 0;
+    bottom: 0;
+    margin-right: 1.5vw;
+    cursor: pointer;
+    background-color: transparent;
+    opacity: 0.5;
+}
+
+.arrow-left
+{
+    left: 0;
+    right: auto;
+    margin-right: 0;
+    margin-left: 1.5vw;
+}
+
+.arrow-left, .arrow-right > img
+{
+    width: 6vw;
+}
+
+.arrow-left:hover, .arrow-right:hover
+{
+    opacity: 1;
+    transition: .5s;
+    transform: scale(1.1);
+}
+
+.grid-table
+{
+    opacity: .3;
+    transition: .3s;
+}
+
+.current-grid-table
+{
+    opacity: 1;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.table-wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.table-wrapper {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+}
+
 /* MEDIA QUERYS */
 
 @media screen and (max-width: 768px)

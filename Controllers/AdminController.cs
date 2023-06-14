@@ -489,13 +489,11 @@ public class AdminController : Controller
 
     public IActionResult Horarios()
     {
+        ViewData["DiaSemana"] = Enum.GetValues(typeof(DiaSemana)).Cast<DiaSemana>();
         return View();
     }
 
-    // public IActionResult Config()
-    // {
-    //     return View();
-    // }
+    //////////////////////////////////////////////////
 
     private bool CursoExists(int id)
     {

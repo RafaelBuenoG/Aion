@@ -22,7 +22,7 @@
     }
     else
     { *@
-        <button type="button" class="arrow-left control">
+        <button type="button" class="arrow-left control arrow-hide">
             <img src="~/img/icons/arrow-left-2.svg" alt="arrow-left">
         </button>
         <button type="button" class="arrow-right control">
@@ -30,10 +30,175 @@
         </button>
         <div class="table-wrapper">
             <div class="table-carousel">
-                <img src="https://source.unsplash.com/random/1180x750/?beach" alt="example" class="grid-table current-grid-table">
-                <img src="https://source.unsplash.com/random/1180x750/?animal" alt="example" class="grid-table">
+                <div class="grid-table current-grid-table">
+                    <table class="table-reg">
+                        <thead class="thead-reg">
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana) {<th><label>@dia</label></th>}
+                            </tr>
+                        </thead>
+                        <tbody class="tbody-reg">
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="first-@dia" value="07:10">
+                                        <label for="first-@dia" class="tbody-reg-cursor-auto">07:10</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="second-@dia" value="08:00">
+                                        <label for="second-@dia" class="tbody-reg-cursor-auto">08:00</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="third-@dia" value="08:50">
+                                        <label for="third-@dia" class="tbody-reg-cursor-auto">08:50</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="fourth-@dia" value="10:00">
+                                        <label for="fourth-@dia" class="tbody-reg-cursor-auto">10:00</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="fifth-@dia" value="10:50">
+                                        <label for="fifth-@dia" class="tbody-reg-cursor-auto">10:50</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="sixth-@dia" value="11:40">
+                                        <label for="sixth-@dia" class="tbody-reg-cursor-auto">11:40</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="seventh-@dia" value="13:10">
+                                        <label for="seventh-@dia" class="tbody-reg-cursor-auto">13:10</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="eighth-@dia" value="14:00">
+                                        <label for="eighth-@dia" class="tbody-reg-cursor-auto">14:00</label>
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="grid-table">
+                    <table class="table-reg">
+                        <thead class="thead-reg">
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana) {<th><label>@dia</label></th>}
+                            </tr>
+                        </thead>
+                        <tbody class="tbody-reg">
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="first-@dia" value="07:10">
+                                        <label for="first-@dia" class="tbody-reg-cursor-auto">07:10</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="second-@dia" value="08:00">
+                                        <label for="second-@dia" class="tbody-reg-cursor-auto">08:00</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="third-@dia" value="08:50">
+                                        <label for="third-@dia" class="tbody-reg-cursor-auto">08:50</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="fourth-@dia" value="10:00">
+                                        <label for="fourth-@dia" class="tbody-reg-cursor-auto">10:00</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="fifth-@dia" value="10:50">
+                                        <label for="fifth-@dia" class="tbody-reg-cursor-auto">10:50</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="sixth-@dia" value="11:40">
+                                        <label for="sixth-@dia" class="tbody-reg-cursor-auto">11:40</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="seventh-@dia" value="13:10">
+                                        <label for="seventh-@dia" class="tbody-reg-cursor-auto">13:10</label>
+                                    </td>
+                                }
+                            </tr>
+                            <tr>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <td class="td-@dia td-all">
+                                        <input class="hide" type="checkbox" id="eighth-@dia" value="14:00">
+                                        <label for="eighth-@dia" class="tbody-reg-cursor-auto">14:00</label>
+                                    </td>
+                                }
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                @* <img src="https://source.unsplash.com/random/1180x750/?animal" alt="example" class="grid-table">
                 <img src="https://source.unsplash.com/random/1180x750/?landscape" alt="example" class="grid-table">
-                <img src="https://source.unsplash.com/random/1180x750/?city" alt="example" class="grid-table">
+                <img src="https://source.unsplash.com/random/1180x750/?city" alt="example" class="grid-table"> *@
             </div>
         </div>
     @* } *@

@@ -75,6 +75,7 @@
     font-size: var(--title);
     font-weight: 300;
     line-height: 50px;
+    margin-bottom: 5vh;
 }
 
 .dropdown-show-reg
@@ -121,99 +122,4 @@
     justify-content: center;
     align-items: center;
     padding-top: 100px;
-}
-
-.container-table
-{
-    display: flex;
-    width: auto;
-}
-
-.table
-{
-    width: auto;
-    padding-top: 50px;
-}
-
-.horario-title
-{
-    width: auto;
-    font-size: var(--big-title);
-    font-weight: 400;
-}
-
-.msg-table
-{
-    font-size: var(--p-size);
-    color: gray;
-}
-
-/* Tabela de disponibilidade */
-
-.table-reg
-{
-    width: 60vw;
-    font-size: 1.5em;
-    margin-top: 5vh;
-}
-
-.thead-reg > tr
-{
-    height: 5vh;
-}
-
-.thead-reg > tr > th
-{
-    position: relative;
-    width: 14.2%;
-    background-color: var(--purple06);
-    border: 2px solid var(--purple06);
-    color: white;
-}
-
-.tbody-reg > tr
-{
-    height: 5vh;
-}
-
-.tbody-reg > tr > td
-{
-    position: relative;
-    width: 14.2%;
-    border: 2px solid var(--purple01);
-    color: var(--gray02);
-}
-
-.tbody-reg > tr > td > label, .thead-reg > tr > th > label
-{
-    position: absolute;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    padding-top: 1vh;
-}
-
-.tbody-reg > tr > td > label
-{
-    cursor: pointer;
-}
-
-.select-all-container
-{
-    margin-top: 2vh;
-    width: auto;
-}
-
-.select-all-container label
-{
-    display: flex;
-    font-size: var(--p-size);
-    color: var(--gray02);
-    font-weight: 400;
-    cursor: pointer;
-}
-
-.hide
-{
-    display: none;
 }

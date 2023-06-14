@@ -401,6 +401,33 @@ html, body
     background-position: center;
 }
 
+/* Table */
+
+.container-table
+{
+    display: flex;
+    width: auto;
+}
+
+.table
+{
+    width: auto;
+    padding-top: 50px;
+}
+
+.horario-title
+{
+    width: auto;
+    font-size: var(--big-title);
+    font-weight: 400;
+}
+
+.msg-table
+{
+    font-size: var(--p-size);
+    color: gray;
+}
+
 /* Table Carousel */
 
 .table-carousel-container
@@ -408,16 +435,19 @@ html, body
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 80vh;
+    max-width: 82vw;
+    height: 75vh;
     align-items: center;
 }
 
 .table-wrapper
 {
     font-size: var(--p-size);
-    padding-top: 1vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
     width: 75%;
-    height: 80vh;
+    height: 75vh;
     overflow-x: auto;
 }
 
@@ -426,11 +456,6 @@ html, body
     display: flex;
     flex-wrap: nowrap;
     gap: 10vw;
-}
-
-.table-carousel > img
-{
-    width: 100%;
 }
 
 .arrow-right, .arrow-left
@@ -444,7 +469,11 @@ html, body
     margin-right: 1.5vw;
     cursor: pointer;
     background-color: transparent;
-    opacity: 0.5;
+}
+
+.arrow-hide
+{
+    display: none;
 }
 
 .arrow-left
@@ -462,7 +491,6 @@ html, body
 
 .arrow-left:hover, .arrow-right:hover
 {
-    opacity: 1;
     transition: .5s;
     transform: scale(1.1);
 }
@@ -487,6 +515,80 @@ html, body
 .table-wrapper {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+}
+
+/* Tabela de disponibilidade */
+
+.table-reg
+{
+    width: 60vw;
+    font-size: 1.5em;
+}
+
+.thead-reg > tr
+{
+    height: 5vh;
+}
+
+.thead-reg > tr > th
+{
+    position: relative;
+    width: 14.2%;
+    background-color: var(--purple06);
+    border: 2px solid var(--purple06);
+    color: white;
+}
+
+.tbody-reg > tr
+{
+    height: 5vh;
+}
+
+.tbody-reg > tr > td
+{
+    position: relative;
+    width: 14.2%;
+    border: 2px solid var(--purple01);
+    color: var(--gray02);
+}
+
+.tbody-reg > tr > td > label, .thead-reg > tr > th > label
+{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding-top: 1vh;
+}
+
+.tbody-reg > tr > td > label
+{
+    cursor: pointer;
+}
+
+.tbody-reg-cursor-auto
+{
+    cursor: auto!important;
+}
+
+.select-all-container
+{
+    margin-top: 2vh;
+    width: auto;
+}
+
+.select-all-container label
+{
+    display: flex;
+    font-size: var(--p-size);
+    color: var(--gray02);
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.hide
+{
+    display: none;
 }
 
 /* MEDIA QUERYS */

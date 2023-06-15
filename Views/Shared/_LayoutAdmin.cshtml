@@ -81,6 +81,12 @@
                 </a>
             </li>
             <li>
+                <a asp-action="GradeDisciplinas" asp-controller="Admin" class="side-item-container @(actionAtual == "GradeDisciplinas" ? "selected" : "")">
+                    <img class="side-item-icon" src="~/img/icons/assign.svg" alt="Cursos" />
+                    <span class="side-item-title">Grade Disciplinas</span>
+                </a>
+            </li>
+            <li>
                 <a asp-action="Atribuicoes" asp-controller="Admin" class="side-item-container @(actionAtual == "Atribuicoes" ? "selected" : "")">
                     <img class="side-item-icon" src="~/img/icons/assign.svg" alt="Cursos" />
                     <span class="side-item-title">Atribuições</span>

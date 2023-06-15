@@ -62,7 +62,7 @@ public class AdminController : Controller
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CursoExists(periodo.Id))
+                if (!PeriodoExists(periodo.Id))
                 {
                     return NotFound();
                 }
@@ -140,7 +140,7 @@ public class AdminController : Controller
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CursoExists(grade.Id))
+                if (!GradeExists(grade.Id))
                 {
                     return NotFound();
                 }
@@ -422,7 +422,7 @@ public class AdminController : Controller
     public IActionResult Atribuicoes()
     {
         ViewData["Professores"] = _context.professores.OrderBy(p => p.Nome);
-        // ViewData["Grades"] = _context.gradeDisciplinas.OrderBy(g => g.Nome);
+        // ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.OrderBy(g => g.Nome);
         ViewData["Turmas"] = _context.turmas.OrderBy(p => p.Nome);
         List<Atribuicao> atribuicoes = _context.atribuicoes.ToList();
         ViewData["hasAtribuicao"] = _context.atribuicoes.Count() < 1 ? false : true;
@@ -430,14 +430,14 @@ public class AdminController : Controller
     }
 
     [HttpPost]
-    public IActionResult Atribuicoes(int professorId, int gradeDisciplinaId, int turmaId, bool matriz)
+    public IActionResult Atribuicoes(int teacher, int gridSub, int turma, bool matriz)
     {
         Atribuicao atr = new()
         {
-            ProfessorId = professorId,
-            GradeDisciplinasId = gradeDisciplinaId,
-            TurmaId = turmaId,
-            Matriz = matriz
+            ProfessorId = teacher,
+            GradeDisciplinasId = gridSub,
+            TurmaId = turma,
+            Matriz = matriz,
         };
         _context.Add(atr);
         _context.SaveChanges();
@@ -449,12 +449,14 @@ public class AdminController : Controller
         return View(atribuicoes);
     }
 
-    public IActionResult EditAtribuicoes(int id, int professorId, int gradeDisciplinaId, int turmaId, bool matriz)
+    [HttpPost, ActionName("EditAtribuicoes")]
+    public IActionResult EditAtribuicoes(int id, int teacher, int gridSub, int turma, bool matriz)
     {
         var atribuicao = _context.atribuicoes.FirstOrDefault(a => a.Id == id);
-        atribuicao.ProfessorId = professorId;
-        atribuicao.GradeDisciplinasId = gradeDisciplinaId;
-        atribuicao.TurmaId = turmaId;
+        atribuicao.ProfessorId = teacher;
+        atribuicao.GradeDisciplinasId = gridSub;
+        atribuicao.TurmaId = turma;
+        atribuicao.Matriz = matriz;
 
 
         if (ModelState.IsValid)
@@ -479,6 +481,7 @@ public class AdminController : Controller
         return RedirectToAction(nameof(Atribuicoes));
     }
 
+    [HttpPost, ActionName("DeleteAtribuicoes")]
     public IActionResult DeleteAtribuicoes(int id)
     {
         var atribuicao = _context.atribuicoes.Find(id);
@@ -493,11 +496,92 @@ public class AdminController : Controller
         return View();
     }
 
+    public IActionResult GradeDisciplinas()
+    {
+        ViewData["Grades"] = _context.grades.OrderBy(g => g.Curso.Nome);
+        ViewData["Disciplinas"] = _context.disciplinas.OrderBy(d => d.Nome);
+        List<GradeDisciplinas> gradeDisciplinas = _context.gradeDisciplinas.ToList();
+        ViewData["hasGradeDisciplina"] = _context.gradeDisciplinas.Count() < 1 ? false : true;
+        return View(gradeDisciplinas);
+    }
+
+    [HttpPost]
+    public IActionResult GradeDisciplinas(int grid, int sub, int semester, bool hasDivision, string workload)
+    {
+        GradeDisciplinas gridSub = new()
+        {
+            GradeId = grid,
+            DisciplinaId = sub,
+            Semestre = semester,
+            TemDivisao = hasDivision,
+            CargaHoraria = workload,
+        };
+        _context.Add(gridSub);
+        _context.SaveChanges();
+
+        ViewData["Grades"] = _context.grades.OrderBy(g => g.Curso.Nome);
+        ViewData["Disciplinas"] = _context.disciplinas.OrderBy(d => d.Nome);
+        List<GradeDisciplinas> gradeDisciplinas = _context.gradeDisciplinas.ToList();
+        return View(gradeDisciplinas);
+    }
+
+    [HttpPost, ActionName("EditGradeDisciplinas")]
+    public IActionResult EditGradeDisciplinas(int id, int grid, int sub, int semester, bool hasDivision, string workload)
+    {
+        var gradeDisciplina = _context.gradeDisciplinas.FirstOrDefault(g => g.Id == id);
+        gradeDisciplina.GradeId = grid;
+        gradeDisciplina.DisciplinaId = sub;
+        gradeDisciplina.Semestre = semester;
+        gradeDisciplina.TemDivisao = hasDivision;
+        gradeDisciplina.CargaHoraria = workload;
+
+
+        if (ModelState.IsValid)
+        {
+            try
+            {
+                _context.Update(gradeDisciplina);
+                _context.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!GradeDisciplinaExists(gradeDisciplina.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+        return RedirectToAction(nameof(GradeDisciplinas));
+    }
+
+    [HttpPost, ActionName("DeleteGradeDisciplinas")]
+    public IActionResult DeleteGradeDisciplinas(int id)
+    {
+        var gradeDisciplina = _context.gradeDisciplinas.Find(id);
+        _context.gradeDisciplinas.Remove(gradeDisciplina);
+        _context.SaveChanges();
+        return RedirectToAction(nameof(GradeDisciplinas));
+    }
+
     //////////////////////////////////////////////////
+
+    private bool PeriodoExists(int id)
+    {
+        return _context.periodoLetivos.Any(p => p.Id == id);
+    }
 
     private bool CursoExists(int id)
     {
         return _context.cursos.Any(c => c.Id == id);
+    }
+
+    private bool GradeExists(int id)
+    {
+        return _context.grades.Any(g => g.Id == id);
     }
 
     private bool ProfessorExists(int id)
@@ -513,6 +597,11 @@ public class AdminController : Controller
     private bool AtribuicaoExists(int id)
     {
         return _context.atribuicoes.Any(a => a.Id == id);
+    }
+
+    private bool GradeDisciplinaExists(int id)
+    {
+        return _context.atribuicoes.Any(g => g.Id == id);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

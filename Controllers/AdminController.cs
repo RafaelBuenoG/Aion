@@ -52,7 +52,7 @@ public class AdminController : Controller
         var periodo = _context.periodoLetivos.FirstOrDefault(p => p.Id == id);
         periodo.Ano = year;
         periodo.Semestre = semester;
-        
+
         if (ModelState.IsValid)
         {
             try
@@ -380,19 +380,26 @@ public class AdminController : Controller
         professor.Email = email;
         professor.Telefone = phone;
         professor.Usuario = userName;
-        
-        // foreach (var subject in subjects.Split(','))
-        // {
-        //     var formacao = _context.formacoes.FirstOrDefault(f => f.Professor.Equals(professor));
-        //     _context.Update(formacao);
-        // }
-        // _context.SaveChanges();
 
         if (ModelState.IsValid)
         {
             try
             {
                 _context.Update(professor);
+                _context.SaveChanges();
+
+                var formacoes = _context.formacoes.Where(f => f.ProfessorId == id).ToList();
+                _context.formacoes.RemoveRange(formacoes);
+
+                foreach (var subject in subjects.Split(','))
+                {
+                    var formacao = new Formacao()
+                    {
+                        ProfessorId = id,
+                        DisciplinaId = _context.disciplinas.FirstOrDefault(d => d.Nome.Equals(subject)).Id
+                    };
+                    _context.formacoes.Add(formacao);
+                }
                 _context.SaveChanges();
             }
             catch (DbUpdateConcurrencyException)

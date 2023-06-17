@@ -12,7 +12,7 @@ const labelClassAssignEdt = document.querySelector('#label-modal-classassignEdt'
 const dropDownClassAssignEdt = document.querySelector('.dropdown-select-classassignEdt');
 
 const ActiveDropDownClassTeAssignEdt = 'dropdown-show-teassignEdt';
-const ActiveDropDownClassGridAssignEdt = 'dropdown-show-teassignEdt';
+const ActiveDropDownClassGridAssignEdt = 'dropdown-show-gridassignEdt';
 const ActiveDropDownClassClassAssignEdt = 'dropdown-show-classassignEdt';
 
 const closeDropDownTeAssignEdt = () => {

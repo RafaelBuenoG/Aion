@@ -104,7 +104,7 @@ public class AdminController : Controller
                 CursoId = curso,
                 Numero = number,
             };
-            _context.Add(grid);
+            _context.grades.Add(grid);
             _context.SaveChanges();
         }
 
@@ -505,41 +505,47 @@ public class AdminController : Controller
 
     public IActionResult GradeDisciplinas()
     {
-        ViewData["Grades"] = _context.grades.OrderBy(g => g.Curso.Nome);
+        ViewData["Grades"] = _context.grades.Include(c => c.Curso).OrderBy(g => g.Curso.Nome);
         ViewData["Disciplinas"] = _context.disciplinas.OrderBy(d => d.Nome);
-        List<GradeDisciplinas> gradeDisciplinas = _context.gradeDisciplinas.ToList();
+        List<GradeDisciplinas> gradeDisciplinas = _context.gradeDisciplinas.Include(g => g.Grade).ThenInclude(c => c.Curso)
+        .Include(d => d.Disciplina).ToList();
         ViewData["hasGradeDisciplina"] = _context.gradeDisciplinas.Count() < 1 ? false : true;
         return View(gradeDisciplinas);
     }
 
     [HttpPost]
-    public IActionResult GradeDisciplinas(int grid, int sub, int semester, bool hasDivision, string workload)
+    public IActionResult GradeDisciplinas(string grid, string sub, int semester, bool hasDivision, string workload)
     {
+        int grade = _context.grades.FirstOrDefault(c => c.Curso.Nome.Equals(grid)).Id;
+        int materia = _context.disciplinas.FirstOrDefault(d => d.Nome.Equals(sub)).Id;
         GradeDisciplinas gridSub = new()
         {
-            GradeId = grid,
-            DisciplinaId = sub,
+            GradeId = grade,
+            DisciplinaId = materia,
             Semestre = semester,
             TemDivisao = hasDivision,
             CargaHoraria = workload,
         };
-        _context.Add(gridSub);
+        _context.gradeDisciplinas.Add(gridSub);
         _context.SaveChanges();
 
-        ViewData["Grades"] = _context.grades.OrderBy(g => g.Curso.Nome);
+        ViewData["Grades"] = _context.grades.Include(c => c.Curso).OrderBy(g => g.Curso.Nome);
         ViewData["Disciplinas"] = _context.disciplinas.OrderBy(d => d.Nome);
-        List<GradeDisciplinas> gradeDisciplinas = _context.gradeDisciplinas.ToList();
+        List<GradeDisciplinas> gradeDisciplinas = _context.gradeDisciplinas.Include(g => g.Grade).ThenInclude(c => c.Curso)
+        .Include(d => d.Disciplina).ToList();
         return View(gradeDisciplinas);
     }
 
-    [HttpPost, ActionName("EditGradeDisciplinas")]
-    public IActionResult EditGradeDisciplinas(int id, int grid, int sub, int semester, bool hasDivision, string workload)
+    [HttpPost, ActionName("EditGradeDisciplina")]
+    public IActionResult EditGradeDisciplinas(int id, string grid, string sub, int semester, bool hasDivisionEdt, string workload)
     {
+        int grade = _context.grades.FirstOrDefault(c => c.Curso.Nome.Equals(grid)).Id;
+        int materia = _context.disciplinas.FirstOrDefault(d => d.Nome.Equals(sub)).Id;
         var gradeDisciplina = _context.gradeDisciplinas.FirstOrDefault(g => g.Id == id);
-        gradeDisciplina.GradeId = grid;
-        gradeDisciplina.DisciplinaId = sub;
+        gradeDisciplina.GradeId = grade;
+        gradeDisciplina.DisciplinaId = materia;
         gradeDisciplina.Semestre = semester;
-        gradeDisciplina.TemDivisao = hasDivision;
+        gradeDisciplina.TemDivisao = hasDivisionEdt;
         gradeDisciplina.CargaHoraria = workload;
 
 
@@ -565,7 +571,7 @@ public class AdminController : Controller
         return RedirectToAction(nameof(GradeDisciplinas));
     }
 
-    [HttpPost, ActionName("DeleteGradeDisciplinas")]
+    [HttpPost, ActionName("DeleteGradeDisciplina")]
     public IActionResult DeleteGradeDisciplinas(int id)
     {
         var gradeDisciplina = _context.gradeDisciplinas.Find(id);

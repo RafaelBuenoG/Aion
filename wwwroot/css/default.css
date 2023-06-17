@@ -253,6 +253,12 @@ html, body
     font-size: 1.2em;
 }
 
+.field-modal-checkbox label
+{
+    display: flex;
+    font-size: 1.1em;
+}
+
 .inp-modal
 {
     width: 22vw;
@@ -265,7 +271,7 @@ html, body
 
 /* Default Select */
 
-.select-modal, .select-modal-edt, .select-modal-typeco, .select-modal-typecoEdt, .select-modal-coclass, .select-modal-coclassEdt, .select-modal-grid, .select-modal-gridEdt, .select-modal-peclass, .select-modal-peclassEdt, .select-modal-teassign, .select-modal-teassignEdt, .select-modal-gridassign, .select-modal-gridassignEdt, .select-modal-classassign, .select-modal-classassignEdt
+.select-modal, .select-modal-edt, .select-modal-typeco, .select-modal-typecoEdt, .select-modal-coclass, .select-modal-coclassEdt, .select-modal-grid, .select-modal-gridEdt, .select-modal-peclass, .select-modal-peclassEdt, .select-modal-teassign, .select-modal-teassignEdt, .select-modal-gridassign, .select-modal-gridassignEdt, .select-modal-classassign, .select-modal-classassignEdt, .select-modal-grgridsub, .select-modal-grgridsubEdt, .select-modal-sgridsub, .select-modal-sgridsubEdt
 {
     width: 22vw;
     height: 40px;
@@ -275,13 +281,13 @@ html, body
     font-size: 1.05em;
 }
 
-.dropdown-container, .dropdown-container-edt, .dropdown-container-typeco, .dropdown-container-typecoEdt, .dropdown-container-coclass .dropdown-container-coclassEdt, .dropdown-container-grid, .dropdown-container-gridEdt, .dropdown-container-peclass, .dropdown-container-peclassEdt, .dropdown-container-teassign, .dropdown-container-teassignEdt, .dropdown-container-gridassign, .dropdown-container-gridassignEdt, .dropdown-container-classassign, .dropdown-container-classassignEdt
+.dropdown-container, .dropdown-container-edt, .dropdown-container-typeco, .dropdown-container-typecoEdt, .dropdown-container-coclass .dropdown-container-coclassEdt, .dropdown-container-grid, .dropdown-container-gridEdt, .dropdown-container-peclass, .dropdown-container-peclassEdt, .dropdown-container-teassign, .dropdown-container-teassignEdt, .dropdown-container-gridassign, .dropdown-container-gridassignEdt, .dropdown-container-classassign, .dropdown-container-classassignEdt, .dropdown-container-grgridsub, .dropdown-container-grgridsubEdt, .dropdown-container-sgridsub, .dropdown-container-sgridsubEdt
 {
     position: relative;
     margin-top: -10px;
 }
 
-.dropdown-select, .dropdown-select-edt, .dropdown-select-typeco, .dropdown-select-typecoEdt, .dropdown-select-coclass, .dropdown-select-coclassEdt, .dropdown-select-grid, .dropdown-select-gridEdt, .dropdown-select-peclass, .dropdown-select-peclassEdt, .dropdown-select-teassign, .dropdown-select-teassignEdt, .dropdown-select-gridassign, .dropdown-select-gridassignEdt, .dropdown-select-classassign, .dropdown-select-classassignEdt
+.dropdown-select, .dropdown-select-edt, .dropdown-select-typeco, .dropdown-select-typecoEdt, .dropdown-select-coclass, .dropdown-select-coclassEdt, .dropdown-select-grid, .dropdown-select-gridEdt, .dropdown-select-peclass, .dropdown-select-peclassEdt, .dropdown-select-teassign, .dropdown-select-teassignEdt, .dropdown-select-gridassign, .dropdown-select-gridassignEdt, .dropdown-select-classassign, .dropdown-select-classassignEdt, .dropdown-select-grgridsub, .dropdown-select-grgridsubEdt, .dropdown-select-sgridsub, .dropdown-select-sgridsubEdt
 {
     width: 22vw;
     height: auto;
@@ -295,13 +301,13 @@ html, body
     transition: opacity .15s;
 }
 
-.dropdown-show, .dropdown-show-edt, .dropdown-show-typeco, .dropdown-show-typecoEdt, .dropdown-show-coclass, .dropdown-show-coclassEdt, .dropdown-show-grid, .dropdown-show-gridEdt, .dropdown-show-peclass, .dropdown-show-peclassEdt, .dropdown-show-teassign, .dropdown-show-teassignEdt, .dropdown-show-gridassign, .dropdown-show-gridassignEdt, .dropdown-show-classassign, .dropdown-show-classassignEdt
+.dropdown-show, .dropdown-show-edt, .dropdown-show-typeco, .dropdown-show-typecoEdt, .dropdown-show-coclass, .dropdown-show-coclassEdt, .dropdown-show-grid, .dropdown-show-gridEdt, .dropdown-show-peclass, .dropdown-show-peclassEdt, .dropdown-show-teassign, .dropdown-show-teassignEdt, .dropdown-show-gridassign, .dropdown-show-gridassignEdt, .dropdown-show-classassign, .dropdown-show-classassignEdt, .dropdown-show-grgridsub, .dropdown-show-grgridsubEdt, .dropdown-show-sgridsub, .dropdown-show-sgridsubEdt
 {
     opacity: 1;
     pointer-events: auto;
 }
 
-.item-select, .item-select-edt, .item-select-typeco, .item-select-typecoEdt, .item-select-coclass, .item-select-coclassEdt, .item-select-grid, .item-select-gridEdt, .item-select-peclass, .item-select-peclassEdt, .item-select-teassign, .item-select-teassignEdt, .item-select-gridassign, .item-select-gridassignEdt, .item-select-classassign, .item-select-classassignEdt
+.item-select, .item-select-edt, .item-select-typeco, .item-select-typecoEdt, .item-select-coclass, .item-select-coclassEdt, .item-select-grid, .item-select-gridEdt, .item-select-peclass, .item-select-peclassEdt, .item-select-teassign, .item-select-teassignEdt, .item-select-gridassign, .item-select-gridassignEdt, .item-select-classassign, .item-select-classassignEdt, .item-select-grgridsub, .item-select-grgridsubEdt, .item-select-sgridsub, .item-select-sgridsubEdt
 {
     display: flex;
     align-items: center;
@@ -313,7 +319,7 @@ html, body
     cursor: pointer;
 }
 
-.item-select:hover, .item-select-edt:hover, .item-select-typeco:hover, .item-select-typecoEdt:hover, .item-select-coclass:hover, .item-select-coclassEdt:hover, .item-select-grid:hover, .item-select-gridEdt:hover, .item-select-peclass:hover, .item-select-peclassEdt:hover, .item-select-teassign:hover, .item-select-teassignEdt:hover, .item-select-gridassign:hover, .item-select-gridassignEdt:hover, .item-select-classassign:hover, .item-select-classassignEdt:hover
+.item-select:hover, .item-select-edt:hover, .item-select-typeco:hover, .item-select-typecoEdt:hover, .item-select-coclass:hover, .item-select-coclassEdt:hover, .item-select-grid:hover, .item-select-gridEdt:hover, .item-select-peclass:hover, .item-select-peclassEdt:hover, .item-select-teassign:hover, .item-select-teassignEdt:hover, .item-select-gridassign:hover, .item-select-gridassignEdt:hover, .item-select-classassign:hover, .item-select-classassignEdt:hover, .item-select-grgridsub:hover, .item-select-grgridsubEdt:hover, .item-select-sgridsub:hover, .item-select-sgridsubEdt:hover
 {
     background-color: var(--white03);
     padding-left: 25px;
@@ -349,7 +355,7 @@ html, body
     position: relative;
 }
 
-.check-select, .check-select-edt, .check-select-typeco, .check-select-typecoEdt, .check-select-coclass, .check-select-coclassEdt, .check-select-grid, .check-select-gridEdt, .check-select-peclass, .check-select-peclassEdt, .check-select-teassign, .check-select-teassignEdt, .check-select-gridassign, .check-select-gridassignEdt, .check-select-classassign, .check-select-classassignEdt
+.check-select, .check-select-edt, .check-select-typeco, .check-select-typecoEdt, .check-select-coclass, .check-select-coclassEdt, .check-select-grid, .check-select-gridEdt, .check-select-peclass, .check-select-peclassEdt, .check-select-teassign, .check-select-teassignEdt, .check-select-gridassign, .check-select-gridassignEdt, .check-select-classassign, .check-select-classassignEdt, .check-select-grgridsub, .check-select-grgridsubEdt, .check-select-sgridsub, .check-select-sgridsubEdt
 {
     display: none;
 }

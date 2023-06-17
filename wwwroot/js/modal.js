@@ -118,6 +118,36 @@ const checkFalse = () => {
     }
 }
 
+function openModalEdtGradeDisciplinas(id, grid, sub, semester, hasDivisionEdt, workload)
+{
+    backgroundEdt.classList.add(activeModalClass);
+    let inpGrid = getElement('#select-modal-grgridsubEdt');
+    let inpSub = getElement('#select-modal-sgridsubEdt');
+    let inpSemester = getElement('#semester-edt');
+    let inpHasDivisionEdt = getElement('#hasDivision-edt');
+    let inpWorkload = getElement('#workload-edt');
+    inpGrid.value = grid;
+    inpSub.value = sub;
+    inpSemester.value = semester;
+    inpHasDivisionEdt.value = hasDivisionEdt;
+    inpWorkload.value = workload;
+
+    let inpHasDivisionEdtSub = getElement('[name=hasDivisionEdt]')
+    if (inpHasDivisionEdt.value == 'True')
+    {
+        inpHasDivisionEdt.checked = true
+        inpHasDivisionEdtSub.value = true
+    }
+    else
+    {
+        inpHasDivisionEdt.checked = false
+        inpHasDivisionEdtSub.value = false
+    }
+
+    let inpSubmit = getElement('#id-edt');
+    inpSubmit.value = id;
+}
+
 const closeModalEdt = () => {
     backgroundEdt.classList.remove(activeModalClass)
     closeDropDownEdt();

@@ -429,10 +429,15 @@ public class AdminController : Controller
     public IActionResult Atribuicoes()
     {
         ViewData["Professores"] = _context.professores.OrderBy(p => p.Nome);
-        // ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.OrderBy(g => g.Nome);
+        ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.Include(g => g.Grade).ThenInclude(c => c.Curso).OrderBy(g => g.Grade.Curso.Nome);
         ViewData["Turmas"] = _context.turmas.OrderBy(p => p.Nome);
         List<Atribuicao> atribuicoes = _context.atribuicoes.ToList();
         ViewData["hasAtribuicao"] = _context.atribuicoes.Count() < 1 ? false : true;
+        
+        // Precisa pegar o id da turma selecionada e colocar no parametro
+        bool gridSubHasDivision = hasDivision(13);
+        if (gridSubHasDivision == true) ViewData["hasDivision"] = true;
+        else ViewData["hasDivision"] = false;
         return View(atribuicoes);
     }
 
@@ -450,7 +455,7 @@ public class AdminController : Controller
         _context.SaveChanges();
 
         ViewData["Professores"] = _context.professores.OrderBy(p => p.Nome);
-        // ViewData["Grades"] = _context.gradeDisciplinas.OrderBy(g => g.Nome);
+        ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.Include(g => g.Grade).ThenInclude(c => c.Curso).OrderBy(g => g.Grade.Curso.Nome);
         ViewData["Turmas"] = _context.turmas.OrderBy(p => p.Nome);
         List<Atribuicao> atribuicoes = _context.atribuicoes.ToList();
         return View(atribuicoes);
@@ -615,6 +620,13 @@ public class AdminController : Controller
     private bool GradeDisciplinaExists(int id)
     {
         return _context.atribuicoes.Any(g => g.Id == id);
+    }
+
+    private bool hasDivision(int id)
+    {
+        var gridSub = _context.gradeDisciplinas.FirstOrDefault(g => g.Id == id);
+        if (gridSub.TemDivisao == true) return true;
+        else return false;
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

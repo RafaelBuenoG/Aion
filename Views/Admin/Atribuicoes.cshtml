@@ -60,7 +60,7 @@
         <form method="post" class="form-modal" id="form-add">
             <div class="field-modal">
                 <label for="select-modal-teassign" id="label-modal-teassign">Professor</label>
-                <input type="text" class="select-modal-teassign" id="select-modal-teassign" name="grid" placeholder="Selecione a Grade" readonly>
+                <input type="text" class="select-modal-teassign" id="select-modal-teassign" name="grid" placeholder="Selecione o Professor" readonly>
                 <div class="dropdown-container-teassign">
                     <div class="dropdown-select-teassign">
                         @foreach (var professor in ViewBag.Professores)
@@ -74,23 +74,8 @@
                 </div>
             </div>
             <div class="field-modal">
-                <label for="select-modal-gridassign" id="label-modal-gridassign">Grade Disciplina?</label>
-                <input type="text" class="select-modal-gridassign" id="select-modal-gridassign" name="grid" placeholder="Selecione a Grade" readonly>
-                <div class="dropdown-container-gridassign">
-                    <div class="dropdown-select-gridassign">
-                        @foreach (var gradesDis in ViewBag.Turmas)
-                        {
-                            <div class="item-select-container">
-                                <input class="check-select-gridassign" type="checkbox" id="item-select-gridassign-@gradesDis.Id" name="course">
-                                <label for="item-select-gridassign-@gradesDis.Id" class="item-select-gridassign" id="items-gridassign-@gradesDis.Id" onmousedown="selectGridAssign(@gradesDis.Id)">@gradesDis.Nome</label>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
-            <div class="field-modal">
                 <label for="select-modal-classassign" id="label-modal-classassign">Turma</label>
-                <input type="text" class="select-modal-classassign" id="select-modal-classassign" name="grid" placeholder="Selecione a Grade" readonly>
+                <input type="text" class="select-modal-classassign" id="select-modal-classassign" name="grid" placeholder="Selecione a Turma" readonly>
                 <div class="dropdown-container-classassign">
                     <div class="dropdown-select-classassign">
                         @foreach (var turma in ViewBag.Turmas)
@@ -103,6 +88,29 @@
                     </div>
                 </div>
             </div>
+            <div class="field-modal">
+                <label for="select-modal-gridassign" id="label-modal-gridassign">Atribuir Matéria</label>
+                <input type="text" class="select-modal-gridassign" id="select-modal-gridassign" name="grid" placeholder="Selecione a Matéria" readonly>
+                <div class="dropdown-container-gridassign">
+                    <div class="dropdown-select-gridassign">
+                        @foreach (var gradesDis in ViewBag.GradeDisciplinas)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select-gridassign" type="checkbox" id="item-select-gridassign-@gradesDis.Id" name="course">
+                                <label for="item-select-gridassign-@gradesDis.Id" class="item-select-gridassign" id="items-gridassign-@gradesDis.Id" onmousedown="selectGridAssign(@gradesDis.Id)">@gradesDis.Grade.Curso.Nome</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            @if (ViewBag.hasDivision == true)
+            {
+                <div class="field-modal field-modal-checkbox">
+                    <input type="hidden" name="isMatriz">
+                    <input class="inp-modal inp-checkbox" type="checkbox" id="isMatriz" name="isMatrizInp" placeholder="Turma A">
+                    <label for="isMatriz" class="remember-label">Matriz das turmas</label>
+                </div>
+            }
             <button type="submit" class="btn btn-modal">Adicionar</button>
         </form>
     </div>

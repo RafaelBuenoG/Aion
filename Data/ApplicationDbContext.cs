@@ -35,6 +35,19 @@ public class ApplicationDbContext : IdentityDbContext<User>
     {
         base.OnModelCreating(builder);
 
+        #region Many to Many - GradeDisciplina
+            builder.Entity<GradeDisciplinas>()
+                .HasOne(gd => gd.Grade)
+                .WithMany(g => g.GradeDisciplinas)
+                .HasForeignKey(gd => gd.GradeId);
+
+            builder.Entity<GradeDisciplinas>()
+                .HasOne(gd => gd.Disciplina)
+                .WithMany(d => d.GradeDisciplinas)
+                .HasForeignKey(gd => gd.DisciplinaId);
+            #endregion
+
+
         #region Populate Roles
         var roles = new List<IdentityRole>()
         {

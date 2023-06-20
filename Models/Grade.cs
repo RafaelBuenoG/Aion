@@ -20,4 +20,6 @@ public class Grade
 
     [ForeignKey("CursoId")]
     public Curso Curso { get; set; }
+
+    public ICollection<GradeDisciplinas> GradeDisciplinas { get; set; }
 }

@@ -429,17 +429,12 @@ public class AdminController : Controller
     public IActionResult Atribuicoes()
     {
         ViewData["Professores"] = _context.professores.OrderBy(p => p.Nome);
-        ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.Include(g => g.Grade).ThenInclude(c => c.Curso).OrderBy(g => g.Grade.Curso.Nome);
-        ViewData["Turmas"] = _context.turmas.OrderBy(p => p.Nome);
-        // Talvez não precise desses includes de gradeDisciplinas
+        // ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.Include(g => g.Grade).ThenInclude(c => c.Curso).OrderBy(g => g.Grade.Curso.Nome);
+        ViewData["GradeDisciplinas"] = _context.disciplinas.OrderBy(d => d.Nome);
+        ViewData["Turmas"] = _context.turmas.OrderBy(t => t.Nome);
         List<Atribuicao> atribuicoes = _context.atribuicoes.Include(p => p.Professor).Include(t => t.Turma)
             .Include(g => g.GradeDisciplinas).ThenInclude(g => g.Grade).ThenInclude(c => c.Curso).ToList();
         ViewData["hasAtribuicao"] = _context.atribuicoes.Count() < 1 ? false : true;
-        
-        // Precisa pegar o id da turma selecionada e colocar no parametro
-        bool gridSubHasDivision = hasDivision(6);
-        if (gridSubHasDivision == true) ViewData["hasDivision"] = true;
-        else ViewData["hasDivision"] = false;
         return View(atribuicoes);
     }
 
@@ -460,8 +455,8 @@ public class AdminController : Controller
         _context.SaveChanges();
 
         ViewData["Professores"] = _context.professores.OrderBy(p => p.Nome);
-        ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.Include(g => g.Grade).ThenInclude(c => c.Curso).OrderBy(g => g.Grade.Curso.Nome);
-        ViewData["Turmas"] = _context.turmas.OrderBy(p => p.Nome);
+        // ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.Include(g => g.Grade).ThenInclude(c => c.Curso).OrderBy(g => g.Grade.Curso.Nome);
+        ViewData["Turmas"] = _context.turmas.OrderBy(t => t.Nome);
         List<Atribuicao> atribuicoes = _context.atribuicoes.Include(p => p.Professor).Include(t => t.Turma)
             .Include(g => g.GradeDisciplinas).ThenInclude(g => g.Grade).ThenInclude(c => c.Curso).ToList();
         return View(atribuicoes);
@@ -509,12 +504,6 @@ public class AdminController : Controller
         _context.atribuicoes.Remove(atribuicao);
         _context.SaveChanges();
         return RedirectToAction(nameof(Atribuicoes));
-    }
-
-    public IActionResult Horarios()
-    {
-        ViewData["DiaSemana"] = Enum.GetValues(typeof(DiaSemana)).Cast<DiaSemana>();
-        return View();
     }
 
     public IActionResult GradeDisciplinas()
@@ -594,6 +583,12 @@ public class AdminController : Controller
         return RedirectToAction(nameof(GradeDisciplinas));
     }
 
+    public IActionResult Horarios()
+    {
+        ViewData["DiaSemana"] = Enum.GetValues(typeof(DiaSemana)).Cast<DiaSemana>();
+        return View();
+    }
+
     //////////////////////////////////////////////////
 
     private bool PeriodoExists(int id)
@@ -629,13 +624,6 @@ public class AdminController : Controller
     private bool GradeDisciplinaExists(int id)
     {
         return _context.atribuicoes.Any(g => g.Id == id);
-    }
-
-    private bool hasDivision(int id)
-    {
-        var gridSub = _context.gradeDisciplinas.FirstOrDefault(g => g.Id == id);
-        if (gridSub?.TemDivisao == true) return true;
-        else return false;
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

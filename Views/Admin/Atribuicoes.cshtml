@@ -97,20 +97,17 @@
                         {
                             <div class="item-select-container">
                                 <input class="check-select-gridassign" type="checkbox" id="item-select-gridassign-@gradesDis.Id" name="course">
-                                <label for="item-select-gridassign-@gradesDis.Id" class="item-select-gridassign" id="items-gridassign-@gradesDis.Id" onmousedown="selectGridAssign(@gradesDis.Id)">@gradesDis.Grade.Curso.Nome</label>
+                                <label for="item-select-gridassign-@gradesDis.Id" class="item-select-gridassign" id="items-gridassign-@gradesDis.Id" onmousedown="selectGridAssign(@gradesDis.Id)">@gradesDis.Nome</label>
                             </div>
                         }
                     </div>
                 </div>
             </div>
-            @if (ViewBag.hasDivision == true)
-            {
-                <div class="field-modal field-modal-checkbox">
-                    <input type="hidden" name="isMatriz">
-                    <input class="inp-modal inp-checkbox" type="checkbox" id="isMatriz-add" name="isMatrizInp" placeholder="Turma A">
-                    <label for="isMatriz-add" class="remember-label">Matriz das turmas</label>
-                </div>
-            }
+            <div class="field-modal field-modal-checkbox">
+                <input type="hidden" name="isMatriz">
+                <input class="inp-modal inp-checkbox" type="checkbox" id="isMatriz-add" name="isMatrizInp" placeholder="Turma A">
+                <label for="isMatriz-add" class="remember-label">Matriz das turmas</label>
+            </div>
             <button type="submit" class="btn btn-modal">Adicionar</button>
         </form>
     </div>
@@ -140,23 +137,8 @@
                 </div>
             </div>
             <div class="field-modal">
-                <label for="select-modal-gridassignEdt" id="label-modal-gridassignEdt">Grade Disciplina?</label>
-                <input type="text" class="select-modal-gridassignEdt" id="select-modal-gridassignEdt" name="grid" placeholder="Selecione a Grade" readonly>
-                <div class="dropdown-container-gridassignEdt">
-                    <div class="dropdown-select-gridassignEdt">
-                        @foreach (var gradesDis in ViewBag.Turmas)
-                        {
-                            <div class="item-select-container">
-                                <input class="check-select-gridassignEdt" type="checkbox" id="item-select-gridassignEdt-@gradesDis.Id" name="course">
-                                <label for="item-select-gridassignEdt-@gradesDis.Id" class="item-select-gridassignEdt" id="items-gridassignEdt-@gradesDis.Id" onmousedown="selectGridAssign(@gradesDis.Id)">@gradesDis.Nome</label>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
-            <div class="field-modal">
                 <label for="select-modal-classassignEdt" id="label-modal-classassignEdt">Turma</label>
-                <input type="text" class="select-modal-classassignEdt" id="select-modal-classassignEdt" name="grid" placeholder="Selecione a Grade" readonly>
+                <input type="text" class="select-modal-classassignEdt" id="select-modal-classassignEdt" name="turma" placeholder="Selecione a Grade" readonly>
                 <div class="dropdown-container-classassignEdt">
                     <div class="dropdown-select-classassignEdt">
                         @foreach (var turma in ViewBag.Turmas)
@@ -164,6 +146,21 @@
                             <div class="item-select-container">
                                 <input class="check-select-classassignEdt" type="checkbox" id="item-select-classassignEdt-@turma.Id" name="course">
                                 <label for="item-select-classassignEdt-@turma.Id" class="item-select-classassignEdt" id="items-classassignEdt-@turma.Id" onmousedown="selectClassAssign(@turma.Id)">@turma.Nome</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="field-modal">
+                <label for="select-modal-gridassignEdt" id="label-modal-gridassignEdt">Atribuir Matérias</label>
+                <input type="text" class="select-modal-gridassignEdt" id="select-modal-gridassignEdt" name="grid" placeholder="Selecione a Grade" readonly>
+                <div class="dropdown-container-gridassignEdt">
+                    <div class="dropdown-select-gridassignEdt">
+                        @foreach (var gradesDis in ViewBag.GradeDisciplinas)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select-gridassignEdt" type="checkbox" id="item-select-gridassignEdt-@gradesDis.Id" name="course">
+                                <label for="item-select-gridassignEdt-@gradesDis.Id" class="item-select-gridassignEdt" id="items-gridassignEdt-@gradesDis.Id" onmousedown="selectGridAssign(@gradesDis.Id)">@gradesDis.Nome</label>
                             </div>
                         }
                     </div>

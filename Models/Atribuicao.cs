@@ -23,9 +23,10 @@ public class Atribuicao
     [ForeignKey("ProfessorId")]
     public Professor Professor { get; set; }
 
-    [ForeignKey("GradeDisciplinaId")]
+    [ForeignKey("GradeDisciplinasId")]
     public GradeDisciplinas GradeDisciplinas { get; set; }
 
     [ForeignKey("TurmaId")]
     public Turma Turma { get; set; }
+
 }

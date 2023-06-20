@@ -118,6 +118,34 @@ const checkFalse = () => {
     }
 }
 
+function openModalEdtAtribuicoes(id, teacher, gridSub, turma, isMatriz)
+{
+    backgroundEdt.classList.add(activeModalClass);
+    let inpTeacher = getElement('#select-modal-teassignEdt');
+    let inpGridSub = getElement('#select-modal-gridassignEdt');
+    let inpTurma = getElement('#select-modal-classassignEdt');
+    let inpMatriz = getElement('#isMatriz-edt');
+    inpTeacher.value = teacher;
+    inpGridSub.value = gridSub;
+    inpTurma.value = turma;
+    inpMatriz.value = isMatriz;
+
+    let inpMatrizSub = getElement('[name=hasDivisionEdt]')
+    if (inpMatriz.value == 'True')
+    {
+        inpMatriz.checked = true
+        inpMatrizSub.value = true
+    }
+    else
+    {
+        inpMatriz.checked = false
+        inpMatrizSub.value = false
+    }
+
+    let inpSubmit = getElement('#id-edt');
+    inpSubmit.value = id;
+}
+
 function openModalEdtGradeDisciplinas(id, grid, sub, semester, hasDivisionEdt, workload)
 {
     backgroundEdt.classList.add(activeModalClass);

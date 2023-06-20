@@ -106,3 +106,12 @@ function selectClassAssign(id)
 
     document.querySelector('.select-modal-classassign').value = itemsClassAssign;
 }
+
+// Convert checkbox in a bool value for controller
+
+let inputCheck = document.querySelector('[name="isMatrizInp"]')
+let inputSubmit = document.querySelector('[name="isMatriz"]')
+
+inputCheck.addEventListener('change', () => {
+    inputCheck.checked ? inputSubmit.value = true : inputSubmit.value = false
+})

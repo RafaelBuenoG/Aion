@@ -106,3 +106,11 @@ function selectClassAssignEdt(id)
 
     document.querySelector('.select-modal-classassignEdt').value = itemsClassAssignEdt;
 }
+
+
+let inputCheckEdt = document.querySelector('[name="isMatrizInpEdt"]')
+let inputSubmitEdt = document.querySelector('[name="isMatrizEdt"]')
+
+inputCheckEdt.addEventListener('change', () => {
+    inputCheckEdt.checked ? inputSubmitEdt.value = true : inputSubmitEdt.value = false
+})

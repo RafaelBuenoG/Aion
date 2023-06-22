@@ -30,7 +30,7 @@
                 {   
                     <section class="table-item-container">
                         <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name"><strong>Grade: </strong>@gradeDisciplina.Grade.Curso.Nome, <strong>Disciplina: </strong> @gradeDisciplina.Disciplina.Nome</label>
+                            <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Grade: </span>@gradeDisciplina.Grade.Curso.Nome, <span class="bold">Disciplina: </span> @gradeDisciplina.Disciplina.Nome</label>
                             <div class="drop-btn-container">
                                 <button class="drop-btn btn-modal-edt" onclick="openModalEdtGradeDisciplinas('@gradeDisciplina.Id', '@gradeDisciplina.Grade.Curso.Nome', '@gradeDisciplina.Disciplina.Nome', '@gradeDisciplina.Semestre', '@gradeDisciplina.TemDivisao', '@gradeDisciplina.CargaHoraria')" id="id-@gradeDisciplina.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">

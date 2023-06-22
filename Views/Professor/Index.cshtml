@@ -8,12 +8,12 @@
     <div class="card">
         <img class="card-icon" src="~/img/icons/clock-line.svg" alt="Registrar Dados">
         <p class="card-description">Registre seus horários disponíveis</p>
-        <a href="professores-reg-dados-1.html" class="card-btn">Registrar Dados</a>
+        <a asp-action="RegDados" asp-controller="Professor" class="card-btn">Registrar Horários</a>
     </div>
     <div class="card">
         <img class="card-icon" src="~/img/icons/check.svg" alt="Horário Final">
         <p class="card-description">Veja os horários que foram criados!</p>
-        <a href="professores-horario.html" class="card-btn">Horário Final</a>
+        <a asp-action="HorarioFinal" asp-controller="Professor" class="card-btn">Horário Final</a>
     </div>
     <div class="card">
         <img class="card-icon" src="~/img/icons/settings-line.svg" alt="Configurações">

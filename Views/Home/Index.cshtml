@@ -41,7 +41,7 @@
                 O administrador irá apenas apertar o botão para gerar o horário
                 completo!
             </p>
-            <a href="planos.html" class="btn btn-medium">Ver planos</a>
+            <a asp-action="Planos" asp-controller="Home" class="btn btn-medium">Ver planos</a>
         </div>
     </section>
 </div>
@@ -82,9 +82,9 @@
         <h2 class="subtitle4">
             Planos Gratuitos | Não é necessário cartão de crédito
         </h2>
-        <button class="btn btn-big gap15">
+        <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-big gap15">
             Começar<img class="arrow-right" src="~/img/icons/arrow-right-1.svg" />
-        </button>
+        </a>
     </div>
 </section>
 
@@ -93,11 +93,11 @@
         <div class="footer-container">
             <h1 class="footer-title">Mapa do site</h1>
             <ul class="footer-items-container">
-                <li><a class="footer-item" asp-action="" asp-controller="">Cadastro</a></li>
-                <li><a class="footer-item" asp-action="" asp-controller="">Login</a></li>
+                <li><a class="footer-item" asp-area="Identity" asp-page="/Account/Register">Cadastro</a></li>
+                <li><a class="footer-item" asp-area="Identity" asp-page="/Account/Login">Login</a></li>
                 <li><a class="footer-item" asp-action="Sobre" asp-controller="Home">Sobre</a></li>
                 <li><a class="footer-item" asp-action="Planos" asp-controller="Home">Planos</a></li>
-                <li><a class="footer-item" asp-action="" asp-controller="">Admin</a></li>
+                <li><a class="footer-item" asp-action="PeriodoLetivo" asp-controller="Admin">Admin</a></li>
             </ul>
         </div>
         <div class="footer-container">

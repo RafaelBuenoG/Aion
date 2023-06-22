@@ -382,6 +382,11 @@ html, body
     padding-left: 25px;
 }
 
+.bold
+{
+    font-weight: 600;
+}
+
 /* Default Checkbox */
 
 .inp-checkbox

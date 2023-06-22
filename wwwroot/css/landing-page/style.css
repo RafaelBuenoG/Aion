@@ -39,7 +39,7 @@ main
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    line-height: 120px;
+    line-height: 13.5vh;
 }
 
 .subtitle

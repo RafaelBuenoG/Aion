@@ -30,7 +30,7 @@
                 {   
                     <section class="table-item-container">
                         <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name"><strong>Professor: </strong>@atribuicao.Professor.Nome, <strong>Turma: </strong> @atribuicao.Turma.Nome</label>
+                            <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Professor: </span>@atribuicao.Professor.Nome, <span class="bold">Turma: </span> @atribuicao.Turma.Nome</label>
                             <div class="drop-btn-container">
                                 <button class="drop-btn btn-modal-edt" onclick="openModalEdtAtribuicoes('@atribuicao.Id', '@atribuicao.Professor.Nome', '@atribuicao.GradeDisciplinas.Grade.Curso.Nome', '@atribuicao.Turma.Nome', '@atribuicao.Matriz')" id="id-@atribuicao.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">

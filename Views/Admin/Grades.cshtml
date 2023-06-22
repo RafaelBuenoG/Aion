@@ -30,7 +30,7 @@
                 {   
                     <section class="table-item-container">
                         <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name">Grade: @grades.Curso.Nome</label>
+                            <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Grade:</span> @grades.Curso.Nome</label>
                             <div class="drop-btn-container">
                                 <button class="drop-btn btn-modal-edt" onclick="openModalEdtGrades('@grades.Id', '@grades.Curso.Nome', '@grades.Data', '@grades.Numero')" id="id-@grades.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">

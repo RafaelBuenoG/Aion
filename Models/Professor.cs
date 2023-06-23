@@ -31,6 +31,11 @@ public class Professor
     [Required(ErrorMessage = "Informe sua Senha")]
     [StringLength(100, ErrorMessage = "A Senha deve possuir no máximo 100 caracteres")]
     public string Senha { get; set; }
+    
+    public string UserId { get; set; }
+
+    [ForeignKey("UserId")]
+    public User User { get; set; }
 
     public List<Formacao> Formacao { get; set; }
 }

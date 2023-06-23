@@ -4,6 +4,7 @@ using Aion.Models;
 using Aion.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Aion.Controllers;
 
@@ -11,13 +12,24 @@ namespace Aion.Controllers;
 public class AdminController : Controller
 {
     private readonly ILogger<AdminController> _logger;
-
     private readonly ApplicationDbContext _context;
+    private readonly SignInManager<User> _signInManager;
+    private readonly UserManager<User> _userManager;
+    private readonly IUserStore<User> _userStore;
+    private readonly IUserEmailStore<User> _emailStore;
 
-    public AdminController(ILogger<AdminController> logger, ApplicationDbContext context)
+    public AdminController(ILogger<AdminController> logger,
+        ApplicationDbContext context,
+        SignInManager<User> signInManager,
+        UserManager<User> userManager,
+        IUserStore<User> userStore)
     {
         _logger = logger;
         _context = context;
+        _signInManager = signInManager;
+        _userManager = userManager;
+        _userStore = userStore;
+        _emailStore = (IUserEmailStore<User>)_userStore;
     }
 
     public IActionResult PeriodoLetivo()
@@ -339,8 +351,25 @@ public class AdminController : Controller
     }
 
     [HttpPost]
-    public IActionResult Professores(string name, string email, string phone, string subjects)
+    public async Task<IActionResult> Professores(string name, string email, string phone, string subjects)
     {
+        // Cria o usuário do professor
+        var user = await _userManager.FindByEmailAsync(email);
+        if (user != null)
+        {
+            ModelState.AddModelError("", "Esse email já encontra-se cadastrado");
+            return View();
+        }
+        user = Activator.CreateInstance<User>();
+        user.Nome = name;
+        user.PhoneNumber = phone;
+        await _userStore.SetUserNameAsync(user, email, CancellationToken.None);
+        await _emailStore.SetEmailAsync(user, email, CancellationToken.None);
+        var result = await _userManager.CreateAsync(user, "@Aion123");
+        var userId = await _userManager.GetUserIdAsync(user);
+
+        await _userManager.AddToRoleAsync(user, "Professor");
+
         // Cria e cadastra o professor
         string userName = (name.Split(' ')[0] + "." + name.Split(' ')[name.Split(' ').Count() - 1]).ToLower();
         Professor prof = new()
@@ -348,6 +377,7 @@ public class AdminController : Controller
             Nome = name,
             Email = email,
             Telefone = phone,
+            UserId = userId,
             Usuario = userName,
             Senha = "@Aion123"
         };

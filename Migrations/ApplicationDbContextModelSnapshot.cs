@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Aion.Data.Migrations
+namespace Aion.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
     partial class ApplicationDbContextModelSnapshot : ModelSnapshot
@@ -25,9 +25,6 @@ namespace Aion.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int?>("GradeDisciplinaId")
-                        .HasColumnType("int");
-
                     b.Property<int>("GradeDisciplinasId")
                         .HasColumnType("int");
 
@@ -42,7 +39,7 @@ namespace Aion.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GradeDisciplinaId");
+                    b.HasIndex("GradeDisciplinasId");
 
                     b.HasIndex("ProfessorId");
 
@@ -240,12 +237,17 @@ namespace Aion.Data.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("varchar(15)");
 
+                    b.Property<string>("UserId")
+                        .HasColumnType("varchar(255)");
+
                     b.Property<string>("Usuario")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("varchar(30)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Professor");
                 });
@@ -355,9 +357,9 @@ namespace Aion.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f06322cc-167a-4b4b-93bf-5eae28530bb5",
+                            Id = "888e9152-0f7b-49ec-b250-2e8c6520d8b3",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "21a6ea0d-3aa8-4f28-af0e-8c432d904c67",
+                            ConcurrencyStamp = "748e4d67-639f-4ef1-a7bb-879866526c3c",
                             DataNasc = new DateTime(2005, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "rafaelbuenog2020@gmail.com",
                             EmailConfirmed = true,
@@ -366,9 +368,9 @@ namespace Aion.Data.Migrations
                             Nome = "Rafael Bueno Gonzales",
                             NormalizedEmail = "RAFAELBUENOG2020@GMAIL.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEB+GZ/Ni6zADVf6t7lS7/bDj8X5KMSdA9J/qEsV7S7K2LMAfiZE07nXg7k/mi8zJ+w==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGHsJPSBZOYs3ffIPZEkw21yg4sLbdmmmBIWlEHS5N3cGDeR46qVUE3XpTKdtsn3bg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "1807185",
+                            SecurityStamp = "4892154",
                             TwoFactorEnabled = false,
                             UserName = "Admin",
                             UserNameLimitChange = 10
@@ -403,15 +405,15 @@ namespace Aion.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "aee85df7-97a6-4f96-b7f3-d86e2279f51f",
-                            ConcurrencyStamp = "4162892e-830c-4b20-9352-fdc8f3042570",
+                            Id = "14b01c06-a39b-48f4-b9ea-fe18b286cb6c",
+                            ConcurrencyStamp = "e35aba25-7eea-4403-947e-0a24adb0dd84",
                             Name = "Administrador",
                             NormalizedName = "ADMINISTRADOR"
                         },
                         new
                         {
-                            Id = "6c72ffd0-2435-4dd2-9487-6162f6261f92",
-                            ConcurrencyStamp = "20a591c3-d015-4580-b295-f1a9b72be870",
+                            Id = "2c227783-11a4-4710-a2a3-edb6d57e4365",
+                            ConcurrencyStamp = "0e1e7806-48f6-4c95-8cb0-2f9bbb8bced8",
                             Name = "Professor",
                             NormalizedName = "PROFESSOR"
                         });
@@ -502,13 +504,13 @@ namespace Aion.Data.Migrations
                     b.HasData(
                         new
                         {
-                            UserId = "f06322cc-167a-4b4b-93bf-5eae28530bb5",
-                            RoleId = "aee85df7-97a6-4f96-b7f3-d86e2279f51f"
+                            UserId = "888e9152-0f7b-49ec-b250-2e8c6520d8b3",
+                            RoleId = "14b01c06-a39b-48f4-b9ea-fe18b286cb6c"
                         },
                         new
                         {
-                            UserId = "f06322cc-167a-4b4b-93bf-5eae28530bb5",
-                            RoleId = "6c72ffd0-2435-4dd2-9487-6162f6261f92"
+                            UserId = "888e9152-0f7b-49ec-b250-2e8c6520d8b3",
+                            RoleId = "2c227783-11a4-4710-a2a3-edb6d57e4365"
                         });
                 });
 
@@ -535,7 +537,9 @@ namespace Aion.Data.Migrations
                 {
                     b.HasOne("Aion.Models.GradeDisciplinas", "GradeDisciplinas")
                         .WithMany()
-                        .HasForeignKey("GradeDisciplinaId");
+                        .HasForeignKey("GradeDisciplinasId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Aion.Models.Professor", "Professor")
                         .WithMany()
@@ -584,7 +588,7 @@ namespace Aion.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("Aion.Models.Professor", "Professor")
-                        .WithMany()
+                        .WithMany("Formacao")
                         .HasForeignKey("ProfessorId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -608,13 +612,13 @@ namespace Aion.Data.Migrations
             modelBuilder.Entity("Aion.Models.GradeDisciplinas", b =>
                 {
                     b.HasOne("Aion.Models.Disciplina", "Disciplina")
-                        .WithMany()
+                        .WithMany("GradeDisciplinas")
                         .HasForeignKey("DisciplinaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Aion.Models.Grade", "Grade")
-                        .WithMany()
+                        .WithMany("GradeDisciplinas")
                         .HasForeignKey("GradeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -622,6 +626,15 @@ namespace Aion.Data.Migrations
                     b.Navigation("Disciplina");
 
                     b.Navigation("Grade");
+                });
+
+            modelBuilder.Entity("Aion.Models.Professor", b =>
+                {
+                    b.HasOne("Aion.Models.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Aion.Models.Turma", b =>
@@ -692,6 +705,21 @@ namespace Aion.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Aion.Models.Disciplina", b =>
+                {
+                    b.Navigation("GradeDisciplinas");
+                });
+
+            modelBuilder.Entity("Aion.Models.Grade", b =>
+                {
+                    b.Navigation("GradeDisciplinas");
+                });
+
+            modelBuilder.Entity("Aion.Models.Professor", b =>
+                {
+                    b.Navigation("Formacao");
                 });
 #pragma warning restore 612, 618
         }

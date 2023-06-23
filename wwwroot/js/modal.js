@@ -130,7 +130,7 @@ function openModalEdtAtribuicoes(id, teacher, gridSub, turma, isMatriz)
     inpTurma.value = turma;
     inpMatriz.value = isMatriz;
 
-    let inpMatrizSub = getElement('[name=hasDivisionEdt]')
+    let inpMatrizSub = getElement('[name=isMatrizInpEdt]')
     if (inpMatriz.value == 'True')
     {
         inpMatriz.checked = true

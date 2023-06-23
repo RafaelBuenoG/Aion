@@ -22,7 +22,7 @@ public class GradeDisciplinas
 
     [Display(Name = "Carga Horária")]
     [Required(ErrorMessage = "Informe a Carga Horária")]
-    public string CargaHoraria { get; set; }
+    public int CargaHoraria { get; set; }
 
     [ForeignKey("GradeId")]
     public Grade Grade { get; set; }

@@ -45,7 +45,7 @@ public class ApplicationDbContext : IdentityDbContext<User>
                 .HasOne(gd => gd.Disciplina)
                 .WithMany(d => d.GradeDisciplinas)
                 .HasForeignKey(gd => gd.DisciplinaId);
-            #endregion
+        #endregion
 
 
         #region Populate Roles

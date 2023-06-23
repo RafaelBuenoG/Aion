@@ -457,10 +457,12 @@ public class AdminController : Controller
     {
         ViewData["Professores"] = _context.professores.OrderBy(p => p.Nome);
         // ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.Include(g => g.Grade).ThenInclude(c => c.Curso).OrderBy(g => g.Grade.Curso.Nome);
-        ViewData["GradeDisciplinas"] = _context.disciplinas.OrderBy(d => d.Nome);
+        ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.Include(d => d.Disciplina).OrderBy(d => d.Disciplina.Nome);
         ViewData["Turmas"] = _context.turmas.OrderBy(t => t.Nome);
-        List<Atribuicao> atribuicoes = _context.atribuicoes.Include(p => p.Professor).Include(t => t.Turma)
-            .Include(g => g.GradeDisciplinas).ThenInclude(g => g.Grade).ThenInclude(c => c.Curso).ToList();
+        List<Atribuicao> atribuicoes = _context.atribuicoes.Include(p => p.Professor)
+            .Include(t => t.Turma)
+            .Include(g => g.GradeDisciplinas).ThenInclude(g => g.Grade).ThenInclude(c => c.Curso)
+            .Include(g => g.GradeDisciplinas).ThenInclude(d => d.Disciplina).ToList();
         ViewData["hasAtribuicao"] = _context.atribuicoes.Count() < 1 ? false : true;
         return View(atribuicoes);
     }
@@ -469,7 +471,7 @@ public class AdminController : Controller
     public IActionResult Atribuicoes(string teacher, string gridSub, string turma, bool isMatriz)
     {
         int professor = _context.professores.FirstOrDefault(p => p.Nome.Equals(teacher)).Id;
-        int gradeDisciplina = _context.gradeDisciplinas.FirstOrDefault(g => g.Grade.Curso.Nome.Equals(gridSub)).Id;
+        int gradeDisciplina = _context.gradeDisciplinas.FirstOrDefault(gd => gd.Disciplina.Nome.Equals(gridSub)).Id;
         int tur = _context.turmas.FirstOrDefault(t => t.Nome.Equals(turma)).Id;
         Atribuicao atr = new()
         {
@@ -544,7 +546,7 @@ public class AdminController : Controller
     }
 
     [HttpPost]
-    public IActionResult GradeDisciplinas(string grid, string sub, int semester, bool hasDivision, string workload)
+    public IActionResult GradeDisciplinas(string grid, string sub, int semester, bool hasDivision, int workload)
     {
         int grade = _context.grades.FirstOrDefault(c => c.Curso.Nome.Equals(grid)).Id;
         int materia = _context.disciplinas.FirstOrDefault(d => d.Nome.Equals(sub)).Id;
@@ -567,7 +569,7 @@ public class AdminController : Controller
     }
 
     [HttpPost, ActionName("EditGradeDisciplina")]
-    public IActionResult EditGradeDisciplinas(int id, string grid, string sub, int semester, bool hasDivisionEdt, string workload)
+    public IActionResult EditGradeDisciplinas(int id, string grid, string sub, int semester, bool hasDivisionEdt, int workload)
     {
         int grade = _context.grades.FirstOrDefault(c => c.Curso.Nome.Equals(grid)).Id;
         int materia = _context.disciplinas.FirstOrDefault(d => d.Nome.Equals(sub)).Id;

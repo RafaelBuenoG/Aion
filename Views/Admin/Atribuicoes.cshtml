@@ -8,7 +8,7 @@
 
 <header>
     <div class="header-title-container pad-left">
-        <h1 class="header-title">Atribuições prontas</h1>
+        <h1 class="header-title">Atribuições</h1>
     </div>
     <button class="add-container pad-right btn-modal">
         <img class="add-icon" src="~/img/icons/add.svg" alt="add">
@@ -19,7 +19,7 @@
     @if (ViewBag.hasAtribuicao == false)
     {
         <div class="table">
-            <span class="msg-table">Nenhuma atribuição pronta</span>
+            <span class="msg-table">Nenhuma atribuição adicionada</span>
         </div>
     }
     else
@@ -30,16 +30,16 @@
                 {   
                     <section class="table-item-container">
                         <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Professor: </span>@atribuicao.Professor.Nome, <span class="bold">Turma: </span> @atribuicao.Turma.Nome</label>
+                            <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Professor: </span>@atribuicao.Professor.Nome, <span class="bold">Turma: </span>@atribuicao.Turma.Nome, <span class="bold">Atribuir Matéria: </span>@atribuicao.GradeDisciplinas.Disciplina.Nome</label>
                             <div class="drop-btn-container">
-                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtAtribuicoes('@atribuicao.Id', '@atribuicao.Professor.Nome', '@atribuicao.GradeDisciplinas.Grade.Curso.Nome', '@atribuicao.Turma.Nome', '@atribuicao.Matriz')" id="id-@atribuicao.Id">
+                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtAtribuicoes('@atribuicao.Id', '@atribuicao.Professor.Nome', '@atribuicao.GradeDisciplinas.Disciplina.Nome', '@atribuicao.Turma.Nome', '@atribuicao.Matriz')" id="id-@atribuicao.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 <button class="drop-btn">
                                     <label for="btn-delete-@atribuicao.Id">
                                         <img src="~/img/icons/delete.svg" alt="Delete">
                                     </label>
-                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@atribuicao.Id')" id="btn-delete-@atribuicao.Id"/>
+                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@atribuicao.Id', '@atribuicao.Professor.Nome')" id="btn-delete-@atribuicao.Id"/>
                                 </button>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
                         @foreach (var professor in ViewBag.Professores)
                         {
                             <div class="item-select-container">
-                                <input class="check-select-teassign" type="checkbox" id="item-select-teassign-@professor.Id" name="course">
+                                <input class="check-select-teassign" type="checkbox" id="item-select-teassign-@professor.Id">
                                 <label for="item-select-teassign-@professor.Id" class="item-select-teassign" id="items-teassign-@professor.Id" onmousedown="selectTeAssign(@professor.Id)">@professor.Nome</label>
                             </div>
                         }
@@ -81,7 +81,7 @@
                         @foreach (var turma in ViewBag.Turmas)
                         {
                             <div class="item-select-container">
-                                <input class="check-select-classassign" type="checkbox" id="item-select-classassign-@turma.Id" name="course">
+                                <input class="check-select-classassign" type="checkbox" id="item-select-classassign-@turma.Id">
                                 <label for="item-select-classassign-@turma.Id" class="item-select-classassign" id="items-classassign-@turma.Id" onmousedown="selectClassAssign(@turma.Id)">@turma.Nome</label>
                             </div>
                         }
@@ -96,8 +96,8 @@
                         @foreach (var gradesDis in ViewBag.GradeDisciplinas)
                         {
                             <div class="item-select-container">
-                                <input class="check-select-gridassign" type="checkbox" id="item-select-gridassign-@gradesDis.Id" name="course">
-                                <label for="item-select-gridassign-@gradesDis.Id" class="item-select-gridassign" id="items-gridassign-@gradesDis.Id" onmousedown="selectGridAssign(@gradesDis.Id)">@gradesDis.Nome</label>
+                                <input class="check-select-gridassign" type="checkbox" id="item-select-gridassign-@gradesDis.Id">
+                                <label for="item-select-gridassign-@gradesDis.Id" class="item-select-gridassign" id="items-gridassign-@gradesDis.Id" onmousedown="selectGridAssign(@gradesDis.Id)">@gradesDis.Disciplina.Nome</label>
                             </div>
                         }
                     </div>
@@ -130,7 +130,7 @@
                         {
                             <div class="item-select-container">
                                 <input class="check-select-teassignEdt" type="checkbox" id="item-select-teassignEdt-@professor.Id" name="course">
-                                <label for="item-select-teassignEdt-@professor.Id" class="item-select-teassignEdt" id="items-teassignEdt-@professor.Id" onmousedown="selectTeAssign(@professor.Id)">@professor.Nome</label>
+                                <label for="item-select-teassignEdt-@professor.Id" class="item-select-teassignEdt" id="items-teassignEdt-@professor.Id" onmousedown="selectTeAssignEdt(@professor.Id)">@professor.Nome</label>
                             </div>
                         }
                     </div>
@@ -145,7 +145,7 @@
                         {
                             <div class="item-select-container">
                                 <input class="check-select-classassignEdt" type="checkbox" id="item-select-classassignEdt-@turma.Id" name="course">
-                                <label for="item-select-classassignEdt-@turma.Id" class="item-select-classassignEdt" id="items-classassignEdt-@turma.Id" onmousedown="selectClassAssign(@turma.Id)">@turma.Nome</label>
+                                <label for="item-select-classassignEdt-@turma.Id" class="item-select-classassignEdt" id="items-classassignEdt-@turma.Id" onmousedown="selectClassAssignEdt(@turma.Id)">@turma.Nome</label>
                             </div>
                         }
                     </div>
@@ -160,20 +160,17 @@
                         {
                             <div class="item-select-container">
                                 <input class="check-select-gridassignEdt" type="checkbox" id="item-select-gridassignEdt-@gradesDis.Id" name="course">
-                                <label for="item-select-gridassignEdt-@gradesDis.Id" class="item-select-gridassignEdt" id="items-gridassignEdt-@gradesDis.Id" onmousedown="selectGridAssign(@gradesDis.Id)">@gradesDis.Nome</label>
+                                <label for="item-select-gridassignEdt-@gradesDis.Id" class="item-select-gridassignEdt" id="items-gridassignEdt-@gradesDis.Id" onmousedown="selectGridAssignEdt(@gradesDis.Id)">@gradesDis.Disciplina.Nome</label>
                             </div>
                         }
                     </div>
                 </div>
             </div>
-            @if (ViewBag.hasDivision == true)
-            {
-                <div class="field-modal field-modal-checkbox">
-                    <input type="hidden" name="isMatrizEdt">
-                    <input class="inp-modal inp-checkbox" type="checkbox" id="isMatriz-edt" name="isMatrizInpEdt" placeholder="Turma A">
-                    <label for="isMatriz-edt" class="remember-label">Matriz das turmas</label>
-                </div>
-            }
+            <div class="field-modal field-modal-checkbox">
+                <input type="hidden" name="isMatrizEdt">
+                <input class="inp-modal inp-checkbox" type="checkbox" id="isMatriz-edt" name="isMatrizInpEdt" placeholder="Turma A">
+                <label for="isMatriz-edt" class="remember-label">Matriz das turmas</label>
+            </div>
             <input type="hidden" name="id" id="id-edt"/>
             <button type="submit" class="btn btn-modal">Salvar</button>
         </form>

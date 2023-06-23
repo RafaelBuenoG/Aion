@@ -8,7 +8,7 @@
 
 <header>
     <div class="header-title-container pad-left">
-        <h1 class="header-title">Atribuir Matérias pronto</h1>
+        <h1 class="header-title">Atribuir Matérias</h1>
     </div>
     <button class="add-container pad-right btn-modal">
         <img class="add-icon" src="~/img/icons/add.svg" alt="add">
@@ -19,7 +19,7 @@
     @if (ViewBag.hasGradeDisciplina == false)
     {
         <div class="table">
-            <span class="msg-table">Nenhum Atribuir Matérias pronto</span>
+            <span class="msg-table">Nenhuma Atribuição de Matérias adicionada</span>
         </div>
     }
     else
@@ -30,7 +30,7 @@
                 {   
                     <section class="table-item-container">
                         <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Grade: </span>@gradeDisciplina.Grade.Curso.Nome, <span class="bold">Disciplina: </span> @gradeDisciplina.Disciplina.Nome</label>
+                            <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Matéria: </span> @gradeDisciplina.Disciplina.Nome, <span class="bold">Grade: </span>@gradeDisciplina.Grade.Curso.Nome</label>
                             <div class="drop-btn-container">
                                 <button class="drop-btn btn-modal-edt" onclick="openModalEdtGradeDisciplinas('@gradeDisciplina.Id', '@gradeDisciplina.Grade.Curso.Nome', '@gradeDisciplina.Disciplina.Nome', '@gradeDisciplina.Semestre', '@gradeDisciplina.TemDivisao', '@gradeDisciplina.CargaHoraria')" id="id-@gradeDisciplina.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">
@@ -52,27 +52,12 @@
 <section class="modal">
     <div class="modal-container modal-container-grgridsub">
         <div class="title-modal-container">
-            <h1 class="title-modal">Adicionar Atribuir Matérias</h1>
+            <h1 class="title-modal">Atribuir Matérias</h1>
             <button class="close-modal" id="close-modal-add">
                 <img src="~/img/icons/close-rounded.svg" alt="Close">
             </button>
         </div>
         <form method="post" class="form-modal" id="form-add">
-            <div class="field-modal">
-                <label for="select-modal-grgridsub" id="label-modal-grgridsub">Grade</label>
-                <input type="text" class="select-modal-grgridsub" id="select-modal-grgridsub" name="grid" placeholder="Selecione a Grade" readonly>
-                <div class="dropdown-container-grgridsub">
-                    <div class="dropdown-select-grgridsub">
-                        @foreach (var grade in ViewBag.Grades)
-                        {
-                            <div class="item-select-container">
-                                <input class="check-select-grgridsub" type="checkbox" id="item-select-grgridsub-@grade.Id" name="grid">
-                                <label for="item-select-grgridsub-@grade.Id" class="item-select-grgridsub" id="items-grgridsub-@grade.Id" onmousedown="selectGrGridsub(@grade.Id)">@grade.Curso.Nome</label>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
             <div class="field-modal">
                 <label for="select-modal-sgridsub" id="label-modal-sgridsub">Matéria</label>
                 <input type="text" class="select-modal-sgridsub" id="select-modal-sgridsub" name="sub" placeholder="Selecione a Matéria" readonly>
@@ -83,6 +68,21 @@
                             <div class="item-select-container">
                                 <input class="check-select-sgridsub" type="checkbox" id="item-select-sgridsub-@disciplina.Id" name="sub">
                                 <label for="item-select-sgridsub-@disciplina.Id" class="item-select-sgridsub" id="items-sgridsub-@disciplina.Id" onmousedown="selectSGridsub(@disciplina.Id)">@disciplina.Nome</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="field-modal">
+                <label for="select-modal-grgridsub" id="label-modal-grgridsub">Grade</label>
+                <input type="text" class="select-modal-grgridsub" id="select-modal-grgridsub" name="grid" placeholder="Selecione a Grade" readonly>
+                <div class="dropdown-container-grgridsub">
+                    <div class="dropdown-select-grgridsub">
+                        @foreach (var grade in ViewBag.Grades)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select-grgridsub" type="checkbox" id="item-select-grgridsub-@grade.Id" name="grid">
+                                <label for="item-select-grgridsub-@grade.Id" class="item-select-grgridsub" id="items-grgridsub-@grade.Id" onmousedown="selectGrGridsub(@grade.Id)">@grade.Curso.Nome</label>
                             </div>
                         }
                     </div>
@@ -117,21 +117,6 @@
         </div>
         <form asp-action="EditGradeDisciplina" method="post" class="form-modal" id="form-edt">
             <div class="field-modal">
-                <label for="select-modal-grgridsubEdt" id="label-modal-grgridsubEdt">Grade</label>
-                <input type="text" class="select-modal-grgridsubEdt" id="select-modal-grgridsubEdt" name="grid" placeholder="Selecione a Grade" readonly>
-                <div class="dropdown-container-grgridsubEdt">
-                    <div class="dropdown-select-grgridsubEdt">
-                        @foreach (var grade in ViewBag.Grades)
-                        {
-                            <div class="item-select-container">
-                                <input class="check-select-grgridsubEdt" type="checkbox" id="item-select-grgridsubEdt-@grade.Id" name="grid">
-                                <label for="item-select-grgridsubEdt-@grade.Id" class="item-select-grgridsubEdt" id="items-grgridsubEdt-@grade.Id" onmousedown="selectGrGridsubEdt(@grade.Id)">@grade.Curso.Nome</label>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
-            <div class="field-modal">
                 <label for="select-modal-sgridsubEdt" id="label-modal-sgridsubEdt">Matéria</label>
                 <input type="text" class="select-modal-sgridsubEdt" id="select-modal-sgridsubEdt" name="sub" placeholder="Selecione a Matéria" readonly>
                 <div class="dropdown-container-sgridsubEdt">
@@ -147,12 +132,27 @@
                 </div>
             </div>
             <div class="field-modal">
+                <label for="select-modal-grgridsubEdt" id="label-modal-grgridsubEdt">Grade</label>
+                <input type="text" class="select-modal-grgridsubEdt" id="select-modal-grgridsubEdt" name="grid" placeholder="Selecione a Grade" readonly>
+                <div class="dropdown-container-grgridsubEdt">
+                    <div class="dropdown-select-grgridsubEdt">
+                        @foreach (var grade in ViewBag.Grades)
+                        {
+                            <div class="item-select-container">
+                                <input class="check-select-grgridsubEdt" type="checkbox" id="item-select-grgridsubEdt-@grade.Id" name="grid">
+                                <label for="item-select-grgridsubEdt-@grade.Id" class="item-select-grgridsubEdt" id="items-grgridsubEdt-@grade.Id" onmousedown="selectGrGridsubEdt(@grade.Id)">@grade.Curso.Nome</label>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="field-modal">
                 <label for="semester-edt">Quantidade de Semestres</label>
                 <input class="inp-modal" type="number" id="semester-edt" name="semester" placeholder="Digite a quantidade de semestres no total">
                 <span class="erro"></span>
             </div>
             <div class="field-modal">
-                <label for="workload-edt">Carga Horária?</label>
+                <label for="workload-edt">Carga Horária</label>
                 <input class="inp-modal" type="text" id="workload-edt" name="workload" placeholder="Carga horária">
                 <span class="erro"></span>
             </div>

@@ -26,20 +26,23 @@
     {
         <div class="table">
             <div class="table-item">
-                @foreach (var cursos in Model)
+                @foreach (var curso in Model)
                 {   
                     <section class="table-item-container">
-                        <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name">@cursos.Nome</label>
+                        <div class="table-item-btn">
+                            <div class="table-details">
+                                <label><span>Curso: </span>@curso.Nome</label>
+                                <label><span>Quantidade de Semestres: </span>@curso.QtdeSem</label>
+                            </div>
                             <div class="drop-btn-container">
-                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtCursos('@cursos.Id', '@cursos.Nome', '@cursos.Tipo', '@cursos.QtdeSem')" id="id-@cursos.Id">
+                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtCursos('@curso.Id', '@curso.Nome', '@curso.Tipo', '@curso.QtdeSem')" id="id-@curso.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 <button class="drop-btn">
-                                    <label for="btn-delete-@cursos.Id">
+                                    <label for="btn-delete-@curso.Id">
                                         <img src="~/img/icons/delete.svg" alt="Delete">
                                     </label>
-                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@cursos.Id', '@cursos.Nome')" id="btn-delete-@cursos.Id"/>
+                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@curso.Id', '@curso.Nome')" id="btn-delete-@curso.Id"/>
                                 </button>
                             </div>
                         </div>

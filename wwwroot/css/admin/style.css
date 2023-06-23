@@ -98,6 +98,27 @@ header
     align-items: center;
 }
 
+.table-details
+{
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 0 1vh 25px;
+    gap: .7vh;
+}
+
+.table-details label
+{
+    width: auto;
+    color: black;
+    font-size: 20px;
+    cursor: auto;
+}
+
+.table-details label span
+{
+    font-weight: 600;
+}
+
 .drop-item
 {
     display: none;

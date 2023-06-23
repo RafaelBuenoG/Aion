@@ -123,7 +123,7 @@
         <form asp-action="EditAtribuicoes" method="post" class="form-modal" id="form-edt">
             <div class="field-modal">
                 <label for="select-modal-teassignEdt" id="label-modal-teassignEdt">Professor</label>
-                <input type="text" class="select-modal-teassignEdt" id="select-modal-teassignEdt" name="grid" placeholder="Selecione a Grade" readonly>
+                <input type="text" class="select-modal-teassignEdt" id="select-modal-teassignEdt" name="teacher" placeholder="Selecione a Grade" readonly>
                 <div class="dropdown-container-teassignEdt">
                     <div class="dropdown-select-teassignEdt">
                         @foreach (var professor in ViewBag.Professores)
@@ -153,7 +153,7 @@
             </div>
             <div class="field-modal">
                 <label for="select-modal-gridassignEdt" id="label-modal-gridassignEdt">Atribuir Matérias</label>
-                <input type="text" class="select-modal-gridassignEdt" id="select-modal-gridassignEdt" name="grid" placeholder="Selecione a Grade" readonly>
+                <input type="text" class="select-modal-gridassignEdt" id="select-modal-gridassignEdt" name="gridSub" placeholder="Selecione a Grade" readonly>
                 <div class="dropdown-container-gridassignEdt">
                     <div class="dropdown-select-gridassignEdt">
                         @foreach (var gradesDis in ViewBag.GradeDisciplinas)

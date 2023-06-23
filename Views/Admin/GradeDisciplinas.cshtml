@@ -29,8 +29,19 @@
                 @foreach (var gradeDisciplina in Model)
                 {   
                     <section class="table-item-container">
-                        <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Matéria: </span> @gradeDisciplina.Disciplina.Nome, <span class="bold">Grade: </span>@gradeDisciplina.Grade.Curso.Nome</label>
+                        <div class="table-item-btn">
+                            @* <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Matéria: </span> @gradeDisciplina.Disciplina.Nome, <span class="bold">Grade: </span>@gradeDisciplina.Grade.Curso.Nome</label> *@
+                            <div class="table-details">
+                                <label><span>Matéria: </span>@gradeDisciplina.Disciplina.Nome</label>
+                                <label><span>Grade: </span>@gradeDisciplina.Grade.Curso.Nome</label>
+                                @if (@gradeDisciplina.TemDivisao)
+                                {
+                                    <label><span>Tem divisão:</span> Sim</label>
+                                }else
+                                {
+                                    <label><span>Tem divisão:</span> Não</label>
+                                }
+                            </div>
                             <div class="drop-btn-container">
                                 <button class="drop-btn btn-modal-edt" onclick="openModalEdtGradeDisciplinas('@gradeDisciplina.Id', '@gradeDisciplina.Grade.Curso.Nome', '@gradeDisciplina.Disciplina.Nome', '@gradeDisciplina.Semestre', '@gradeDisciplina.TemDivisao', '@gradeDisciplina.CargaHoraria')" id="id-@gradeDisciplina.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">

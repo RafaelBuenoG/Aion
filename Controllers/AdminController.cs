@@ -108,6 +108,7 @@ public class AdminController : Controller
     public IActionResult Grades(DateTime date, string course, string number)
     {
         int curso = _context.cursos.FirstOrDefault(c => c.Nome.Equals(course)).Id;
+        
         if (ModelState.IsValid)
         {
             Grade grid = new()
@@ -485,24 +486,26 @@ public class AdminController : Controller
 
         ViewData["Professores"] = _context.professores.OrderBy(p => p.Nome);
         // ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.Include(g => g.Grade).ThenInclude(c => c.Curso).OrderBy(g => g.Grade.Curso.Nome);
+        ViewData["GradeDisciplinas"] = _context.gradeDisciplinas.Include(d => d.Disciplina).OrderBy(d => d.Disciplina.Nome);
         ViewData["Turmas"] = _context.turmas.OrderBy(t => t.Nome);
-        List<Atribuicao> atribuicoes = _context.atribuicoes.Include(p => p.Professor).Include(t => t.Turma)
-            .Include(g => g.GradeDisciplinas).ThenInclude(g => g.Grade).ThenInclude(c => c.Curso).ToList();
+        List<Atribuicao> atribuicoes = _context.atribuicoes.Include(p => p.Professor)
+            .Include(t => t.Turma)
+            .Include(g => g.GradeDisciplinas).ThenInclude(g => g.Grade).ThenInclude(c => c.Curso)
+            .Include(g => g.GradeDisciplinas).ThenInclude(d => d.Disciplina).ToList();
         return View(atribuicoes);
     }
 
     [HttpPost, ActionName("EditAtribuicoes")]
-    public IActionResult EditAtribuicoes(int id, string teacher, string gridSub, string turma, bool isMatriz)
+    public IActionResult EditAtribuicoes(int id, string teacher, string gridSub, string turma, bool isMatrizEdt)
     {
         var atribuicao = _context.atribuicoes.FirstOrDefault(a => a.Id == id);
         int professor = _context.professores.FirstOrDefault(p => p.Nome.Equals(teacher)).Id;
-        int gradeDisciplina = _context.gradeDisciplinas.FirstOrDefault(g => g.Grade.Curso.Nome.Equals(gridSub)).Id;
+        int gradeDisciplina = _context.gradeDisciplinas.FirstOrDefault(gd => gd.Disciplina.Nome.Equals(gridSub)).Id;
         int tur = _context.turmas.FirstOrDefault(t => t.Nome.Equals(turma)).Id;
         atribuicao.ProfessorId = professor;
         atribuicao.GradeDisciplinasId = gradeDisciplina;
         atribuicao.TurmaId = tur;
-        atribuicao.Matriz = isMatriz;
-
+        atribuicao.Matriz = isMatrizEdt;
 
         if (ModelState.IsValid)
         {
@@ -579,7 +582,6 @@ public class AdminController : Controller
         gradeDisciplina.Semestre = semester;
         gradeDisciplina.TemDivisao = hasDivisionEdt;
         gradeDisciplina.CargaHoraria = workload;
-
 
         if (ModelState.IsValid)
         {

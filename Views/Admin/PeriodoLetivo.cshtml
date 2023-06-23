@@ -29,8 +29,11 @@
                 @foreach (var periodo in Model)
                 {   
                     <section class="table-item-container">
-                        <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Ano: </span>@periodo.Ano, <span class="bold">Semestre: </span>@periodo.Semestre</label>
+                        <div class="table-item-btn">
+                            <div class="table-details">
+                                <label><span>Ano: </span>@periodo.Ano</label>
+                                <label><span>Semestre: </span>@periodo.Semestre</label>
+                            </div>
                             <div class="drop-btn-container">
                                 <button class="drop-btn">
                                     <label for="btn-delete-@periodo.Id">

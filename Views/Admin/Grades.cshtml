@@ -26,20 +26,24 @@
     {
         <div class="table">
             <div class="table-item">
-                @foreach (var grades in Model)
+                @foreach (var grade in Model)
                 {   
                     <section class="table-item-container">
-                        <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Grade:</span> @grades.Curso.Nome</label>
+                        <div class="table-item-btn">
+                            @* <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Grade:</span> @grade.Curso.Nome</label> *@
+                            <div class="table-details">
+                                <label><span>Grade: </span>@grade.Curso.Nome</label>
+                                <label><span>Data de início: </span>@grade.Data</label>
+                            </div>
                             <div class="drop-btn-container">
-                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtGrades('@grades.Id', '@grades.Curso.Nome', '@grades.Data', '@grades.Numero')" id="id-@grades.Id">
+                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtGrades('@grade.Id', '@grade.Curso.Nome', '@grade.Data', '@grade.Numero')" id="id-@grade.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 <button class="drop-btn">
-                                    <label for="btn-delete-@grades.Id">
+                                    <label for="btn-delete-@grade.Id">
                                         <img src="~/img/icons/delete.svg" alt="Delete">
                                     </label>
-                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@grades.Id','@grades.Curso.Nome')" id="btn-delete-@grades.Id"/>
+                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@grade.Id','@grade.Curso.Nome')" id="btn-delete-@grade.Id"/>
                                 </button>
                             </div>
                         </div>

@@ -354,6 +354,7 @@ public class AdminController : Controller
     public async Task<IActionResult> Professores(string name, string email, string phone, string subjects)
     {
         // Cria o usuário do professor
+        string userName = (name.Split(' ')[0] + "." + name.Split(' ')[name.Split(' ').Count() - 1]).ToLower();
         var user = await _userManager.FindByEmailAsync(email);
         if (user != null)
         {
@@ -363,7 +364,8 @@ public class AdminController : Controller
         user = Activator.CreateInstance<User>();
         user.Nome = name;
         user.PhoneNumber = phone;
-        await _userStore.SetUserNameAsync(user, email, CancellationToken.None);
+        user.EmailConfirmed = true;
+        await _userStore.SetUserNameAsync(user, userName, CancellationToken.None);
         await _emailStore.SetEmailAsync(user, email, CancellationToken.None);
         var result = await _userManager.CreateAsync(user, "@Aion123");
         var userId = await _userManager.GetUserIdAsync(user);
@@ -371,7 +373,6 @@ public class AdminController : Controller
         await _userManager.AddToRoleAsync(user, "Professor");
 
         // Cria e cadastra o professor
-        string userName = (name.Split(' ')[0] + "." + name.Split(' ')[name.Split(' ').Count() - 1]).ToLower();
         Professor prof = new()
         {
             Nome = name,
@@ -402,14 +403,10 @@ public class AdminController : Controller
     }
 
     [HttpPost, ActionName("EditProfessor")]
-    public IActionResult EditProfessor(int id, string name, string email, string phone, string subjects)
+    public IActionResult EditProfessor(int id, string phone, string subjects)
     {
-        string userName = (name.Split(' ')[0] + "." + name.Split(' ')[name.Split(' ').Count() - 1]).ToLower();
         var professor = _context.professores.FirstOrDefault(p => p.Id == id);
-        professor.Nome = name;
-        professor.Email = email;
         professor.Telefone = phone;
-        professor.Usuario = userName;
 
         if (ModelState.IsValid)
         {

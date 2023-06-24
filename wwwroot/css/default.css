@@ -497,7 +497,7 @@ html, body
 
 .arrow-left, .arrow-right > img
 {
-    width: 6vw;
+    width: 4vw;
 }
 
 .arrow-left:hover, .arrow-right:hover

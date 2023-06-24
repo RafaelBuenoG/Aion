@@ -26,20 +26,23 @@
     {
         <div class="table">
             <div class="table-item">
-                @foreach (var turmas in Model)
+                @foreach (var turma in Model)
                 {   
                     <section class="table-item-container">
-                        <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name">@turmas.Nome</label>
+                        <div class="table-item-btn">
+                            <div class="table-details">
+                                <label><span>Turma: </span>@turma.Nome</label>
+                                <label><span>Grade: </span>@turma.Grade.Curso.Nome</label>
+                            </div>
                             <div class="drop-btn-container">
-                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtTurmas('@turmas.Id', '@turmas.Nome', '@turmas.Grade.Curso.Nome', '@turmas.PeriodoLetivo.Ano, Sem: @turmas.PeriodoLetivo.Semestre')" id="id-@turmas.Id">
+                                <button class="drop-btn btn-modal-edt" onclick="openModalEdtTurmas('@turma.Id', '@turma.Nome', '@turma.Grade.Curso.Nome', '@turma.PeriodoLetivo.Ano, Sem: @turma.PeriodoLetivo.Semestre')" id="id-@turma.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">
                                 </button>
                                 <button class="drop-btn">
-                                    <label for="btn-delete-@turmas.Id">
+                                    <label for="btn-delete-@turma.Id">
                                         <img src="~/img/icons/delete.svg" alt="Delete">
                                     </label>
-                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@turmas.Id', '@turmas.Nome')" id="btn-delete-@turmas.Id"/>
+                                    <input style="display: none;" class="btn-modal-del" name="id" onclick="openModalDel('@turma.Id', '@turma.Nome')" id="btn-delete-@turma.Id"/>
                                 </button>
                             </div>
                         </div>

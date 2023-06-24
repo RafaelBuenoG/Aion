@@ -30,10 +30,9 @@
                 {   
                     <section class="table-item-container">
                         <div class="table-item-btn">
-                            @* <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Grade:</span> @grade.Curso.Nome</label> *@
                             <div class="table-details">
                                 <label><span>Grade: </span>@grade.Curso.Nome</label>
-                                <label><span>Data de início: </span>@grade.Data</label>
+                                <label><span>Data de início: </span>@grade.Data.ToString().Split(" ")[0]</label>
                             </div>
                             <div class="drop-btn-container">
                                 <button class="drop-btn btn-modal-edt" onclick="openModalEdtGrades('@grade.Id', '@grade.Curso.Nome', '@grade.Data', '@grade.Numero')" id="id-@grade.Id">

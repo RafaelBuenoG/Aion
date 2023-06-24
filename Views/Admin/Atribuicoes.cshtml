@@ -29,8 +29,21 @@
                 @foreach (var atribuicao in Model)
                 {   
                     <section class="table-item-container">
-                        <div class="table-item-btn" id="course">
-                            <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Professor: </span>@atribuicao.Professor.Nome, <span class="bold">Turma: </span>@atribuicao.Turma.Nome, <span class="bold">Atribuir Matéria: </span>@atribuicao.GradeDisciplinas.Disciplina.Nome</label>
+                        <div class="table-item-btn">
+                            @* <label style="cursor: auto;" for="course" class="table-item-name"><span class="bold">Professor: </span>@atribuicao.Professor.Nome, <span class="bold">Turma: </span>@atribuicao.Turma.Nome, <span class="bold">Atribuir Matéria: </span>@atribuicao.GradeDisciplinas.Disciplina.Nome</label> *@
+                            <div class="table-details">
+                                <label><span>Professor: </span>@atribuicao.Professor.Nome</label>
+                                <label><span>Turma: </span>@atribuicao.Turma.Nome</label>
+                                <label><span>Atribuir Matéria: </span>@atribuicao.GradeDisciplinas.Disciplina.Nome</label>
+                                @if (@atribuicao.Matriz == true)
+                                {
+                                    <label><span>Divisão: </span>A</label>
+                                }
+                                else if (@atribuicao.Matriz == false)
+                                {
+                                    <label><span>Divisão: </span>B</label>
+                                }
+                            </div>
                             <div class="drop-btn-container">
                                 <button class="drop-btn btn-modal-edt" onclick="openModalEdtAtribuicoes('@atribuicao.Id', '@atribuicao.Professor.Nome', '@atribuicao.GradeDisciplinas.Disciplina.Nome', '@atribuicao.Turma.Nome', '@atribuicao.Matriz')" id="id-@atribuicao.Id">
                                     <img src="~/img/icons/edit.svg" alt="Edit">

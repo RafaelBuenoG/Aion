@@ -28,7 +28,7 @@
         <button type="button" class="arrow-right control">
             <img src="~/img/icons/arrow-right-3.svg" alt="arrow-right">
         </button>
-        <div class="table-wrapper">
+        @* <div class="table-wrapper">
             <div class="table-carousel">
                 <div class="grid-table current-grid-table">
                     <table class="table-reg">
@@ -196,11 +196,63 @@
                         </tbody>
                     </table>
                 </div>
-                @* <img src="https://source.unsplash.com/random/1180x750/?animal" alt="example" class="grid-table">
+                <img src="https://source.unsplash.com/random/1180x750/?animal" alt="example" class="grid-table">
                 <img src="https://source.unsplash.com/random/1180x750/?landscape" alt="example" class="grid-table">
-                <img src="https://source.unsplash.com/random/1180x750/?city" alt="example" class="grid-table"> *@
+                <img src="https://source.unsplash.com/random/1180x750/?city" alt="example" class="grid-table">
             </div>
-        </div>
+        </div> *@
+        <div class="table-wrapper">
+            <div class="table-carousel">
+                <div class="grid-table current-grid-table">
+                    <table class="table-reg">
+                        <thead>
+                            <th></th>
+                            @foreach (var dia in ViewBag.DiaSemana)
+                            {
+                                <th>@dia</th>
+                            }
+                        </thead>
+                        @foreach (var turma in ViewBag.Turmas)
+                        {
+                            <tr>
+                                <th>@turma.Nome</th>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                            </tr>
+                            <tr>
+                                <th>@turma.Nome</th>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                            </tr>
+                            <tr>
+                                <th>@turma.Nome</th>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                            </tr>
+                            <tr>
+                                <th>@turma.Nome</th>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                                <td>AAAAAA</td>
+                            </tr>
+                        }
+                    </table>
+                </div>
     @* } *@
 </section>
 <footer>

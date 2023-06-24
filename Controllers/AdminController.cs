@@ -617,6 +617,7 @@ public class AdminController : Controller
     public IActionResult Horarios()
     {
         ViewData["DiaSemana"] = Enum.GetValues(typeof(DiaSemana)).Cast<DiaSemana>();
+        ViewData["Turmas"] = _context.turmas;
         return View();
     }
 

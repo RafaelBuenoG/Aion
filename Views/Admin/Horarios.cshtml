@@ -204,53 +204,86 @@
         <div class="table-wrapper">
             <div class="table-carousel">
                 <div class="grid-table current-grid-table">
-                    <table class="table-reg">
+                    <table class="table-time">
                         <thead>
-                            <th></th>
-                            @foreach (var dia in ViewBag.DiaSemana)
-                            {
-                                <th>@dia</th>
-                            }
+                            <tr style="text-align: right;">
+                                <th colspan="2"></th>
+                                @foreach (var dia in ViewBag.DiaSemana)
+                                {
+                                    <th class="table-time-title"><label>@dia</label></th>
+                                }
+                            </tr>
                         </thead>
-                        @foreach (var turma in ViewBag.Turmas)
-                        {
-                            <tr>
-                                <th>@turma.Nome</th>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                            </tr>
-                            <tr>
-                                <th>@turma.Nome</th>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                            </tr>
-                            <tr>
-                                <th>@turma.Nome</th>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                            </tr>
-                            <tr>
-                                <th>@turma.Nome</th>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                                <td>AAAAAA</td>
-                            </tr>
-                        }
+                        <tbody>
+                            @foreach (var turma in ViewBag.Turmas)
+                            {
+                                <tr>
+                                    <td class="table-time-sidetitle" rowspan="8"><label>@turma.Nome</label></td>
+                                    <td class="table-time-class">07:10</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-time-class">08:00</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-time-class">08:50</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-time-class">10:00</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-time-class">10:50</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-time-class">11:40</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-time-class">13:10</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                </tr>
+                                <tr>
+                                    <td class="table-time-class">14:00</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                    <td>NaN</td>
+                                </tr>
+                            }
+                        </tbody>
                     </table>
                 </div>
     @* } *@

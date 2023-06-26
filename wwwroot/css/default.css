@@ -602,6 +602,62 @@ html, body
     display: none;
 }
 
+/* TimeTabling */
+
+.table-time
+{
+    width: 60vw;
+}
+
+.table-time thead tr th
+{
+    padding: .3vw;
+}
+
+.table-time th, .table-time td
+{
+    width: 14.2%;
+    padding: .4vw;
+    border: 1px solid black;
+}
+
+/* .table-time-title
+{
+    background-color: red;
+} */
+
+.table-time-title label
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: auto;
+}
+
+.table-time-sidetitle
+{
+    position: relative;
+    width: 5%!important;
+}
+
+.table-time-sidetitle label
+{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    cursor: auto;
+    transform: rotate(270deg);
+}
+
+.table-time-class
+{
+    width: 8%!important;
+}
+
 /* MEDIA QUERYS */
 
 @media screen and (max-width: 768px)

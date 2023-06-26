@@ -6,7 +6,6 @@ namespace Aion.Models
         Terça,
         Quarta,
         Quinta,
-        Sexta,
-        Sábado
+        Sexta
     }
 }

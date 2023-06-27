@@ -171,9 +171,10 @@ header
 
 .drop-details
 {
-    width: auto;
+    width: 90%;
     display: flex;
-    gap: 4vw;
+    justify-content: space-between;
+    gap: 1.5vw;
 }
 
 .details-container
@@ -204,6 +205,7 @@ header
 .drop-btn-container
 {
     display: flex;
+    flex-direction: column;
     width: auto;
     gap: 10px;
 }
